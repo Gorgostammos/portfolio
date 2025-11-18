@@ -5,6 +5,21 @@
   text-align: center;
 }
 
+.omMeg {
+  display: flex;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+}
+
+p#omMeg {
+  font-size: larger;
+  font-style: italic;
+  font-weight: 600;
+  color: aliceblue;
+}ç
+
 .logo {
   height: 6em;
   padding: 1.5em;
