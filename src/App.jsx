@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faJava } from '@fortawesome/free-brands-svg-icons'
+import { faPython } from '@fortawesome/free-brands-svg-icons'
+import { faHtml5 } from '@fortawesome/free-brands-svg-icons'
+import { faCss } from '@fortawesome/free-brands-svg-icons'
+import { faReact } from '@fortawesome/free-brands-svg-icons'
+
+
+
 import './App.css'
 
 function App() {
@@ -18,7 +27,13 @@ function App() {
        </div>
        <div className='Ferdighetter'>
        <h2>Ferdighetter</h2>
-       <i class="fa-brands fa-java"></i>
+       <div id='Mine'>
+       <FontAwesomeIcon icon={faJava} />
+       <FontAwesomeIcon icon={faPython} />
+       <FontAwesomeIcon icon={faHtml5} />
+       <FontAwesomeIcon icon={faCss} />
+       <FontAwesomeIcon icon={faReact} />
+       </div>
        </div>
 
        <h2>Programering språk</h2>
