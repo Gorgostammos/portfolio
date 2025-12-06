@@ -26,6 +26,21 @@ p#omMeg {
   will-change: filter;
   transition: filter 300ms;
 }
+
+div#Mine {
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  gap: 25px;
+}
+
+
+
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
