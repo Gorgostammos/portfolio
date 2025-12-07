@@ -26,8 +26,7 @@ p#omMeg {
   will-change: filter;
   transition: filter 300ms;
 }
-
-.skill-group {
+.icons {
   display: flex;
   align-items: center;
   font-size: 50px;
@@ -37,8 +36,6 @@ p#omMeg {
   margin: 10px;
   gap: 25px;
 }
-
-
 
 
 .logo:hover {
