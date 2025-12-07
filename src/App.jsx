@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -23,22 +21,60 @@ function App() {
 
         <div className='Ferdigheter'>
           <h2>Ferdigheter</h2>
-          <div id='Mine' className="icons">
-            
-          <i class="devicon-java-plain-wordmark colored"></i>
-          
-            <i class="devicon-python-plain-wordmark colored"></i>
-          
-            <i class="devicon-html5-plain-wordmark colored"></i>
-            <i className="devicon-css3-plain-wordmark colored"></i>
-            
-            <i class="devicon-react-original-wordmark colored"></i>
-          
-            <i className="devicon-kotlin-plain-wordmark"></i>   {/* Kotlin ikonet */}
+
+          {/* PROGRAMMERINGSSPRÅK */}
+          <div className="skill-group">
+            <h3>Programmeringsspråk</h3>
+            <div className="icons">
+              <i className="devicon-java-plain-wordmark"></i>
+              <i className="devicon-python-plain-wordmark"></i>
+              <i className="devicon-javascript-plain"></i>
+              <i className="devicon-csharp-line-wordmark"></i>
+              <i className="devicon-kotlin-plain-wordmark"></i>
+            </div>
           </div>
+
+          {/* WEB & RAMMEVERK */}
+          <div className="skill-group">
+            <h3>Web & Rammeverk</h3>
+            <div className="icons">
+              <i className="devicon-html5-plain-wordmark"></i>
+              <i className="devicon-css3-plain-wordmark"></i>
+              <i className="devicon-react-original-wordmark"></i>
+              <i className="devicon-dotnetcore-plain"></i>
+              <i className="devicon-npm-original-wordmark"></i>
+              <i className="devicon-bash-plain"></i>
+            </div>
+          </div>
+
+          {/* DATABASER */}
+          <div className="skill-group">
+            <h3>Databaser</h3>
+            <div className="icons">
+              <i className="devicon-mongodb-plain-wordmark"></i>
+              <i className="devicon-mysql-plain-wordmark"></i>
+              <i className="devicon-firebase-plain-wordmark"></i>
+              <i className="devicon-neo4j-plain-wordmark"></i>
+              <i className="devicon-supabase-plain-wordmark"></i>
+            </div>
+          </div>
+
+          {/* VERKTØY & IDE-ER */}
+          <div className="skill-group">
+            <h3>Verktøy & IDE-er</h3>
+            <div className="icons">
+              <i className="devicon-git-plain-wordmark"></i>
+              <i className="devicon-github-original-wordmark"></i>
+              <i className="devicon-androidstudio-plain-wordmark"></i>
+              <i className="devicon-pycharm-plain-wordmark"></i>
+              <i className="devicon-intellij-plain-wordmark"></i>
+              <i className="devicon-visualstudio-line"></i>
+              <i className="devicon-vscode-plain-wordmark"></i>
+            </div>
+          </div>
+
         </div>
 
-        <h2>Programmeringsspråk</h2>
       </div>
     </>
   )

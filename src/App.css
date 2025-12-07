@@ -27,7 +27,7 @@ p#omMeg {
   transition: filter 300ms;
 }
 
-div#Mine {
+.skill-group {
   display: flex;
   align-items: center;
   font-size: 50px;
