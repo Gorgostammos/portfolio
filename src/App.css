@@ -5,6 +5,63 @@
   text-align: center;
 }
 
+h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+i.devicon-java-plain-wordmark,.devicon-python-plain-wordmark,.devicon-javascript-plain
+,.devicon-csharp-line-wordmark,.devicon-kotlin-plain-wordmark,.devicon-html5-plain-wordmark, 
+.devicon-css3-plain-wordmark,.devicon-react-original-wordmark,
+.devicon-nodejs-plain-wordmark,.devicon-dotnetcore-plain,
+.devicon-npm-original-wordmark,.devicon-bash-plain,.devicon-mysql-plain-wordmark,
+.devicon-mysql-plain-wordmark,.devicon-firebase-plain-wordmark,
+.devicon-neo4j-plain-wordmark,.devicon-supabase-plain-wordmark
+,.devicon-git-plain-wordmark,.devicon-github-original-wordmark,
+.devicon-androidstudio-plain-wordmark,.devicon-pycharm-plain-wordmark,
+.devicon-intellij-plain-wordmark,.devicon-visualstudio-line,.devicon-vscode-plain-wordmark
+,.devicon-mongodb-plain-wordmark{
+  background: grey;
+  width: 100px;
+  height: 60px;
+  border-radius: 25px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  font: outline;
+}
+
+i.devicon-java-plain-wordmark:hover,
+.devicon-python-plain-wordmark:hover,
+.devicon-javascript-plain:hover,
+.devicon-csharp-line-wordmark:hover,
+.devicon-kotlin-plain-wordmark:hover,
+.devicon-html5-plain-wordmark:hover,
+.devicon-css3-plain-wordmark:hover,
+.devicon-react-original-wordmark:hover,
+.devicon-nodejs-plain-wordmark:hover,
+.devicon-dotnetcore-plain:hover,
+.devicon-npm-original-wordmark:hover,
+.devicon-bash-plain:hover,
+.devicon-mysql-plain-wordmark:hover,
+.devicon-firebase-plain-wordmark:hover,
+.devicon-neo4j-plain-wordmark:hover,
+.devicon-supabase-plain-wordmark:hover,
+.devicon-git-plain-wordmark:hover,
+.devicon-github-original-wordmark:hover,
+.devicon-androidstudio-plain-wordmark:hover,
+.devicon-pycharm-plain-wordmark:hover,
+.devicon-intellij-plain-wordmark:hover,
+.devicon-visualstudio-line:hover,
+.devicon-vscode-plain-wordmark:hover,
+.devicon-mongodb-plain-wordmark:hover {
+    cursor: pointer;
+}
+
+
+
 .omMeg {
   display: flex;
   width: 40%;
