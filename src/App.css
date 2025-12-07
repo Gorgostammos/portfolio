@@ -11,6 +11,8 @@ h3 {
   justify-content: center;
 }
 
+
+
 i.devicon-java-plain-wordmark,.devicon-python-plain-wordmark,.devicon-javascript-plain
 ,.devicon-csharp-line-wordmark,.devicon-kotlin-plain-wordmark,.devicon-html5-plain-wordmark, 
 .devicon-css3-plain-wordmark,.devicon-react-original-wordmark,
@@ -58,23 +60,31 @@ i.devicon-java-plain-wordmark:hover,
 .devicon-vscode-plain-wordmark:hover,
 .devicon-mongodb-plain-wordmark:hover {
     cursor: pointer;
+    color: rgb(74, 69, 226);
+    font-size: 55px;
 }
 
 
 
 .omMeg {
   display: flex;
-  width: 40%;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
+  
 }
 
 p#omMeg {
-  font-size: larger;
-  font-style: italic;
-  font-weight: 600;
-  color: aliceblue;
+    background-color: #262626;
+      border-radius: 40px;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      text-align: left;
+    }
 }ç
 
 .logo {
@@ -102,25 +112,72 @@ p#omMeg {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Utdanningsseksjon */
+.Utdanning {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 3rem auto;
+  max-width: 1100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.Utdanning h2 {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+/* Selve kortene */
+.education-card {
+  background-color: #262626;
+  /* mørk grå bakgrunn */
+  border-radius: 40px;
+  /* “pill”-formet */
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+
+/* Venstre side (tittel + skole) */
+.education-left h3 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.education-school {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #cfcfcf;
+}
+
+/* Høyre side (dato) */
+.education-right {
+  margin-left: 2rem;
+  white-space: nowrap;
+  /* holder datoen på én linje */
+}
+
+.education-date {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #d0d0d0;
+}
+
+/* Litt responsivitet for mobil */
+@media (max-width: 768px) {
+  .education-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .education-right {
+    margin-left: 0;
+    white-space: normal;
+  }
 }

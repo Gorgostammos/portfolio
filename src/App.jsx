@@ -9,17 +9,45 @@ function App() {
       <div>
         <h1>Protofolio</h1>
 
-        <div className='omMeg'>
-          <h2 id='omMeg'>Om meg</h2>
-          <p id='omMeg'>
-            Jeg er en mann på 22 år og har fullført bachelorgrad innen informasjonssystemer,
-            med spesialisering i Software Engineering og Business Intelligence. 
-            Jeg trives godt både i selvstendige prosjekter og i teammiljøer, 
-            og jeg er spesielt glad i programmering.
+        <div className="omMeg">
+          <h2 id="omMeg">Om meg</h2>
+          <p id="omMeg">
+            Jeg er en mann på 22 år og har fullført bachelorgrad innen
+            informasjonssystemer, med spesialisering i Software Engineering og
+            Business Intelligence. Jeg trives godt både i selvstendige
+            prosjekter og i teammiljøer, og jeg er spesielt glad i
+            programmering.
           </p>
         </div>
 
-        <div className='Ferdigheter'>
+        <div className="Utdanning">
+          <h2 id="Utdanning">Utdanning</h2>
+
+          <section className="education-card">
+            <div className="education-left">
+              <h3>
+                Bachelorgrad i Informasjonssystemer – Software Engineering og
+                Business Intelligence
+              </h3>
+              <p className="education-school">Høgskolen i Østfold</p>
+            </div>
+            <div className="education-right">
+              <p className="education-date">August 2021 – Juni 2024</p>
+            </div>
+          </section>
+
+          <section className="education-card">
+            <div className="education-left">
+              <h3>Studiespesialisering</h3>
+              <p className="education-school">Greåker VGS</p>
+            </div>
+            <div className="education-right">
+              <p className="education-date">August 2018 – Juni 2021</p>
+            </div>
+          </section>
+        </div>
+
+        <div className="Ferdigheter">
           <h2>Ferdigheter</h2>
 
           {/* PROGRAMMERINGSSPRÅK */}
@@ -72,12 +100,10 @@ function App() {
               <i className="devicon-vscode-plain-wordmark"></i>
             </div>
           </div>
-
         </div>
-
       </div>
     </>
-  )
+  );
 }
 
 export default App
