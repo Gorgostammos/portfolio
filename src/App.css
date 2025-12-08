@@ -1,3 +1,6 @@
+/* -----------------------------------------------------------
+   ROOT + GLOBAL
+----------------------------------------------------------- */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,25 +8,35 @@
   text-align: center;
 }
 
-h3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-
-
-i.devicon-java-plain-wordmark,.devicon-python-plain-wordmark,.devicon-javascript-plain
-,.devicon-csharp-line-wordmark,.devicon-kotlin-plain-wordmark,.devicon-html5-plain-wordmark, 
-.devicon-css3-plain-wordmark,.devicon-react-original-wordmark,
-.devicon-nodejs-plain-wordmark,.devicon-dotnetcore-plain,
-.devicon-npm-original-wordmark,.devicon-bash-plain,.devicon-mysql-plain-wordmark,
-.devicon-mysql-plain-wordmark,.devicon-firebase-plain-wordmark,
-.devicon-neo4j-plain-wordmark,.devicon-supabase-plain-wordmark
-,.devicon-git-plain-wordmark,.devicon-github-original-wordmark,
-.devicon-androidstudio-plain-wordmark,.devicon-pycharm-plain-wordmark,
-.devicon-intellij-plain-wordmark,.devicon-visualstudio-line,.devicon-vscode-plain-wordmark
-,.devicon-mongodb-plain-wordmark,.devicon-dot-net-plain-wordmark{
+/* -----------------------------------------------------------
+   SKILL ICONS (Devicon)
+----------------------------------------------------------- */
+i.devicon-java-plain-wordmark,
+.devicon-python-plain-wordmark,
+.devicon-javascript-plain,
+.devicon-csharp-line-wordmark,
+.devicon-kotlin-plain-wordmark,
+.devicon-html5-plain-wordmark,
+.devicon-css3-plain-wordmark,
+.devicon-react-original-wordmark,
+.devicon-nodejs-plain-wordmark,
+.devicon-dotnetcore-plain,
+.devicon-npm-original-wordmark,
+.devicon-bash-plain,
+.devicon-mysql-plain-wordmark,
+.devicon-firebase-plain-wordmark,
+.devicon-neo4j-plain-wordmark,
+.devicon-supabase-plain-wordmark,
+.devicon-git-plain-wordmark,
+.devicon-github-original-wordmark,
+.devicon-androidstudio-plain-wordmark,
+.devicon-pycharm-plain-wordmark,
+.devicon-intellij-plain-wordmark,
+.devicon-visualstudio-line,
+.devicon-vscode-plain-wordmark,
+.devicon-mongodb-plain-wordmark,
+.devicon-dot-net-plain-wordmark {
   background: grey;
   width: 100px;
   height: 60px;
@@ -32,7 +45,6 @@ i.devicon-java-plain-wordmark,.devicon-python-plain-wordmark,.devicon-javascript
   align-content: center;
   justify-content: center;
   align-items: center;
-  font: outline;
 }
 
 i.devicon-java-plain-wordmark:hover,
@@ -60,21 +72,23 @@ i.devicon-java-plain-wordmark:hover,
 .devicon-vscode-plain-wordmark:hover,
 .devicon-mongodb-plain-wordmark:hover,
 .devicon-dot-net-plain-wordmark:hover {
-    cursor: pointer;
-    color: rgb(74, 69, 226);
-    font-size: 55px;
+  cursor: pointer;
+  color: rgb(74, 69, 226);
+  font-size: 55px;
 }
 
+/* -----------------------------------------------------------
+   TOOLTIP SYSTEM
+----------------------------------------------------------- */
 .skill-icon {
   position: relative;
   display: inline-flex;
 }
 
-/* Tooltip-boksen */
 .skill-icon::after {
   content: attr(data-label);
   position: absolute;
-  bottom: -35px;          /* hvor langt under ikonet */
+  bottom: -35px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #262626;
@@ -88,7 +102,6 @@ i.devicon-java-plain-wordmark:hover,
   transition: opacity 0.15s ease-in-out;
 }
 
-/* Litt “pil” opp til ikonet (valgfritt) */
 .skill-icon::before {
   content: "";
   position: absolute;
@@ -107,34 +120,31 @@ i.devicon-java-plain-wordmark:hover,
   opacity: 1;
 }
 
-
+/* -----------------------------------------------------------
+   OM MEG
+----------------------------------------------------------- */
 .omMeg {
   display: flex;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
-  
 }
 
 p#omMeg {
-    background-color: #262626;
-      border-radius: 40px;
-      padding: 1.5rem 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-      text-align: left;
-    }
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  background-color: #262626;
+  border-radius: 40px;
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  text-align: left;
 }
+
+/* -----------------------------------------------------------
+   ICON CONTAINER
+----------------------------------------------------------- */
 .icons {
   display: flex;
   align-items: center;
@@ -146,17 +156,11 @@ p#omMeg {
   gap: 25px;
 }
 
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-
-/* Utdanningsseksjon */
-.Utdanning {
+/* -----------------------------------------------------------
+   UTANNING & ERFARING
+----------------------------------------------------------- */
+.Utdanning,
+.Erfaring {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -164,17 +168,16 @@ p#omMeg {
   max-width: 1100px;
 }
 
-.Utdanning h2 {
+.Utdanning h2,
+.Erfaring h2 {
   margin-bottom: 0.5rem;
   color: #ffffff;
 }
 
-/* Selve kortene */
-.education-card {
+.education-card,
+.experience-card {
   background-color: #262626;
-  /* mørk grå bakgrunn */
   border-radius: 40px;
-  /* “pill”-formet */
   padding: 1.5rem 2.5rem;
   display: flex;
   justify-content: space-between;
@@ -183,34 +186,37 @@ p#omMeg {
   text-align: left;
 }
 
-/* Venstre side (tittel + skole) */
-.education-left h3 {
+.education-left h3,
+.experience-left h3 {
   margin: 0 0 0.4rem 0;
   font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
 }
 
-.education-school {
+.education-school,
+.experience-workplace {
   margin: 0;
   font-size: 0.95rem;
   color: #cfcfcf;
 }
 
-/* Høyre side (dato) */
-.education-right {
+.education-right,
+.experience-right {
   margin-left: 2rem;
   white-space: nowrap;
-  /* holder datoen på én linje */
 }
 
-.education-date {
+.education-date,
+.experience-date {
   margin: 0;
   font-size: 0.95rem;
   color: #d0d0d0;
 }
 
-/* Litt responsivitet for mobil */
+/* -----------------------------------------------------------
+   RESPONSIVE
+----------------------------------------------------------- */
 @media (max-width: 768px) {
   .education-card {
     flex-direction: column;

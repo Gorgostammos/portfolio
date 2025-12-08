@@ -47,6 +47,35 @@ function App() {
           </section>
         </div>
 
+      <div className="Erfaring">
+        <h2 id="Erfaring">Erfaring</h2>
+          <section className="experience-card">
+            <div className="experience-left">
+              <h3>It support</h3>
+              <p className="experience-workplace">Frontkom</p>
+              <p className="experience-workplace">Jeg har jobbet tett med kunder for å løse både enkle og komplekse tekniske
+utfordringer. Jeg har blant annet oppdatert plugins og kode, rettet feil i
+funksjonen for tilbakestilling av passord, samt foreslått tiltak for å bedre
+tilgjengeligheten på nettsider. Dette har gitt meg solid erfaring med feilsøking,
+oppgraderinger og praktisk problemløsning.</p>
+
+            </div>
+            <div className="experience-right">
+              <p className="experience-date">Juni 2025 - August 2025</p>
+            </div>
+            
+          </section>
+        
+        
+        
+        
+        
+        </div>
+
+
+
+
+
         <div className="Ferdigheter">
           <h2>Ferdigheter</h2>
 
@@ -146,7 +175,6 @@ function App() {
               </span>
             </div>
           </div>
-
         </div>
       </div>
     </>
