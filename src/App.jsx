@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -54,11 +54,21 @@ function App() {
           <div className="skill-group">
             <h3>Programmeringsspråk</h3>
             <div className="icons">
-              <i className="devicon-java-plain-wordmark"></i>
-              <i className="devicon-python-plain-wordmark"></i>
-              <i className="devicon-javascript-plain"></i>
-              <i className="devicon-csharp-line-wordmark"></i>
-              <i className="devicon-kotlin-plain-wordmark"></i>
+              <span className="skill-icon" data-label="Java">
+                <i className="devicon-java-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Python">
+                <i className="devicon-python-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="JavaScript">
+                <i className="devicon-javascript-plain"></i>
+              </span>
+              <span className="skill-icon" data-label="C#">
+                <i className="devicon-csharp-line-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Kotlin">
+                <i className="devicon-kotlin-plain-wordmark"></i>
+              </span>
             </div>
           </div>
 
@@ -66,12 +76,24 @@ function App() {
           <div className="skill-group">
             <h3>Web & Rammeverk</h3>
             <div className="icons">
-              <i className="devicon-html5-plain-wordmark"></i>
-              <i className="devicon-css3-plain-wordmark"></i>
-              <i className="devicon-react-original-wordmark"></i>
-              <i className="devicon-dotnetcore-plain"></i>
-              <i className="devicon-npm-original-wordmark"></i>
-              <i className="devicon-bash-plain"></i>
+              <span className="skill-icon" data-label="Html">
+                <i className="devicon-html5-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Css">
+                <i className="devicon-css3-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="React">
+                <i className="devicon-react-original-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label=".NET">
+                <i className="devicon-dot-net-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="NPM">
+                <i className="devicon-npm-original-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Bash">
+                <i className="devicon-bash-plain"></i>
+              </span>
             </div>
           </div>
 
@@ -79,11 +101,24 @@ function App() {
           <div className="skill-group">
             <h3>Databaser</h3>
             <div className="icons">
-              <i className="devicon-mongodb-plain-wordmark"></i>
-              <i className="devicon-mysql-plain-wordmark"></i>
-              <i className="devicon-firebase-plain-wordmark"></i>
-              <i className="devicon-neo4j-plain-wordmark"></i>
-              <i className="devicon-supabase-plain-wordmark"></i>
+              <span className="skill-icon" data-label="MongoDB">
+                <i className="devicon-mongodb-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="MySQL">
+                <i className="devicon-mysql-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Firebase">
+                <i className="devicon-firebase-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Neo4j">
+                <i className="devicon-neo4j-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="NPM">
+                <i className="devicon-npm-original-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Supabase">
+                <i className="devicon-supabase-plain-wordmark"></i>
+              </span>
             </div>
           </div>
 
@@ -91,19 +126,31 @@ function App() {
           <div className="skill-group">
             <h3>Verktøy & IDE-er</h3>
             <div className="icons">
-              <i className="devicon-git-plain-wordmark"></i>
-              <i className="devicon-github-original-wordmark"></i>
-              <i className="devicon-androidstudio-plain-wordmark"></i>
-              <i className="devicon-pycharm-plain-wordmark"></i>
-              <i className="devicon-intellij-plain-wordmark"></i>
-              <i className="devicon-visualstudio-line"></i>
-              <i className="devicon-vscode-plain-wordmark"></i>
+              <span className="skill-icon" data-label="Git">
+                <i className="devicon-git-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="GitHub">
+                <i className="devicon-github-original-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Android Studio">
+                <i className="devicon-androidstudio-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="PyCharm">
+                <i className="devicon-pycharm-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="IntelliJ IDEA">
+                <i className="devicon-intellij-plain-wordmark"></i>
+              </span>
+              <span className="skill-icon" data-label="Supabase">
+                <i className="devicon-vscode-plain-wordmark"></i>
+              </span>
             </div>
           </div>
+
         </div>
       </div>
     </>
   );
 }
 
-export default App
+export default App;
