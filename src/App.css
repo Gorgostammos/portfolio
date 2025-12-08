@@ -1,3 +1,6 @@
+/* -----------------------------------------------------------
+   ROOT + GLOBAL
+----------------------------------------------------------- */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,53 +8,224 @@
   text-align: center;
 }
 
+
+/* -----------------------------------------------------------
+   SKILL ICONS (Devicon)
+----------------------------------------------------------- */
+i.devicon-java-plain-wordmark,
+.devicon-python-plain-wordmark,
+.devicon-javascript-plain,
+.devicon-csharp-line-wordmark,
+.devicon-kotlin-plain-wordmark,
+.devicon-html5-plain-wordmark,
+.devicon-css3-plain-wordmark,
+.devicon-react-original-wordmark,
+.devicon-nodejs-plain-wordmark,
+.devicon-dotnetcore-plain,
+.devicon-npm-original-wordmark,
+.devicon-bash-plain,
+.devicon-mysql-plain-wordmark,
+.devicon-firebase-plain-wordmark,
+.devicon-neo4j-plain-wordmark,
+.devicon-supabase-plain-wordmark,
+.devicon-git-plain-wordmark,
+.devicon-github-original-wordmark,
+.devicon-androidstudio-plain-wordmark,
+.devicon-pycharm-plain-wordmark,
+.devicon-intellij-plain-wordmark,
+.devicon-visualstudio-line,
+.devicon-vscode-plain-wordmark,
+.devicon-mongodb-plain-wordmark,
+.devicon-dot-net-plain-wordmark {
+  background: grey;
+  width: 100px;
+  height: 60px;
+  border-radius: 25px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+i.devicon-java-plain-wordmark:hover,
+.devicon-python-plain-wordmark:hover,
+.devicon-javascript-plain:hover,
+.devicon-csharp-line-wordmark:hover,
+.devicon-kotlin-plain-wordmark:hover,
+.devicon-html5-plain-wordmark:hover,
+.devicon-css3-plain-wordmark:hover,
+.devicon-react-original-wordmark:hover,
+.devicon-nodejs-plain-wordmark:hover,
+.devicon-dotnetcore-plain:hover,
+.devicon-npm-original-wordmark:hover,
+.devicon-bash-plain:hover,
+.devicon-mysql-plain-wordmark:hover,
+.devicon-firebase-plain-wordmark:hover,
+.devicon-neo4j-plain-wordmark:hover,
+.devicon-supabase-plain-wordmark:hover,
+.devicon-git-plain-wordmark:hover,
+.devicon-github-original-wordmark:hover,
+.devicon-androidstudio-plain-wordmark:hover,
+.devicon-pycharm-plain-wordmark:hover,
+.devicon-intellij-plain-wordmark:hover,
+.devicon-visualstudio-line:hover,
+.devicon-vscode-plain-wordmark:hover,
+.devicon-mongodb-plain-wordmark:hover,
+.devicon-dot-net-plain-wordmark:hover {
+  cursor: pointer;
+  color: rgb(74, 69, 226);
+  font-size: 55px;
+}
+
+/* -----------------------------------------------------------
+   TOOLTIP SYSTEM
+----------------------------------------------------------- */
+.skill-icon {
+  position: relative;
+  display: inline-flex;
+}
+
+.skill-icon::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #262626;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.skill-icon::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #262626 transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.skill-icon:hover::after,
+.skill-icon:hover::before {
+  opacity: 1;
+}
+
+/* -----------------------------------------------------------
+   OM MEG
+----------------------------------------------------------- */
 .omMeg {
   display: flex;
-  width: 40%;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
 }
 
 p#omMeg {
-  font-size: larger;
-  font-style: italic;
-  font-weight: 600;
-  color: aliceblue;
-}ç
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  background-color: #262626;
+  border-radius: 40px;
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  text-align: left;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* -----------------------------------------------------------
+   ICON CONTAINER
+----------------------------------------------------------- */
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  gap: 25px;
+}
+
+/* -----------------------------------------------------------
+   UTANNING & ERFARING
+----------------------------------------------------------- */
+.Utdanning,
+.Erfaring {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 3rem auto;
+  max-width: 1100px;
+}
+
+.Utdanning h2,
+.Erfaring h2 {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.education-card,
+.experience-card {
+  background-color: #262626;
+  border-radius: 40px;
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+
+.education-left h3,
+.experience-left h3 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.education-school,
+.experience-workplace {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #cfcfcf;
+}
+
+.education-right,
+.experience-right {
+  margin-left: 2rem;
+  white-space: nowrap;
+}
+
+.education-date,
+.experience-date {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #d0d0d0;
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVE
+----------------------------------------------------------- */
+@media (max-width: 768px) {
+  .education-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .education-right {
+    margin-left: 0;
+    white-space: normal;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
