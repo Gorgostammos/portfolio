@@ -14,13 +14,35 @@ function App() {
           <section className="profile">
             <div className="meg">
               <p id="jeg">Hei, Jeg er Gorgos Tammo jeg er en utvikler.</p>
-          <p id="omMeg">
-            Jeg er en mann på 22 år og har fullført bachelorgrad innen
-            informasjonssystemer, med spesialisering i Software Engineering og
-            Business Intelligence. Jeg trives godt både i selvstendige
-            prosjekter og i teammiljøer, og jeg er spesielt glad i
-            programmering.
-          </p>
+              <p id="omMeg">
+                Jeg er en mann på 22 år og har fullført bachelorgrad innen
+                informasjonssystemer, med spesialisering i Software Engineering
+                og Business Intelligence. Jeg trives godt både i selvstendige
+                prosjekter og i teammiljøer, og jeg er spesielt glad i
+                programmering.
+              </p>
+
+              <section className="divider">
+                <p id="omMeg">for med info kan du lese mere her:</p>
+
+                <div className="social-icons">
+                  <a
+                    href="https://www.linkedin.com/in/gorgos-tammo-997b621ba/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="devicon-linkedin-plain"></i>
+                  </a>
+
+                  <a
+                    href="https://github.com/Gorgostammos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="devicon-github-original"></i>
+                  </a>
+                </div>
+              </section>
             </div>
             <div className="bilde">
               <img src="public/minbilde.jpeg" alt="Profilbilde" />
@@ -55,34 +77,56 @@ function App() {
           </section>
         </div>
 
-      <div className="Erfaring">
-        <h2 id="Erfaring">Erfaring</h2>
+        <div className="Erfaring">
+          <h2 id="Erfaring">Erfaring</h2>
           <section className="experience-card">
             <div className="experience-left">
               <h3>It support</h3>
               <p className="experience-workplace">Frontkom</p>
-              <p className="experience-workplace">Jeg har jobbet tett med kunder for å løse både enkle og komplekse tekniske
-utfordringer. Jeg har blant annet oppdatert plugins og kode, rettet feil i
-funksjonen for tilbakestilling av passord, samt foreslått tiltak for å bedre
-tilgjengeligheten på nettsider. Dette har gitt meg solid erfaring med feilsøking,
-oppgraderinger og praktisk problemløsning.</p>
-
+              <p className="experience-workplace">
+                Jeg har jobbet tett med kunder for å løse både enkle og
+                komplekse tekniske utfordringer. Jeg har blant annet oppdatert
+                plugins og kode, rettet feil i funksjonen for tilbakestilling av
+                passord, samt foreslått tiltak for å bedre tilgjengeligheten på
+                nettsider. Dette har gitt meg solid erfaring med feilsøking,
+                oppgraderinger og praktisk problemløsning.
+              </p>
             </div>
             <div className="experience-right">
               <p className="experience-date">Juni 2025 - August 2025</p>
             </div>
-            
           </section>
-        
-        
-        
-        
-        
+
+          <section className="experience-card">
+            <div className="experience-left">
+              <h3>Sommerjobb</h3>
+              <p className="experience-workplace">Christensen bakeri</p>
+              <p className="experience-workplace">
+                Hjalp til med å lage og pynte bakverk, sorterte varer og vasket
+                opp.
+              </p>
+            </div>
+            <div className="experience-right">
+              <p className="experience-date">
+                juni 2022 - August. 2022 og Juni 2023 - Juli 2023
+              </p>
+            </div>
+          </section>
+
+          <section className="experience-card">
+            <div className="experience-left">
+              <h3>Vikar</h3>
+              <p className="experience-workplace">Johannes pizza</p>
+              <p className="experience-workplace">
+                Tok imot bestillinger, håndterte kassen, kjørte bestillinger ved
+                hjemlevering, bistod med matlaging og klargjorde før åpning.
+              </p>
+            </div>
+            <div className="experience-right">
+              <p className="experience-date">Februar. 2021 - April 2021</p>
+            </div>
+          </section>
         </div>
-
-
-
-
 
         <div className="Ferdigheter">
           <h2>Ferdigheter</h2>
@@ -188,5 +232,4 @@ oppgraderinger og praktisk problemløsning.</p>
     </>
   );
 }
-
 export default App;

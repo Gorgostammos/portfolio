@@ -144,29 +144,49 @@ i.devicon-java-plain-wordmark:hover,
 }
 
 .meg {
-    background-color: #262626;
-    border-radius: 40px;
-    padding: 1.5rem 2.5rem;
-    display: flex;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-    text-align: left;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    height: 300px;
+  background-color: #262626;
+  border-radius: 40px;
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  text-align: left;
+  justify-content: flex-start;
 }
 
 p#jeg {
-    font-size: 40px;
-    font-weight: 900;
-    margin: 0;
+  font-size: 40px;
+  font-weight: 900;
+  margin: 0;
 }
 
 p#omMeg {
-    font-size: 15px;
+  font-size: 15px;
+  margin: 0;
+}
+
+section.divider {
+  display: flex;
+  gap: 30px;
+  align-items: center;
 }
 
 
+.social-icons {
+  display: flex;
+  gap: 50px;
+}
+
+
+a {
+  text-decoration: none;
+  color: #e3e3e3;
+  font-size: 45px;
+}
+
 img {
+ 
     border-radius: 30px 15px;
     width: 250px;
 }
