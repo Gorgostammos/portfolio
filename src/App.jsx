@@ -27,7 +27,7 @@ function App() {
 
                 <div className="social-icons">
                   <a
-                    href="https://www.linkedin.com/in/gorgos-tammo-997b621ba/"
+                    href="https://www.linkedin.com/in/gorgos-tammo-8b2286230/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -41,11 +41,13 @@ function App() {
                   >
                     <i className="devicon-github-original"></i>
                   </a>
+
+                  <a href=".\src\assets\CV\CV Gorgos Tammo.pdf (4).pdf">CV</a>
                 </div>
               </section>
             </div>
             <div className="bilde">
-              <img src="public/minbilde.jpeg" alt="Profilbilde" />
+              <img src=".\src\assets\minbilde.jpeg" alt="Profilbilde" />
             </div>
           </section>
         </div>
