@@ -11,6 +11,9 @@ function App() {
 
         <div className="omMeg">
           <h2 id="omMeg">Om meg</h2>
+          <section className="profile">
+            <div className="meg">
+              <p id="jeg">Hei, Jeg er Mohammed Almilhim.En utvikler med Øye for Design.</p>
           <p id="omMeg">
             Jeg er en mann på 22 år og har fullført bachelorgrad innen
             informasjonssystemer, med spesialisering i Software Engineering og
@@ -18,6 +21,11 @@ function App() {
             prosjekter og i teammiljøer, og jeg er spesielt glad i
             programmering.
           </p>
+            </div>
+            <div className="bilde">
+              <img src="public/minbilde.jpeg" alt="Profilbilde" />
+            </div>
+          </section>
         </div>
 
         <div className="Utdanning">

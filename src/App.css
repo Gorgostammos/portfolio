@@ -9,6 +9,23 @@
 }
 
 
+
+img {
+    height: 200px;
+    border-radius: 30px 15px;
+    width: 150px;
+}
+
+
+section.profile {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    gap: 20px;
+}
+
 /* -----------------------------------------------------------
    SKILL ICONS (Devicon)
 ----------------------------------------------------------- */
@@ -131,15 +148,16 @@ i.devicon-java-plain-wordmark:hover,
   flex-direction: column;
 }
 
-p#omMeg {
-  background-color: #262626;
-  border-radius: 40px;
-  padding: 1.5rem 2.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-  text-align: left;
+.meg {
+    background-color: #262626;
+    border-radius: 40px;
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    text-align: left;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* -----------------------------------------------------------
