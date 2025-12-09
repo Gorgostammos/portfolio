@@ -10,16 +10,11 @@
 
 
 
-img {
-    height: 200px;
-    border-radius: 30px 15px;
-    width: 150px;
-}
+
 
 
 section.profile {
     display: flex;
-    width: 60%;
     align-items: center;
     justify-content: center;
     align-self: center;
@@ -153,13 +148,28 @@ i.devicon-java-plain-wordmark:hover,
     border-radius: 40px;
     padding: 1.5rem 2.5rem;
     display: flex;
-    align-items: center;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     text-align: left;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    height: 300px;
 }
 
+p#jeg {
+    font-size: 40px;
+    font-weight: 900;
+    margin: 0;
+}
+
+p#omMeg {
+    font-size: 15px;
+}
+
+
+img {
+    border-radius: 30px 15px;
+    width: 250px;
+}
 /* -----------------------------------------------------------
    ICON CONTAINER
 ----------------------------------------------------------- */
