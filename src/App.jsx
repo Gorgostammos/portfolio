@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -255,29 +254,27 @@ function App() {
                 prosjekter. Nettsiden er designet for å være responsiv og
                 brukervennlig på både desktop og mobile enheter.
               </p>
-              <a
-                    href="https://github.com/Gorgostammos"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    alt="GitHub"
-                    aria-label="GitHub"
-                  >
-                    <i className="devicon-github-original"></i>
-                  </a>
+              <section className="project-links">
+                <a
+                  href="https://github.com/Gorgostammos/matte-ving-react"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt="GitHub"
+                  aria-label="GitHub matte-ving-react"
+                >
+                  <i className="devicon-github-original"></i>
+                </a>
 
-                    <a
-                    href="https://github.com/Gorgostammos"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    alt="GitHub"
-                    aria-label="GitHub"
-                  >
-                    
-
-
-                  </a>
-
-
+                <a
+                  href="https://matte-ving.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt="Matte-ving Nettside"
+                  aria-label="GitHub"
+                >
+                  <FontAwesomeIcon icon={faGlobe} />
+                </a>
+              </section>
             </section>
 
             <section className="project-card">
