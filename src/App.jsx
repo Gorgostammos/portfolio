@@ -237,36 +237,38 @@ function App() {
 
         <div className="Prosjekter">
           <h2 id="Prosjekter">Prosjekter</h2>
-          
-          <section className="project-card">
-            <h3>Matte-ving</h3>
-            <iframe
-              src="https://matte-ving.vercel.app/"
-              title="Matte-ving"
-              className="project-iframe"
-            />
-            <p className="project-description">
-              Dette er min nåværende portfolio nettside, bygget med React og
-              CSS. Den viser min utdanning, erfaring, ferdigheter og prosjekter.
-              Nettsiden er designet for å være responsiv og brukervennlig på
-              både desktop og mobile enheter.
-            </p>
-          </section>
 
-          <section className="project-card">
-            <h3>Matte-ving</h3>
-            <iframe
-              src="https://matte-ving.vercel.app/"
-              title="Matte-ving"
-              className="project-iframe"
-            />
-            <p className="project-description">
-              Dette er min nåværende portfolio nettside, bygget med React og
-              CSS. Den viser min utdanning, erfaring, ferdigheter og prosjekter.
-              Nettsiden er designet for å være responsiv og brukervennlig på
-              både desktop og mobile enheter.
-            </p>
-          </section>
+          <div className="projects-grid">
+            <section className="project-card">
+              <h3>Matte-ving</h3>
+              <iframe
+                src="https://matte-ving.vercel.app/"
+                title="Matte-ving"
+                className="project-iframe"
+              />
+              <p className="project-description">
+                Dette er min nåværende portfolio nettside, bygget med React og
+                CSS. Den viser min utdanning, erfaring, ferdigheter og
+                prosjekter. Nettsiden er designet for å være responsiv og
+                brukervennlig på både desktop og mobile enheter.
+              </p>
+            </section>
+
+            <section className="project-card">
+              <h3>Matte-ving</h3>
+              <iframe
+                src="https://calender-app-mu.vercel.app/#/calendar"
+                title="Matte-ving"
+                className="project-iframe"
+              />
+              <p className="project-description">
+                Dette er min nåværende portfolio nettside, bygget med React og
+                CSS. Den viser min utdanning, erfaring, ferdigheter og
+                prosjekter. Nettsiden er designet for å være responsiv og
+                brukervennlig på både desktop og mobile enheter.
+              </p>
+            </section>
+          </div>
         </div>
       </div>
     </>
