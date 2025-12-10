@@ -30,6 +30,8 @@ function App() {
                     href="https://www.linkedin.com/in/gorgos-tammo-8b2286230/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    alt="LinkedIn"
+                    aria-label="LinkedIn"
                   >
                     <i className="devicon-linkedin-plain"></i>
                   </a>
@@ -38,6 +40,8 @@ function App() {
                     href="https://github.com/Gorgostammos"
                     target="_blank"
                     rel="noopener noreferrer"
+                    alt="GitHub"
+                    aria-label="GitHub"
                   >
                     <i className="devicon-github-original"></i>
                   </a>
@@ -229,6 +233,40 @@ function App() {
               </span>
             </div>
           </div>
+        </div>
+
+        <div className="Prosjekter">
+          <h2 id="Prosjekter">Prosjekter</h2>
+          
+          <section className="project-card">
+            <h3>Matte-ving</h3>
+            <iframe
+              src="https://matte-ving.vercel.app/"
+              title="Matte-ving"
+              className="project-iframe"
+            />
+            <p className="project-description">
+              Dette er min nåværende portfolio nettside, bygget med React og
+              CSS. Den viser min utdanning, erfaring, ferdigheter og prosjekter.
+              Nettsiden er designet for å være responsiv og brukervennlig på
+              både desktop og mobile enheter.
+            </p>
+          </section>
+
+          <section className="project-card">
+            <h3>Matte-ving</h3>
+            <iframe
+              src="https://matte-ving.vercel.app/"
+              title="Matte-ving"
+              className="project-iframe"
+            />
+            <p className="project-description">
+              Dette er min nåværende portfolio nettside, bygget med React og
+              CSS. Den viser min utdanning, erfaring, ferdigheter og prosjekter.
+              Nettsiden er designet for å være responsiv og brukervennlig på
+              både desktop og mobile enheter.
+            </p>
+          </section>
         </div>
       </div>
     </>
