@@ -270,7 +270,7 @@ function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   alt="Matte-ving Nettside"
-                  aria-label="GitHub"
+                  aria-label="matte-ving Nettside"
                 >
                   <FontAwesomeIcon icon={faGlobe} />
                 </a>
@@ -278,10 +278,10 @@ function App() {
             </section>
 
             <section className="project-card">
-              <h3>Matte-ving</h3>
+              <h3>calendar App</h3>
               <iframe
                 src="https://calender-app-mu.vercel.app/#/calendar"
-                title="Matte-ving"
+                title="calendar"
                 className="project-iframe"
               />
               <p className="project-description">
@@ -290,6 +290,28 @@ function App() {
                 prosjekter. Nettsiden er designet for å være responsiv og
                 brukervennlig på både desktop og mobile enheter.
               </p>
+
+              <section className="project-links">
+                <a
+                  href="https://github.com/Gorgostammos/Calender_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt="GitHub"
+                  aria-label="GitHub Calender_app"
+                >
+                  <i className="devicon-github-original"></i>
+                </a>
+
+                <a
+                  href="https://calender-app-mu.vercel.app/#/calendar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt="calendar Nettside"
+                  aria-label="calendar Nettside"
+                >
+                  <FontAwesomeIcon icon={faGlobe} />
+                </a>
+              </section>
             </section>
           </div>
         </div>

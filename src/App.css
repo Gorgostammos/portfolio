@@ -174,9 +174,7 @@ a:hover {
   scale: 1.2;
 }
 
-a:focus {
-  color: #000;
-}
+
 
 img {
   border-radius: 30px 15px;
@@ -308,6 +306,13 @@ section.project-links {
     gap: 20px;
 }
 
+section.project-links a {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 20px;
+}
 
 /* ----------------------------------------------------------- RESPONSIVE ----------------------------------------------------------- */
 @media (max-width: 768px) {
