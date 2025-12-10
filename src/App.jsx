@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 
+
+
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -252,6 +255,29 @@ function App() {
                 prosjekter. Nettsiden er designet for å være responsiv og
                 brukervennlig på både desktop og mobile enheter.
               </p>
+              <a
+                    href="https://github.com/Gorgostammos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="GitHub"
+                    aria-label="GitHub"
+                  >
+                    <i className="devicon-github-original"></i>
+                  </a>
+
+                    <a
+                    href="https://github.com/Gorgostammos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="GitHub"
+                    aria-label="GitHub"
+                  >
+                    
+
+
+                  </a>
+
+
             </section>
 
             <section className="project-card">
