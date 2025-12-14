@@ -316,29 +316,28 @@ function App() {
                 </a>
               </section>
             </section>
-
-            <footer className="footer">
-              <h2 id="Contact">Kontakt</h2>
-              <section className="contact-card">
-                <div className="contact-info">
-                  <div className="telefon">
-                    <a href="tel:467 25 849" type="tel" alt="Telefonnummer">
-                      <FontAwesomeIcon icon={faPhone} />
-                      46725849
-                    </a>
-                  </div>
-                  <a
-                    href="mailto:Gorgos2002@icloud.com"
-                    type="email"
-                    alt="E-post"
-                  >
-                    <FontAwesomeIcon icon={faEnvelope} />
-                    Gorgos2002@icloud
+          </div>
+          <footer className="footer">
+            <h2 id="Contact">Kontakt</h2>
+            <section className="contact-card">
+              <div className="contact-info">
+                <div className="telefon">
+                  <a href="tel:467 25 849" type="tel" alt="Telefonnummer">
+                    <FontAwesomeIcon icon={faPhone} />
+                    46725849
                   </a>
                 </div>
-              </section>
-            </footer>
-          </div>
+                <a
+                  href="mailto:Gorgos2002@icloud.com"
+                  type="email"
+                  alt="E-post"
+                >
+                  <FontAwesomeIcon icon={faEnvelope} />
+                  Gorgos2002@icloud
+                </a>
+              </div>
+            </section>
+          </footer>
         </div>
       </div>
     </>
