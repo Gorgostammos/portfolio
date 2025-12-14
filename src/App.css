@@ -1,3 +1,4 @@
+/* App.css */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -14,31 +15,7 @@ section.profile {
 }
 
 /* ----------------------------------------------------------- SKILL ICONS (Devicon) ----------------------------------------------------------- */
-i.devicon-java-plain-wordmark,
-.devicon-python-plain-wordmark,
-.devicon-javascript-plain,
-.devicon-csharp-line-wordmark,
-.devicon-kotlin-plain-wordmark,
-.devicon-html5-plain-wordmark,
-.devicon-css3-plain-wordmark,
-.devicon-react-original-wordmark,
-.devicon-nodejs-plain-wordmark,
-.devicon-dotnetcore-plain,
-.devicon-npm-original-wordmark,
-.devicon-bash-plain,
-.devicon-mysql-plain-wordmark,
-.devicon-firebase-plain-wordmark,
-.devicon-neo4j-plain-wordmark,
-.devicon-supabase-plain-wordmark,
-.devicon-git-plain-wordmark,
-.devicon-github-original-wordmark,
-.devicon-androidstudio-plain-wordmark,
-.devicon-pycharm-plain-wordmark,
-.devicon-intellij-plain-wordmark,
-.devicon-visualstudio-line,
-.devicon-vscode-plain-wordmark,
-.devicon-mongodb-plain-wordmark,
-.devicon-dot-net-plain-wordmark {
+.Ferdigheter i{
   background-color: #262626;
   width: 100px;
   height: 60px;
@@ -47,34 +24,10 @@ i.devicon-java-plain-wordmark,
   align-content: center;
   justify-content: center;
   align-items: center;
-    box-shadow: 0px 0px 10px 5px rgb(240 237 237 / 30%);
+  box-shadow: 0px 0px 10px 5px rgb(240 237 237 / 30%);
 }
 
-i.devicon-java-plain-wordmark:hover,
-.devicon-python-plain-wordmark:hover,
-.devicon-javascript-plain:hover,
-.devicon-csharp-line-wordmark:hover,
-.devicon-kotlin-plain-wordmark:hover,
-.devicon-html5-plain-wordmark:hover,
-.devicon-css3-plain-wordmark:hover,
-.devicon-react-original-wordmark:hover,
-.devicon-nodejs-plain-wordmark:hover,
-.devicon-dotnetcore-plain:hover,
-.devicon-npm-original-wordmark:hover,
-.devicon-bash-plain:hover,
-.devicon-mysql-plain-wordmark:hover,
-.devicon-firebase-plain-wordmark:hover,
-.devicon-neo4j-plain-wordmark:hover,
-.devicon-supabase-plain-wordmark:hover,
-.devicon-git-plain-wordmark:hover,
-.devicon-github-original-wordmark:hover,
-.devicon-androidstudio-plain-wordmark:hover,
-.devicon-pycharm-plain-wordmark:hover,
-.devicon-intellij-plain-wordmark:hover,
-.devicon-visualstudio-line:hover,
-.devicon-vscode-plain-wordmark:hover,
-.devicon-mongodb-plain-wordmark:hover,
-.devicon-dot-net-plain-wordmark:hover {
+.Ferdigheter i:hover {
   cursor: pointer;
   color: rgb(74, 69, 226);
   font-size: 55px;
@@ -175,15 +128,12 @@ a:hover {
   scale: 1.2;
 }
 
-
-
 img {
   border-radius: 30px 15px;
   width: 250px;
   /*box-shadow: 4px 6px 15px 1px rgb(171 119 105 / 60%),
     -1px -6px 30px 1px rgb(89 139 102 / 60%);*/
 }
-
 
 /* ----------------------------------------------------------- ICON CONTAINER ----------------------------------------------------------- */
 .icons {
@@ -262,8 +212,6 @@ img {
   gap: 5px;
 }
 
-
-
 .Prosjekter {
   max-width: 1100px;
   margin: 3rem auto;
@@ -292,7 +240,6 @@ section.project-card {
   border-radius: 30px;
   box-shadow: 0px 0px 20px 5px rgb(240 237 237 / 30%);
 }
-
 
 .project-iframe {
   width: 100%;
@@ -345,9 +292,7 @@ section.contact-card {
   font-size: 20px;
   display: inline-block;
   /* kritisk */
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer a:hover {
@@ -355,8 +300,29 @@ section.contact-card {
   transform: scale(1.05);
   /* roligere, mer premium */
 }
-     
-    
+
+/* ----------------------------------------------------------- NYTT: REACT-LOGO TIL HØYRE FOR PROSJEKT-LINKS ----------------------------------------------------------- */
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-footer .project-links {
+  margin: 20px;
+  /* beholder samme spacing som før */
+}
+
+.project-tech {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-tech i {
+  font-size: 35px;
+}
 
 /* ----------------------------------------------------------- RESPONSIVE ----------------------------------------------------------- */
 @media (max-width: 768px) {

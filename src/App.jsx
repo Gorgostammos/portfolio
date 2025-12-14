@@ -1,10 +1,10 @@
+// App.jsx
 import { useState } from "react";
 import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
 
 function App() {
   const [count, setCount] = useState(0);
@@ -257,26 +257,36 @@ function App() {
                 prosjekter. Nettsiden er designet for å være responsiv og
                 brukervennlig på både desktop og mobile enheter.
               </p>
-              <section className="project-links">
-                <a
-                  href="https://github.com/Gorgostammos/matte-ving-react"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt="GitHub"
-                  aria-label="GitHub matte-ving-react"
-                >
-                  <i className="devicon-github-original"></i>
-                </a>
 
-                <a
-                  href="https://matte-ving.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt="Matte-ving Nettside"
-                  aria-label="matte-ving Nettside"
-                >
-                  <FontAwesomeIcon icon={faGlobe} />
-                </a>
+              {/* NY: footer-rad som plasserer React-logoen til høyre */}
+              <section className="project-footer">
+                <section className="project-links">
+                  <a
+                    href="https://github.com/Gorgostammos/matte-ving-react"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="GitHub"
+                    aria-label="GitHub matte-ving-react"
+                  >
+                    <i className="devicon-github-original"></i>
+                  </a>
+
+                  <a
+                    href="https://matte-ving.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="Matte-ving Nettside"
+                    aria-label="matte-ving Nettside"
+                  >
+                    <FontAwesomeIcon icon={faGlobe} />
+                  </a>
+                </section>
+
+                <div className="project-tech">
+                  <i className="devicon-react-original"></i>
+                  <i className="devicon-javascript-plain"></i>
+                  <i className="devicon-python-plain"></i>
+                </div>
               </section>
             </section>
 
@@ -294,29 +304,36 @@ function App() {
                 brukervennlig på både desktop og mobile enheter.
               </p>
 
-              <section className="project-links">
-                <a
-                  href="https://github.com/Gorgostammos/Calender_app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt="GitHub"
-                  aria-label="GitHub Calender_app"
-                >
-                  <i className="devicon-github-original"></i>
-                </a>
-
-                <a
-                  href="https://calender-app-mu.vercel.app/#/calendar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt="calendar Nettside"
-                  aria-label="calendar Nettside"
-                >
-                  <FontAwesomeIcon icon={faGlobe} />
-                </a>
+              {/* NY: footer-rad som plasserer React-logoen til høyre */}
+              <section className="project-footer">
+                <section className="project-links">
+                  <a
+                    href="https://github.com/Gorgostammos/Calender_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="GitHub"
+                    aria-label="GitHub Calender_app"
+                  >
+                    <i className="devicon-github-original"></i>
+                  </a>
+                  <a
+                    href="https://calender-app-mu.vercel.app/#/calendar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="calendar Nettside"
+                    aria-label="calendar Nettside"
+                  >
+                    <FontAwesomeIcon icon={faGlobe} />
+                  </a>
+                </section>
+                <div className="project-tech">
+                  <i className="devicon-react-original"></i>
+                  <i className="devicon-javascript-plain"></i>
+                </div>
               </section>
             </section>
           </div>
+
           <footer className="footer">
             <section className="contact-card">
               <h2 id="Contact">Kontakt</h2>
