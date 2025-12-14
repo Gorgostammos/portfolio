@@ -318,9 +318,13 @@ function App() {
             </section>
           </div>
           <footer className="footer">
-            <h2 id="Contact">Kontakt</h2>
             <section className="contact-card">
+              <h2 id="Contact">Kontakt</h2>
               <div className="contact-info">
+                <p>
+                  La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
+                  alltid åpen for en prat.
+                </p>
                 <div className="telefon">
                   <a href="tel:467 25 849" type="tel" alt="Telefonnummer">
                     <FontAwesomeIcon icon={faPhone} />
@@ -333,7 +337,7 @@ function App() {
                   alt="E-post"
                 >
                   <FontAwesomeIcon icon={faEnvelope} />
-                  Gorgos2002@icloud
+                  Gorgos2002@icloud.com
                 </a>
               </div>
             </section>
