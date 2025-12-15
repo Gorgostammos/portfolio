@@ -152,7 +152,7 @@ img {
 .Erfaring {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   margin: 3rem auto;
   max-width: 1100px;
 }
@@ -325,15 +325,239 @@ section.contact-card {
 }
 
 /* ----------------------------------------------------------- RESPONSIVE ----------------------------------------------------------- */
+@media (max-width: 1100px) {
+  #root {
+    padding: 1.5rem;
+  }
+
+  .omMeg,
+  .Utdanning,
+  .Erfaring,
+  .Prosjekter {
+    max-width: 95%;
+  }
+
+  section.profile {
+    gap: 30px;
+  }
+
+  p#jeg {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  section.profile {
+    flex-wrap: wrap;
+  }
+
+  .meg {
+    width: 100%;
+  }
+
+  .bilde {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    width: 220px;
+    max-width: 70vw;
+    height: auto;
+  }
+
+  section.divider {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .social-icons {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  a {
+    font-size: 40px;
+  }
+
+  .icons {
+    font-size: 46px;
+    gap: 20px;
+  }
+
+  section.project-card {
+    flex: 1 1 100%;
+  }
+
+  .project-iframe {
+    height: 360px;
+  }
+}
+
 @media (max-width: 768px) {
-  .education-card {
+  #root {
+    padding: 1.25rem;
+  }
+
+  .education-card,
+  .experience-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .education-right,
+  .experience-right {
+    margin-left: 0;
+    white-space: normal;
+  }
+
+  .meg {
+    padding: 1.25rem 1.5rem;
+  }
+
+  p#jeg {
+    font-size: 30px;
+  }
+
+  p#omMeg {
+    font-size: 14px;
+  }
+
+  .projects-grid {
+    gap: 1.5rem;
+  }
+
+  .project-iframe {
+    height: 320px;
+  }
+
+  section.project-links {
+    margin: 16px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .project-tech {
+    margin: 16px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .project-tech i {
+    font-size: 32px;
+  }
+
+  .contact-info {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 1rem;
+  }
+
+  p#jeg {
+    font-size: 26px;
+  }
+
+  .icons {
+    font-size: 42px;
+    gap: 18px;
+  }
+
+  a {
+    font-size: 38px;
+  }
+
+  .project-iframe {
+    height: 280px;
+  }
+
+  .project-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .project-footer .project-links {
+    margin: 16px;
+  }
+
+  .project-tech {
+    margin: 0 16px 16px 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .education-card,
+  .experience-card {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    padding: 1rem 1.25rem;
   }
 
-  .education-right {
+  .education-right,
+  .experience-right {
     margin-left: 0;
     white-space: normal;
+  }
+
+  .meg {
+    border-radius: 30px;
+    padding: 1rem 1.25rem;
+  }
+
+  p#jeg {
+    font-size: 22px;
+  }
+
+  p#omMeg {
+    font-size: 13px;
+  }
+
+  img {
+    width: 200px;
+    max-width: 80vw;
+  }
+
+  .icons {
+    font-size: 38px;
+    gap: 16px;
+  }
+
+  .project-iframe {
+    height: 240px;
+  }
+
+  section.project-links a {
+    font-size: 26px;
+  }
+
+  .footer a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  p#jeg {
+    font-size: 20px;
+  }
+
+  a {
+    font-size: 34px;
+  }
+
+  .icons {
+    font-size: 34px;
+    gap: 14px;
+  }
+
+  .project-iframe {
+    height: 220px;
   }
 }
