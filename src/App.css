@@ -349,7 +349,7 @@ section.contact-card {
 
 @media (max-width: 900px) {
   section.profile {
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
   }
 
   .meg {
@@ -522,7 +522,7 @@ section.contact-card {
   }
 
   img {
-    width: 200px;
+    width: 100%;
     max-width: 80vw;
   }
 
