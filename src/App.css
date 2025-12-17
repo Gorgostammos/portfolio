@@ -1,43 +1,23 @@
-/* -----------------------------------------------------------
-   ROOT + GLOBAL
------------------------------------------------------------ */
+/* App.css */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  scroll-behavior: smooth;
 }
 
+section.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 40px;
+}
 
-/* -----------------------------------------------------------
-   SKILL ICONS (Devicon)
------------------------------------------------------------ */
-i.devicon-java-plain-wordmark,
-.devicon-python-plain-wordmark,
-.devicon-javascript-plain,
-.devicon-csharp-line-wordmark,
-.devicon-kotlin-plain-wordmark,
-.devicon-html5-plain-wordmark,
-.devicon-css3-plain-wordmark,
-.devicon-react-original-wordmark,
-.devicon-nodejs-plain-wordmark,
-.devicon-dotnetcore-plain,
-.devicon-npm-original-wordmark,
-.devicon-bash-plain,
-.devicon-mysql-plain-wordmark,
-.devicon-firebase-plain-wordmark,
-.devicon-neo4j-plain-wordmark,
-.devicon-supabase-plain-wordmark,
-.devicon-git-plain-wordmark,
-.devicon-github-original-wordmark,
-.devicon-androidstudio-plain-wordmark,
-.devicon-pycharm-plain-wordmark,
-.devicon-intellij-plain-wordmark,
-.devicon-visualstudio-line,
-.devicon-vscode-plain-wordmark,
-.devicon-mongodb-plain-wordmark,
-.devicon-dot-net-plain-wordmark {
-  background: grey;
+/* ----------------------------------------------------------- SKILL ICONS (Devicon) ----------------------------------------------------------- */
+.Ferdigheter i{
+  background-color: #262626;
   width: 100px;
   height: 60px;
   border-radius: 25px;
@@ -45,41 +25,16 @@ i.devicon-java-plain-wordmark,
   align-content: center;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 0px 10px 5px rgb(240 237 237 / 30%);
 }
 
-i.devicon-java-plain-wordmark:hover,
-.devicon-python-plain-wordmark:hover,
-.devicon-javascript-plain:hover,
-.devicon-csharp-line-wordmark:hover,
-.devicon-kotlin-plain-wordmark:hover,
-.devicon-html5-plain-wordmark:hover,
-.devicon-css3-plain-wordmark:hover,
-.devicon-react-original-wordmark:hover,
-.devicon-nodejs-plain-wordmark:hover,
-.devicon-dotnetcore-plain:hover,
-.devicon-npm-original-wordmark:hover,
-.devicon-bash-plain:hover,
-.devicon-mysql-plain-wordmark:hover,
-.devicon-firebase-plain-wordmark:hover,
-.devicon-neo4j-plain-wordmark:hover,
-.devicon-supabase-plain-wordmark:hover,
-.devicon-git-plain-wordmark:hover,
-.devicon-github-original-wordmark:hover,
-.devicon-androidstudio-plain-wordmark:hover,
-.devicon-pycharm-plain-wordmark:hover,
-.devicon-intellij-plain-wordmark:hover,
-.devicon-visualstudio-line:hover,
-.devicon-vscode-plain-wordmark:hover,
-.devicon-mongodb-plain-wordmark:hover,
-.devicon-dot-net-plain-wordmark:hover {
+.Ferdigheter i:hover {
   cursor: pointer;
   color: rgb(74, 69, 226);
   font-size: 55px;
 }
 
-/* -----------------------------------------------------------
-   TOOLTIP SYSTEM
------------------------------------------------------------ */
+/* ----------------------------------------------------------- TOOLTIP SYSTEM ----------------------------------------------------------- */
 .skill-icon {
   position: relative;
   display: inline-flex;
@@ -120,9 +75,7 @@ i.devicon-java-plain-wordmark:hover,
   opacity: 1;
 }
 
-/* -----------------------------------------------------------
-   OM MEG
------------------------------------------------------------ */
+/* ----------------------------------------------------------- OM MEG ----------------------------------------------------------- */
 .omMeg {
   display: flex;
   max-width: 1100px;
@@ -131,20 +84,59 @@ i.devicon-java-plain-wordmark:hover,
   flex-direction: column;
 }
 
-p#omMeg {
+.meg {
   background-color: #262626;
   border-radius: 40px;
   padding: 1.5rem 2.5rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0px 0px 20px 5px rgb(240 237 237 / 30%);
   text-align: left;
+  justify-content: flex-start;
 }
 
-/* -----------------------------------------------------------
-   ICON CONTAINER
------------------------------------------------------------ */
+p#jeg {
+  font-size: 40px;
+  font-weight: 900;
+  margin: 0;
+}
+
+p#omMeg {
+  font-size: 15px;
+  margin: 0;
+}
+
+section.divider {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: #e3e3e3;
+  font-size: 45px;
+}
+
+a:hover {
+  color: #4a45e2;
+  scale: 1.2;
+}
+
+img {
+  border-radius: 30px 15px;
+  width: 250px;
+  /*box-shadow: 4px 6px 15px 1px rgb(171 119 105 / 60%),
+    -1px -6px 30px 1px rgb(89 139 102 / 60%);*/
+}
+
+/* ----------------------------------------------------------- ICON CONTAINER ----------------------------------------------------------- */
 .icons {
   display: flex;
   align-items: center;
@@ -156,14 +148,12 @@ p#omMeg {
   gap: 25px;
 }
 
-/* -----------------------------------------------------------
-   UTANNING & ERFARING
------------------------------------------------------------ */
+/* ----------------------------------------------------------- UTANNING & ERFARING ----------------------------------------------------------- */
 .Utdanning,
 .Erfaring {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 3rem;
   margin: 3rem auto;
   max-width: 1100px;
 }
@@ -182,8 +172,8 @@ p#omMeg {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
   text-align: left;
+  box-shadow: 0px 0px 20px 5px rgb(240 237 237 / 30%);
 }
 
 .education-left h3,
@@ -214,18 +204,361 @@ p#omMeg {
   color: #d0d0d0;
 }
 
-/* -----------------------------------------------------------
-   RESPONSIVE
------------------------------------------------------------ */
+.Ferdigheter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  margin: 3rem auto;
+  gap: 5px;
+}
+
+.Prosjekter {
+  max-width: 1100px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* Ny container som legger kortene horisontalt */
+.projects-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  /* så de bryter ned på mobil */
+}
+
+/* Juster project-card til å fungere med flex */
+section.project-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 45%;
+  /* ca. to kort per rad */
+  background-color: #262626;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px 5px rgb(240 237 237 / 30%);
+}
+
+.project-iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  pointer-events: none;
+  /* gjør iframen helt ikke-klikkbar */
+}
+
+p.project-description {
+  text-align: left;
+  margin: 10px;
+}
+
+section.project-links {
+  display: flex;
+  margin: 20px;
+  gap: 20px;
+}
+
+section.project-links a {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+section.contact-card {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto;
+  gap: 5px;
+}
+
+.contact-info {
+  background-color: #262626;
+  border-radius: 40px;
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0px 0px 20px 5px rgb(240 237 237 / 30%);
+  align-items: flex-start;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #e3e3e3;
+  font-size: 20px;
+  display: inline-block;
+  /* kritisk */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer a:hover {
+  color: #4a45e2;
+  transform: scale(1.05);
+  /* roligere, mer premium */
+}
+
+/* ----------------------------------------------------------- NYTT: REACT-LOGO TIL HØYRE FOR PROSJEKT-LINKS ----------------------------------------------------------- */
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-footer .project-links {
+  margin: 20px;
+  /* beholder samme spacing som før */
+}
+
+.project-tech {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-tech i {
+  font-size: 35px;
+}
+
+/* ----------------------------------------------------------- RESPONSIVE ----------------------------------------------------------- */
+@media (max-width: 1100px) {
+  #root {
+    padding: 1.5rem;
+  }
+
+  .omMeg,
+  .Utdanning,
+  .Erfaring,
+  .Prosjekter {
+    max-width: 95%;
+  }
+
+  section.profile {
+    gap: 30px;
+  }
+
+  p#jeg {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  section.profile {
+    flex-wrap: wrap-reverse;
+  }
+
+  .meg {
+    width: 100%;
+  }
+
+  .bilde {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    width: 220px;
+    max-width: 70vw;
+    height: auto;
+  }
+
+  section.divider {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .social-icons {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  a {
+    font-size: 40px;
+  }
+
+  .icons {
+    font-size: 46px;
+    gap: 20px;
+  }
+
+  section.project-card {
+    flex: 1 1 100%;
+  }
+
+  .project-iframe {
+    height: 360px;
+  }
+}
+
 @media (max-width: 768px) {
-  .education-card {
+  #root {
+    padding: 1.25rem;
+  }
+
+  .education-card,
+  .experience-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .education-right,
+  .experience-right {
+    margin-left: 0;
+    white-space: normal;
+  }
+
+  .meg {
+    padding: 1.25rem 1.5rem;
+  }
+
+  p#jeg {
+    font-size: 30px;
+  }
+
+  p#omMeg {
+    font-size: 14px;
+  }
+
+  .projects-grid {
+    gap: 1.5rem;
+  }
+
+  .project-iframe {
+    height: 320px;
+  }
+
+  section.project-links {
+    margin: 16px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .project-tech {
+    margin: 16px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .project-tech i {
+    font-size: 32px;
+  }
+
+  .contact-info {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 1rem;
+  }
+
+  p#jeg {
+    font-size: 26px;
+  }
+
+  .icons {
+    font-size: 42px;
+    gap: 18px;
+  }
+
+  a {
+    font-size: 38px;
+  }
+
+  .project-iframe {
+    height: 280px;
+  }
+
+  .project-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .project-footer .project-links {
+    margin: 16px;
+  }
+
+  .project-tech {
+    margin: 0 16px 16px 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .education-card,
+  .experience-card {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    padding: 1rem 1.25rem;
   }
 
-  .education-right {
+  .education-right,
+  .experience-right {
     margin-left: 0;
     white-space: normal;
+  }
+
+  .meg {
+    border-radius: 30px;
+    padding: 1rem 1.25rem;
+  }
+
+  p#jeg {
+    font-size: 22px;
+  }
+
+  p#omMeg {
+    font-size: 13px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 80vw;
+  }
+
+  .icons {
+    font-size: 38px;
+    gap: 16px;
+  }
+
+  .project-iframe {
+    height: 240px;
+  }
+
+  section.project-links a {
+    font-size: 26px;
+  }
+
+  .footer a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  p#jeg {
+    font-size: 20px;
+  }
+
+  a {
+    font-size: 34px;
+  }
+
+  .icons {
+    font-size: 34px;
+    gap: 14px;
+  }
+
+  .project-iframe {
+    height: 220px;
   }
 }
