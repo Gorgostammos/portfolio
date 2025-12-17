@@ -332,6 +332,49 @@ function App() {
                 </div>
               </section>
             </section>
+
+            <section className="project-card">
+              <h3>Webutviklings eksamen</h3>
+              <iframe
+                src="https://nettsiden.vercel.app/"
+                title="calendar"
+                className="project-iframe"
+              />
+              <p className="project-description">
+                Dette er min nåværende portfolio nettside, bygget med React og
+                CSS. Den viser min utdanning, erfaring, ferdigheter og
+                prosjekter. Nettsiden er designet for å være responsiv og
+                brukervennlig på både desktop og mobile enheter.
+              </p>
+
+              {/* NY: footer-rad som plasserer React-logoen til høyre */}
+              <section className="project-footer">
+                <section className="project-links">
+                  <a
+                    href="https://github.com/Gorgostammos/nettsiden"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="GitHub"
+                    aria-label="GitHub Calender_app"
+                  >
+                    <i className="devicon-github-original"></i>
+                  </a>
+                  <a
+                    href="https://nettsiden.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="calendar Nettside"
+                    aria-label="calendar Nettside"
+                  >
+                    <FontAwesomeIcon icon={faGlobe} />
+                  </a>
+                </section>
+                <div className="project-tech">
+                  <i className="devicon-react-original"></i>
+                  <i className="devicon-javascript-plain"></i>
+                </div>
+              </section>
+            </section>
           </div>
 
           <footer className="footer">
