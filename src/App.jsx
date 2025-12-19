@@ -56,7 +56,7 @@ function App() {
               </section>
             </div>
             <div className="bilde">
-              <img src=".\src\assets\minbilde.jpeg" alt="Profilbilde" />
+              <img src="public\minbilde.jpeg" alt="Profilbilde" />
             </div>
           </section>
         </div>
