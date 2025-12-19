@@ -1,25 +1,41 @@
 // App.jsx
 import { useState } from "react";
 import "./App.css";
+import PillNav from "./components/PillNav/PillNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGlobe,
+  faPhone,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [count, setCount] = useState(0);
 
+  const navItems = [
+    { label: "Om meg", href: "#om-meg" },
+    { label: "Utdanning", href: "#utdanning" },
+    { label: "Erfaring", href: "#erfaring" },
+    { label: "Ferdigheter", href: "#ferdigheter" },
+    { label: "Prosjekter", href: "#prosjekter" },
+    { label: "Kontakt", href: "#kontakt" },
+  ];
+
   return (
     <>
       <div>
-        <h1>Protofolio</h1>
+        {/* Pill Nav */}
+        <PillNav items={navItems} />
 
-        <div className="omMeg">
-          <h2 id="omMeg">Om meg</h2>
+        {/* OM MEG */}
+        <div className="omMeg" id="om-meg">
+          <h2>Om meg</h2>
           <section className="profile">
             <div className="meg">
               <p id="jeg">Hei, Jeg er Gorgos Tammo jeg er en utvikler.</p>
-              <p id="omMeg">
+
+              {/* Fjernet dupliserte id="omMeg" på flere <p>. Bruk id på seksjonen over. */}
+              <p>
                 Jeg er en mann på 22 år og har fullført bachelorgrad innen
                 informasjonssystemer, med spesialisering i Software Engineering
                 og Business Intelligence. Jeg trives godt både i selvstendige
@@ -28,7 +44,7 @@ function App() {
               </p>
 
               <section className="divider">
-                <p id="omMeg">for med info kan du lese mere her:</p>
+                <p>for med info kan du lese mere her:</p>
 
                 <div className="social-icons">
                   <a
@@ -55,14 +71,16 @@ function App() {
                 </div>
               </section>
             </div>
+
             <div className="bilde">
-              <img src=".\src\assets\minbilde.jpeg" alt="Profilbilde" />
+              <img src=".\src\assets\minbilde3.jpg" alt="Profilbilde" />
             </div>
           </section>
         </div>
 
-        <div className="Utdanning">
-          <h2 id="Utdanning">Utdanning</h2>
+        {/* UTDANNING */}
+        <div className="Utdanning" id="utdanning">
+          <h2>Utdanning</h2>
 
           <section className="education-card">
             <div className="education-left">
@@ -88,8 +106,10 @@ function App() {
           </section>
         </div>
 
-        <div className="Erfaring">
-          <h2 id="Erfaring">Erfaring</h2>
+        {/* ERFARING */}
+        <div className="Erfaring" id="erfaring">
+          <h2>Erfaring</h2>
+
           <section className="experience-card">
             <div className="experience-left">
               <h3>It support</h3>
@@ -139,7 +159,8 @@ function App() {
           </section>
         </div>
 
-        <div className="Ferdigheter">
+        {/* FERDIGHETER */}
+        <div className="Ferdigheter" id="ferdigheter">
           <h2>Ferdigheter</h2>
 
           {/* PROGRAMMERINGSSPRÅK */}
@@ -233,15 +254,16 @@ function App() {
               <span className="skill-icon" data-label="IntelliJ IDEA">
                 <i className="devicon-intellij-plain-wordmark"></i>
               </span>
-              <span className="skill-icon" data-label="Supabase">
+              <span className="skill-icon" data-label="VS Code">
                 <i className="devicon-vscode-plain-wordmark"></i>
               </span>
             </div>
           </div>
         </div>
 
-        <div className="Prosjekter">
-          <h2 id="Prosjekter">Prosjekter</h2>
+        {/* PROSJEKTER + FOOTER */}
+        <div className="Prosjekter" id="prosjekter">
+          <h2>Prosjekter</h2>
 
           <div className="projects-grid">
             <section className="project-card">
@@ -258,7 +280,6 @@ function App() {
                 brukervennlig på både desktop og mobile enheter.
               </p>
 
-              {/* NY: footer-rad som plasserer React-logoen til høyre */}
               <section className="project-footer">
                 <section className="project-links">
                   <a
@@ -304,7 +325,6 @@ function App() {
                 brukervennlig på både desktop og mobile enheter.
               </p>
 
-              {/* NY: footer-rad som plasserer React-logoen til høyre */}
               <section className="project-footer">
                 <section className="project-links">
                   <a
@@ -326,6 +346,84 @@ function App() {
                     <FontAwesomeIcon icon={faGlobe} />
                   </a>
                 </section>
+
+                <div className="project-tech">
+                  <i className="devicon-react-original"></i>
+                  <i className="devicon-javascript-plain"></i>
+                </div>
+              </section>
+            </section>
+
+            <section className="project-card">
+              <h3>Webutviklings eksamen</h3>
+              <iframe
+                src="https://nettsiden.vercel.app/"
+                title="nettsiden"
+                className="project-iframe"
+              />
+              <p className="project-description">
+                Dette er min nåværende portfolio nettside, bygget med React og
+                CSS. Den viser min utdanning, erfaring, ferdigheter og
+                prosjekter. Nettsiden er designet for å være responsiv og
+                brukervennlig på både desktop og mobile enheter.
+              </p>
+
+              <section className="project-footer">
+                <section className="project-links">
+                  <a
+                    href="https://github.com/Gorgostammos/nettsiden"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="GitHub"
+                    aria-label="GitHub nettsiden"
+                  >
+                    <i className="devicon-github-original"></i>
+                  </a>
+                  <a
+                    href="https://nettsiden.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="Nettsiden"
+                    aria-label="Nettsiden"
+                  >
+                    <FontAwesomeIcon icon={faGlobe} />
+                  </a>
+                </section>
+
+                <div className="project-tech">
+                  <i className="devicon-react-original"></i>
+                  <i className="devicon-javascript-plain"></i>
+                </div>
+              </section>
+            </section>
+
+            <section className="project-card">
+              <h3>Soclub</h3>
+              <iframe
+                src="src\assets\Screenshot_20251217_212925.png"
+                title="socclub"
+                className="project-iframe"
+              />
+              <p className="project-description">
+                Dette er min nåværende portfolio nettside, bygget med React og
+                CSS. Den viser min utdanning, erfaring, ferdigheter og
+                prosjekter. Nettsiden er designet for å være responsiv og
+                brukervennlig på både desktop og mobile enheter.
+              </p>
+
+              <section className="project-footer">
+                <section className="project-links">
+                  <a
+                    href="https://github.com/Gorgostammos/nettsiden"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="GitHub"
+                    aria-label="GitHub socclub"
+                  >
+                    <i className="devicon-github-original"></i>
+                  </a>
+                </section>
+
                 <div className="project-tech">
                   <i className="devicon-react-original"></i>
                   <i className="devicon-javascript-plain"></i>
@@ -334,20 +432,22 @@ function App() {
             </section>
           </div>
 
-          <footer className="footer">
+          <footer className="footer" id="kontakt">
             <section className="contact-card">
-              <h2 id="Contact">Kontakt</h2>
+              <h2>Kontakt</h2>
               <div className="contact-info">
                 <p>
                   La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
                   alltid åpen for en prat.
                 </p>
+
                 <div className="telefon">
                   <a href="tel:467 25 849" type="tel" alt="Telefonnummer">
                     <FontAwesomeIcon icon={faPhone} />
                     46725849
                   </a>
                 </div>
+
                 <a
                   href="mailto:Gorgos2002@icloud.com"
                   type="email"
@@ -364,4 +464,5 @@ function App() {
     </>
   );
 }
+
 export default App;
