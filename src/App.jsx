@@ -67,7 +67,7 @@ function App() {
                     <i className="devicon-github-original"></i>
                   </a>
 
-                  <a href=".\src\assets\CV\CV Gorgos Tammo.pdf (4).pdf">CV</a>
+                  <a href="CV\CV Gorgos Tammo.pdf (4).pdf">CV</a>
                 </div>
               </section>
             </div>
@@ -400,7 +400,7 @@ function App() {
             <section className="project-card">
               <h3>Soclub</h3>
               <iframe
-                src="src\assets\Screenshot_20251217_212925.png"
+                src="\Screenshot_20251217_212925.png"
                 title="socclub"
                 className="project-iframe"
               />
