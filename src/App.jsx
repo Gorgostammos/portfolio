@@ -73,7 +73,7 @@ function App() {
             </div>
 
             <div className="bilde">
-              <img src="\minbilde.jpeg" alt="Profilbilde" />
+              <img src="\profile.webp" alt="Profilbilde" />
             </div>
           </section>
         </div>
