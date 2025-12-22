@@ -274,11 +274,11 @@ function App() {
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette er min nåværende portfolio nettside, bygget med React og
-                CSS. Den viser min utdanning, erfaring, ferdigheter og
-                prosjekter. Nettsiden er designet for å være responsiv og
-                brukervennlig på både desktop og mobile enheter.
-              </p>
+                Dette er en matte læringsplattform kalt "Matte-ving" som jeg har
+                utviklet ved hjelp av React for frontend og Python for backend.
+                Plattformen tilbyr interaktive matteoppgaver og ressurser for
+                elever på ulike nivåer.
+                </p>
 
               <section className="project-footer">
                 <section className="project-links">
@@ -319,10 +319,10 @@ function App() {
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette er min nåværende portfolio nettside, bygget med React og
-                CSS. Den viser min utdanning, erfaring, ferdigheter og
-                prosjekter. Nettsiden er designet for å være responsiv og
-                brukervennlig på både desktop og mobile enheter.
+                Dette er en kalenderapplikasjon bygget med React og CSS. Den  lar
+                brukere legge til, redigere og slette hendelser på en brukervennlig
+                måte. Applikasjonen er designet for å være responsiv og enkel å
+                bruke på både desktop og mobile enheter.
               </p>
 
               <section className="project-footer">
@@ -362,10 +362,11 @@ function App() {
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette er min nåværende portfolio nettside, bygget med React og
-                CSS. Den viser min utdanning, erfaring, ferdigheter og
-                prosjekter. Nettsiden er designet for å være responsiv og
-                brukervennlig på både desktop og mobile enheter.
+                Dette var min eksamensoppgave i webutvikling, hvor jeg
+                utviklet en nettside ved hjelp av HTML og CSS. 
+                Nettsiden presenterer informasjon om et valgt tema på en
+                strukturert og visuelt tiltalende måte. og er designet for å
+                være brukervennlig og responsiv på ulike enheter.
               </p>
 
               <section className="project-footer">
@@ -405,10 +406,10 @@ function App() {
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette er min nåværende portfolio nettside, bygget med React og
-                CSS. Den viser min utdanning, erfaring, ferdigheter og
-                prosjekter. Nettsiden er designet for å være responsiv og
-                brukervennlig på både desktop og mobile enheter.
+                Dette en Android applikasjon kalt "Socclub" som jeg har utviklet ved hjelp av
+                Kotlin. Appen er designet for å hjelpe brukere med å finne og bli med i
+                sosiale klubber og aktiviteter i deres område, og tilbyr funksjoner som
+                klubboppdagelse, og hjelp til å organisere møter og blir kjent med nye mennesker.
               </p>
 
               <section className="project-footer">

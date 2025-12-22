@@ -16,7 +16,7 @@ section.profile {
 }
 
 /* ----------------------------------------------------------- SKILL ICONS (Devicon) ----------------------------------------------------------- */
-.Ferdigheter i{
+.Ferdigheter i {
   background-color: #262626;
   width: 100px;
   height: 60px;
@@ -253,12 +253,20 @@ section.project-card {
 p.project-description {
   text-align: left;
   margin: 10px;
+
+  /* --- KRITISK: gjør at beskrivelsen tar "restplassen" --- */
+  flex: 1;
 }
 
 section.project-links {
   display: flex;
   margin: 20px;
   gap: 20px;
+
+  /* --- KRITISK: alltid én rad --- */
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  align-items: center;
 }
 
 section.project-links a {
@@ -307,6 +315,9 @@ section.contact-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  /* --- KRITISK: footer alltid nederst i kortet --- */
+  margin-top: auto;
 }
 
 .project-footer .project-links {
@@ -319,6 +330,13 @@ section.contact-card {
   display: flex;
   align-items: center;
   gap: 20px;
+
+  /* --- KRITISK: alltid én rad --- */
+  flex-wrap: nowrap;
+  white-space: nowrap;
+
+  /* fallback hvis skjerm blir for smal */
+  overflow-x: auto;
 }
 
 .project-tech i {
@@ -438,13 +456,18 @@ section.contact-card {
   section.project-links {
     margin: 16px;
     gap: 16px;
-    flex-wrap: wrap;
+    /* hold én rad også her */
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
   }
 
   .project-tech {
     margin: 16px;
     gap: 14px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
   }
 
   .project-tech i {
@@ -494,6 +517,7 @@ section.contact-card {
 }
 
 @media (max-width: 450px) {
+
   .education-card,
   .experience-card {
     flex-direction: column;
