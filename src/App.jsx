@@ -432,8 +432,10 @@ function App() {
               </section>
             </section>
           </div>
+          </div>
 
           <footer className="footer" id="kontakt">
+            <div className="footer">
             <section className="contact-card">
               <h2>Kontakt</h2>
               <div className="contact-info">
@@ -459,8 +461,9 @@ function App() {
                 </a>
               </div>
             </section>
+            </div>
           </footer>
-        </div>
+        
       </div>
     </>
   );
