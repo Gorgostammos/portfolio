@@ -8,7 +8,7 @@ export default function PillNav({ items = [] }) {
   const pillRef = useRef(null);
   const btnRefs = useRef([]);
   const [active, setActive] = useState(items[0]?.href ?? "");
-  const [open, setOpen] = useState(false); // mobilmeny
+  const [open, setOpen] = useState(false);
 
   btnRefs.current = btnRefs.current.slice(0, items.length);
 
@@ -30,29 +30,36 @@ export default function PillNav({ items = [] }) {
       ease: "power2.out",
     };
 
+    // FIX: hindrer “glitch” når scroll-spy oppdaterer active ofte
+    gsap.killTweensOf(pill);
+
     if (animate) gsap.to(pill, props);
     else gsap.set(pill, props);
   };
 
+  // Initial posisjonering (uten animasjon)
   useLayoutEffect(() => {
     if (!items.length) return;
-    const i = Math.max(
-      0,
-      items.findIndex((it) => it.href === active)
-    );
+
+    const initialHash =
+      window.location.hash && items.some((it) => it.href === window.location.hash)
+        ? window.location.hash
+        : items[0]?.href ?? "";
+
+    setActive(initialHash);
+
+    const i = Math.max(0, items.findIndex((it) => it.href === initialHash));
     positionPill(i, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items.length]);
 
+  // Reposisjonér pill ved resize/scroll i selve nav'en
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
 
     const update = () => {
-      const i = Math.max(
-        0,
-        items.findIndex((it) => it.href === active)
-      );
+      const i = Math.max(0, items.findIndex((it) => it.href === active));
       positionPill(i, false);
     };
 
@@ -65,7 +72,53 @@ export default function PillNav({ items = [] }) {
     };
   }, [active, items]);
 
-  // Lukk mobilmeny ved klikk utenfor
+  // Når active endres (også via scroll-spy), flytt pill (med animasjon)
+  useEffect(() => {
+    if (!items.length) return;
+    const i = Math.max(0, items.findIndex((it) => it.href === active));
+    positionPill(i, true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active]);
+
+  // Scroll-spy
+  useEffect(() => {
+    if (!items.length) return;
+
+    const headerOffset = 90;
+    const sections = items
+      .map((it) => document.querySelector(it.href))
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (!visible.length) return;
+
+        const id = visible[0].target.id;
+        const href = `#${id}`;
+
+        if (items.some((it) => it.href === href)) {
+          setActive((prev) => (prev === href ? prev : href));
+          history.replaceState(null, "", href);
+        }
+      },
+      {
+        root: null,
+        rootMargin: `-${headerOffset}px 0px -45% 0px`,
+        threshold: [0.2, 0.35, 0.5, 0.65, 0.8],
+      }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+    return () => observer.disconnect();
+  }, [items]);
+
+  // Lukk mobilmeny ved klikk utenfor (ingen endring)
   useEffect(() => {
     if (!open) return;
     const onDown = (e) => {
@@ -109,11 +162,7 @@ export default function PillNav({ items = [] }) {
   return (
     <div className="pillnav-wrap" id="pillnav-root">
       {/* Desktop pill nav */}
-      <nav
-        className="pillnav pillnav--desktop"
-        ref={navRef}
-        aria-label="Primary"
-      >
+      <nav className="pillnav pillnav--desktop" ref={navRef} aria-label="Primary">
         <span className="pillnav-pill" ref={pillRef} aria-hidden="true" />
         {items.map((it, i) => (
           <a
@@ -129,7 +178,7 @@ export default function PillNav({ items = [] }) {
         ))}
       </nav>
 
-      {/* Mobile hamburger */}
+      {/* Mobile hamburger (uendret) */}
       <div className="pillnav-mobile">
         <button
           className="pillnav-burger"
@@ -153,9 +202,7 @@ export default function PillNav({ items = [] }) {
                 key={it.href}
                 href={it.href}
                 role="menuitem"
-                className={`pillnav-sheet-item ${
-                  active === it.href ? "is-active" : ""
-                }`}
+                className={`pillnav-sheet-item ${active === it.href ? "is-active" : ""}`}
                 onClick={goTo(it.href, i, { fromMobile: true })}
               >
                 {it.label}

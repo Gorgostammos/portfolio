@@ -306,6 +306,7 @@ function App() {
                 <div className="project-tech">
                   <i className="devicon-react-original"></i>
                   <i className="devicon-javascript-plain"></i>
+                  <i className="devicon-css3-plain-wordmark"></i>
                   <i className="devicon-python-plain"></i>
                 </div>
               </section>
@@ -349,6 +350,7 @@ function App() {
 
                 <div className="project-tech">
                   <i className="devicon-react-original"></i>
+                  <i className="devicon-css3-plain-wordmark"></i>
                   <i className="devicon-javascript-plain"></i>
                 </div>
               </section>
@@ -392,8 +394,8 @@ function App() {
                 </section>
 
                 <div className="project-tech">
-                  <i className="devicon-react-original"></i>
-                  <i className="devicon-javascript-plain"></i>
+                  <i className="devicon-html5-plain-wordmark"></i>
+                  <i className="devicon-css3-plain-wordmark"></i>
                 </div>
               </section>
             </section>
@@ -425,15 +427,17 @@ function App() {
                   </a>
                 </section>
 
-                <div className="project-tech">
-                  <i className="devicon-react-original"></i>
-                  <i className="devicon-javascript-plain"></i>
+                <div className="project-tech">       
+                  <i className="devicon-kotlin-plain"></i>
+                  <i className="devicon-csharp-plain"></i>
                 </div>
               </section>
             </section>
           </div>
+          </div>
 
           <footer className="footer" id="kontakt">
+            <div className="footer">
             <section className="contact-card">
               <h2>Kontakt</h2>
               <div className="contact-info">
@@ -459,8 +463,9 @@ function App() {
                 </a>
               </div>
             </section>
+            </div>
           </footer>
-        </div>
+        
       </div>
     </>
   );
