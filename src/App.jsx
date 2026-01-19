@@ -1,17 +1,10 @@
-// App.jsx
-import { useState } from "react";
+// src/App.jsx
 import "./App.css";
 import PillNav from "./components/PillNav/PillNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGlobe,
-  faPhone,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+import { faGlobe, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   const navItems = [
     { label: "Om meg", href: "#om-meg" },
     { label: "Utdanning", href: "#utdanning" },
@@ -24,7 +17,6 @@ function App() {
   return (
     <>
       <div>
-        {/* Pill Nav */}
         <PillNav items={navItems} />
 
         {/* OM MEG */}
@@ -34,7 +26,6 @@ function App() {
             <div className="meg">
               <p id="jeg">Hei, Jeg er Gorgos Tammo jeg er en utvikler.</p>
 
-              {/* Fjernet dupliserte id="omMeg" på flere <p>. Bruk id på seksjonen over. */}
               <p>
                 Jeg er en mann på 22 år og har fullført bachelorgrad innen
                 informasjonssystemer, med spesialisering i Software Engineering
@@ -48,32 +39,38 @@ function App() {
 
                 <div className="social-icons">
                   <a
+                    className="icon-link"
                     href="https://www.linkedin.com/in/gorgos-tammo-8b2286230/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="LinkedIn"
                     aria-label="LinkedIn"
                   >
                     <i className="devicon-linkedin-plain"></i>
                   </a>
 
                   <a
+                    className="icon-link"
                     href="https://github.com/Gorgostammos"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="GitHub"
                     aria-label="GitHub"
                   >
                     <i className="devicon-github-original"></i>
                   </a>
 
-                  <a href="CV\CV Gorgos Tammo.pdf (4).pdf">CV</a>
+                  <a
+                    className="icon-link cv-link"
+                    href="CV/CV Gorgos Tammo.pdf (4).pdf"
+                    aria-label="CV"
+                  >
+                    CV
+                  </a>
                 </div>
               </section>
             </div>
 
             <div className="bilde">
-              <img src="\profile.webp" alt="Profilbilde" />
+              <img src="/profile.webp" alt="Profilbilde" />
             </div>
           </section>
         </div>
@@ -163,7 +160,6 @@ function App() {
         <div className="Ferdigheter" id="ferdigheter">
           <h2>Ferdigheter</h2>
 
-          {/* PROGRAMMERINGSSPRÅK */}
           <div className="skill-group">
             <h3>Programmeringsspråk</h3>
             <div className="icons">
@@ -185,7 +181,6 @@ function App() {
             </div>
           </div>
 
-          {/* WEB & RAMMEVERK */}
           <div className="skill-group">
             <h3>Web & Rammeverk</h3>
             <div className="icons">
@@ -210,7 +205,6 @@ function App() {
             </div>
           </div>
 
-          {/* DATABASER */}
           <div className="skill-group">
             <h3>Databaser</h3>
             <div className="icons">
@@ -235,7 +229,6 @@ function App() {
             </div>
           </div>
 
-          {/* VERKTØY & IDE-ER */}
           <div className="skill-group">
             <h3>Verktøy & IDE-er</h3>
             <div className="icons">
@@ -261,7 +254,7 @@ function App() {
           </div>
         </div>
 
-        {/* PROSJEKTER + FOOTER */}
+        {/* PROSJEKTER */}
         <div className="Prosjekter" id="prosjekter">
           <h2>Prosjekter</h2>
 
@@ -278,7 +271,7 @@ function App() {
                 utviklet ved hjelp av React for frontend og Python for backend.
                 Plattformen tilbyr interaktive matteoppgaver og ressurser for
                 elever på ulike nivåer.
-                </p>
+              </p>
 
               <section className="project-footer">
                 <section className="project-links">
@@ -286,7 +279,6 @@ function App() {
                     href="https://github.com/Gorgostammos/matte-ving-react"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="GitHub"
                     aria-label="GitHub matte-ving-react"
                   >
                     <i className="devicon-github-original"></i>
@@ -296,7 +288,6 @@ function App() {
                     href="https://matte-ving.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="Matte-ving Nettside"
                     aria-label="matte-ving Nettside"
                   >
                     <FontAwesomeIcon icon={faGlobe} />
@@ -320,10 +311,10 @@ function App() {
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette er en kalenderapplikasjon bygget med React og CSS. Den  lar
-                brukere legge til, redigere og slette hendelser på en brukervennlig
-                måte. Applikasjonen er designet for å være responsiv og enkel å
-                bruke på både desktop og mobile enheter.
+                Dette er en kalenderapplikasjon bygget med React og CSS. Den lar
+                brukere legge til, redigere og slette hendelser på en
+                brukervennlig måte. Applikasjonen er designet for å være
+                responsiv og enkel å bruke på både desktop og mobile enheter.
               </p>
 
               <section className="project-footer">
@@ -332,7 +323,6 @@ function App() {
                     href="https://github.com/Gorgostammos/Calender_app"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="GitHub"
                     aria-label="GitHub Calender_app"
                   >
                     <i className="devicon-github-original"></i>
@@ -341,7 +331,6 @@ function App() {
                     href="https://calender-app-mu.vercel.app/#/calendar"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="calendar Nettside"
                     aria-label="calendar Nettside"
                   >
                     <FontAwesomeIcon icon={faGlobe} />
@@ -364,11 +353,11 @@ function App() {
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette var min eksamensoppgave i webutvikling, hvor jeg
-                utviklet en nettside ved hjelp av HTML og CSS. 
-                Nettsiden presenterer informasjon om et valgt tema på en
-                strukturert og visuelt tiltalende måte. og er designet for å
-                være brukervennlig og responsiv på ulike enheter.
+                Dette var min eksamensoppgave i webutvikling, hvor jeg utviklet
+                en nettside ved hjelp av HTML og CSS. Nettsiden presenterer
+                informasjon om et valgt tema på en strukturert og visuelt
+                tiltalende måte, og er designet for å være brukervennlig og
+                responsiv på ulike enheter.
               </p>
 
               <section className="project-footer">
@@ -377,7 +366,6 @@ function App() {
                     href="https://github.com/Gorgostammos/nettsiden"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="GitHub"
                     aria-label="GitHub nettsiden"
                   >
                     <i className="devicon-github-original"></i>
@@ -386,7 +374,6 @@ function App() {
                     href="https://nettsiden.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="Nettsiden"
                     aria-label="Nettsiden"
                   >
                     <FontAwesomeIcon icon={faGlobe} />
@@ -403,15 +390,15 @@ function App() {
             <section className="project-card">
               <h3>Soclub</h3>
               <iframe
-                src="\Screenshot_20251217_212925.png"
+                src="/Screenshot_20251217_212925.png"
                 title="socclub"
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette en Android applikasjon kalt "Socclub" som jeg har utviklet ved hjelp av
-                Kotlin. Appen er designet for å hjelpe brukere med å finne og bli med i
-                sosiale klubber og aktiviteter i deres område, og tilbyr funksjoner som
-                klubboppdagelse, og hjelp til å organisere møter og blir kjent med nye mennesker.
+                Dette en Android applikasjon kalt "Socclub" som jeg har utviklet
+                ved hjelp av Kotlin. Appen er designet for å hjelpe brukere med
+                å finne og bli med i sosiale klubber og aktiviteter i deres
+                område.
               </p>
 
               <section className="project-footer">
@@ -420,52 +407,45 @@ function App() {
                     href="https://github.com/Gorgostammos/nettsiden"
                     target="_blank"
                     rel="noopener noreferrer"
-                    alt="GitHub"
                     aria-label="GitHub socclub"
                   >
                     <i className="devicon-github-original"></i>
                   </a>
                 </section>
 
-                <div className="project-tech">       
+                <div className="project-tech">
                   <i className="devicon-kotlin-plain"></i>
                   <i className="devicon-csharp-plain"></i>
                 </div>
               </section>
             </section>
           </div>
-          </div>
+        </div>
 
-          <footer className="footer" id="kontakt">
-            <div className="footer">
-            <section className="contact-card">
-              <h2>Kontakt</h2>
-              <div className="contact-info">
-                <p>
-                  La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
-                  alltid åpen for en prat.
-                </p>
+        {/* KONTAKT */}
+        <footer className="footer" id="kontakt">
+          <section className="contact-card">
+            <h2>Kontakt</h2>
+            <div className="contact-info">
+              <p>
+                La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
+                alltid åpen for en prat.
+              </p>
 
-                <div className="telefon">
-                  <a href="tel:467 25 849" type="tel" alt="Telefonnummer">
-                    <FontAwesomeIcon icon={faPhone} />
-                    46725849
-                  </a>
-                </div>
-
-                <a
-                  href="mailto:Gorgos2002@icloud.com"
-                  type="email"
-                  alt="E-post"
-                >
-                  <FontAwesomeIcon icon={faEnvelope} />
-                  Gorgos2002@icloud.com
+              <div className="telefon">
+                <a href="tel:46725849" aria-label="Telefonnummer">
+                  <FontAwesomeIcon icon={faPhone} />
+                  46725849
                 </a>
               </div>
-            </section>
+
+              <a href="mailto:Gorgos2002@icloud.com" aria-label="E-post">
+                <FontAwesomeIcon icon={faEnvelope} />
+                Gorgos2002@icloud.com
+              </a>
             </div>
-          </footer>
-        
+          </section>
+        </footer>
       </div>
     </>
   );
