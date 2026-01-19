@@ -30,6 +30,9 @@ export default function PillNav({ items = [] }) {
       ease: "power2.out",
     };
 
+    // FIX: hindrer “glitch” når scroll-spy oppdaterer active ofte
+    gsap.killTweensOf(pill);
+
     if (animate) gsap.to(pill, props);
     else gsap.set(pill, props);
   };
@@ -38,7 +41,6 @@ export default function PillNav({ items = [] }) {
   useLayoutEffect(() => {
     if (!items.length) return;
 
-    // Hvis URL har hash ved load, start der
     const initialHash =
       window.location.hash && items.some((it) => it.href === window.location.hash)
         ? window.location.hash
@@ -78,11 +80,11 @@ export default function PillNav({ items = [] }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
-  // Scroll-spy: oppdater active basert på hva brukeren "leser nå"
+  // Scroll-spy
   useEffect(() => {
     if (!items.length) return;
 
-    const headerOffset = 90; // matcher scrollToHash offseten din
+    const headerOffset = 90;
     const sections = items
       .map((it) => document.querySelector(it.href))
       .filter(Boolean);
@@ -91,7 +93,6 @@ export default function PillNav({ items = [] }) {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // Finn "beste" kandidat blant de som er synlige
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -108,19 +109,16 @@ export default function PillNav({ items = [] }) {
       },
       {
         root: null,
-        // Topp-margin “flytter” triggerpunkt ned pga sticky nav,
-        // og bunnen gjør at neste seksjon ikke vinner for tidlig.
         rootMargin: `-${headerOffset}px 0px -45% 0px`,
         threshold: [0.2, 0.35, 0.5, 0.65, 0.8],
       }
     );
 
     sections.forEach((sec) => observer.observe(sec));
-
     return () => observer.disconnect();
   }, [items]);
 
-  // Lukk mobilmeny ved klikk utenfor
+  // Lukk mobilmeny ved klikk utenfor (ingen endring)
   useEffect(() => {
     if (!open) return;
     const onDown = (e) => {
@@ -180,7 +178,7 @@ export default function PillNav({ items = [] }) {
         ))}
       </nav>
 
-      {/* Mobile hamburger */}
+      {/* Mobile hamburger (uendret) */}
       <div className="pillnav-mobile">
         <button
           className="pillnav-burger"

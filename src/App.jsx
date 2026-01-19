@@ -306,7 +306,7 @@ function App() {
                 <div className="project-tech">
                   <i className="devicon-react-original"></i>
                   <i className="devicon-javascript-plain"></i>
-                  <i class="devicon-css3-plain-wordmark"></i>
+                  <i className="devicon-css3-plain-wordmark"></i>
                   <i className="devicon-python-plain"></i>
                 </div>
               </section>
@@ -350,7 +350,7 @@ function App() {
 
                 <div className="project-tech">
                   <i className="devicon-react-original"></i>
-                  <i class="devicon-css3-plain-wordmark"></i>
+                  <i className="devicon-css3-plain-wordmark"></i>
                   <i className="devicon-javascript-plain"></i>
                 </div>
               </section>
@@ -394,8 +394,8 @@ function App() {
                 </section>
 
                 <div className="project-tech">
-                  <i class="devicon-html5-plain-wordmark"></i>
-                  <i class="devicon-css3-plain-wordmark"></i>
+                  <i className="devicon-html5-plain-wordmark"></i>
+                  <i className="devicon-css3-plain-wordmark"></i>
                 </div>
               </section>
             </section>
@@ -428,8 +428,8 @@ function App() {
                 </section>
 
                 <div className="project-tech">       
-                  <i class="devicon-kotlin-plain"></i>
-                  <i class="devicon-csharp-plain"></i>
+                  <i className="devicon-kotlin-plain"></i>
+                  <i className="devicon-csharp-plain"></i>
                 </div>
               </section>
             </section>
