@@ -260,7 +260,7 @@ function App() {
 
           <div className="projects-grid">
             <section className="project-card">
-              <h3>Matte-ving</h3>
+              <h3>Matte ving</h3>
               <iframe
                 src="https://matte-ving.vercel.app/"
                 title="Matte-ving"
