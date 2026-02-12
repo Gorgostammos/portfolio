@@ -400,8 +400,7 @@ section.contact-card {
   }
 
   img {
-    width: 220px;
-    max-width: 70vw;
+    max-width: 90%;
     height: auto;
   }
 
