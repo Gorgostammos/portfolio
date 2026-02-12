@@ -1,7 +1,6 @@
 // src/App.jsx
 import "./App.css";
 import PillNav from "./components/PillNav/PillNav";
-import ThemeToggleSwitch from "./components//Toggle/ThemeToggleSwitch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
