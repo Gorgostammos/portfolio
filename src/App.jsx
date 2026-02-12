@@ -395,10 +395,10 @@ function App() {
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette en Android applikasjon kalt "Socclub" som jeg har utviklet
-                ved hjelp av Kotlin. Appen er designet for å hjelpe brukere med
-                å finne og bli med i sosiale klubber og aktiviteter i deres
-                område.
+                Dette en Android applikasjon kalt "Socclub" som detter var et eksamen prosjekt, 
+                der teamet og jeg utviklet ved hjelp av Kotlin. 
+                Appen er designet for å hjelpe brukere med å finne og bli med i 
+                sosiale klubber og aktiviteter i deres område.
               </p>
 
               <section className="project-footer">
