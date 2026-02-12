@@ -17,7 +17,7 @@
     gap: 6px;
     padding: 6px;
     border-radius: 999px;
-    background:rgb(38 38 38 / 25%);
+    background:rgb(38 38 38 / 40%);
     border: 1px solid rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -87,7 +87,7 @@
     gap: 12px;
     padding: 12px 14px;
     border-radius: 999px;
-    background: rgb(38 38 38 / 45%);
+    background: rgb(38 38 38 / 55%);
     border: 1px solid rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
