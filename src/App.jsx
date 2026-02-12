@@ -13,10 +13,13 @@ function App() {
     { label: "Prosjekter", href: "#prosjekter" },
     { label: "Kontakt", href: "#kontakt" },
   ];
+  
+
 
   return (
     <>
       <div>
+  
         <PillNav items={navItems} />
 
         {/* OM MEG */}
@@ -196,12 +199,6 @@ function App() {
               <span className="skill-icon" data-label=".NET">
                 <i className="devicon-dot-net-plain-wordmark"></i>
               </span>
-              <span className="skill-icon" data-label="NPM">
-                <i className="devicon-npm-original-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="Bash">
-                <i className="devicon-bash-plain"></i>
-              </span>
             </div>
           </div>
 
@@ -219,9 +216,6 @@ function App() {
               </span>
               <span className="skill-icon" data-label="Neo4j">
                 <i className="devicon-neo4j-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="NPM">
-                <i className="devicon-npm-original-wordmark"></i>
               </span>
               <span className="skill-icon" data-label="Supabase">
                 <i className="devicon-supabase-plain-wordmark"></i>

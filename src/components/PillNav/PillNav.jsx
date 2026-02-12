@@ -40,13 +40,17 @@ export default function PillNav({ items = [] }) {
 
     // Hvis URL har hash ved load, start der
     const initialHash =
-      window.location.hash && items.some((it) => it.href === window.location.hash)
+      window.location.hash &&
+      items.some((it) => it.href === window.location.hash)
         ? window.location.hash
-        : items[0]?.href ?? "";
+        : (items[0]?.href ?? "");
 
     setActive(initialHash);
 
-    const i = Math.max(0, items.findIndex((it) => it.href === initialHash));
+    const i = Math.max(
+      0,
+      items.findIndex((it) => it.href === initialHash),
+    );
     positionPill(i, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items.length]);
@@ -57,7 +61,10 @@ export default function PillNav({ items = [] }) {
     if (!nav) return;
 
     const update = () => {
-      const i = Math.max(0, items.findIndex((it) => it.href === active));
+      const i = Math.max(
+        0,
+        items.findIndex((it) => it.href === active),
+      );
       positionPill(i, false);
     };
 
@@ -73,7 +80,10 @@ export default function PillNav({ items = [] }) {
   // Når active endres (også via scroll-spy), flytt pill (med animasjon)
   useEffect(() => {
     if (!items.length) return;
-    const i = Math.max(0, items.findIndex((it) => it.href === active));
+    const i = Math.max(
+      0,
+      items.findIndex((it) => it.href === active),
+    );
     positionPill(i, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
@@ -82,42 +92,88 @@ export default function PillNav({ items = [] }) {
   useEffect(() => {
     if (!items.length) return;
 
-    const headerOffset = 90; // matcher scrollToHash offseten din
-    const sections = items
-      .map((it) => document.querySelector(it.href))
-      .filter(Boolean);
+    // IntersectionObserver er ofte "flaky" på mobil (spesielt ved korte seksjoner
+    // og når siste seksjon ligger helt nederst i dokumentet). For en liten side
+    // med få seksjoner er en klassisk scroll-beregning mer robust.
+    const headerOffset = 90; // matcher scrollToHash offseten
 
+    const getSections = () =>
+      items
+        .map((it) => ({ href: it.href, el: document.querySelector(it.href) }))
+        .filter((s) => Boolean(s.el));
+
+    let sections = getSections();
     if (!sections.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Finn "beste" kandidat blant de som er synlige
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const computeTops = () => {
+      sections = getSections();
+      return sections.map((s) => ({
+        href: s.href,
+        top: s.el.getBoundingClientRect().top + window.scrollY,
+      }));
+    };
 
-        if (!visible.length) return;
+    let tops = computeTops();
+    let raf = 0;
 
-        const id = visible[0].target.id;
-        const href = `#${id}`;
+    const setFromScroll = () => {
+      raf = 0;
+      const scrollPos = window.scrollY + headerOffset + 1;
 
-        if (items.some((it) => it.href === href)) {
-          setActive((prev) => (prev === href ? prev : href));
-          history.replaceState(null, "", href);
+      // Hvis brukeren er helt nederst: marker alltid siste seksjon.
+      const bottomGap = 2;
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - bottomGap
+      ) {
+        const last = items[items.length - 1]?.href;
+        if (last) {
+          setActive((prev) => (prev === last ? prev : last));
+          history.replaceState(null, "", last);
         }
-      },
-      {
-        root: null,
-        // Topp-margin “flytter” triggerpunkt ned pga sticky nav,
-        // og bunnen gjør at neste seksjon ikke vinner for tidlig.
-        rootMargin: `-${headerOffset}px 0px -45% 0px`,
-        threshold: [0.2, 0.35, 0.5, 0.65, 0.8],
+        return;
       }
-    );
 
-    sections.forEach((sec) => observer.observe(sec));
+      // Finn siste seksjon som starter før scrollPos
+      let current = tops[0]?.href ?? items[0]?.href;
+      for (let i = 0; i < tops.length; i++) {
+        if (tops[i].top <= scrollPos) current = tops[i].href;
+        else break;
+      }
 
-    return () => observer.disconnect();
+      if (current) {
+        setActive((prev) => (prev === current ? prev : current));
+        history.replaceState(null, "", current);
+      }
+    };
+
+    const onScroll = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(setFromScroll);
+    };
+
+    const onResize = () => {
+      tops = computeTops();
+      setFromScroll();
+    };
+
+    // Re-kalkuler etter at bilder/fonts har fått lagt seg
+    const lateRecalc = window.setTimeout(onResize, 350);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    window.addEventListener("orientationchange", onResize);
+
+    // Start korrekt ved load
+    setFromScroll();
+
+    return () => {
+      window.clearTimeout(lateRecalc);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("orientationchange", onResize);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
   }, [items]);
 
   // Lukk mobilmeny ved klikk utenfor
@@ -164,7 +220,11 @@ export default function PillNav({ items = [] }) {
   return (
     <div className="pillnav-wrap" id="pillnav-root">
       {/* Desktop pill nav */}
-      <nav className="pillnav pillnav--desktop" ref={navRef} aria-label="Primary">
+      <nav
+        className="pillnav pillnav--desktop"
+        ref={navRef}
+        aria-label="Primary"
+      >
         <span className="pillnav-pill" ref={pillRef} aria-hidden="true" />
         {items.map((it, i) => (
           <a
