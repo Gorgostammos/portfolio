@@ -394,7 +394,6 @@ section.contact-card {
   }
 
   .bilde {
-    width: 100%;
     display: flex;
     justify-content: center;
   }
