@@ -4,6 +4,7 @@ import PillNav from "./components/PillNav/PillNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
+
 function App() {
   const navItems = [
     { label: "Om meg", href: "#om-meg" },
