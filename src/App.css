@@ -429,6 +429,7 @@ section.contact-card {
 
   .project-iframe {
     height: 360px;
+    pointer-events: none;
   }
 }
 
