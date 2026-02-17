@@ -306,6 +306,7 @@ h3 {
 section.contact-card {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 /* IMPORTANT: fjern fast width: 1000px (ga horisontal scroll på mobil) */
