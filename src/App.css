@@ -400,10 +400,11 @@ section.contact-card {
   }
 
   img {
-  border-radius: 30px 15px;
-  width: 100%;
-  height: auto;
-  }
+      border-radius: 30px 15px;
+      height: 450px;
+      max-width: 95%;
+    }
+  
 
   section.divider {
     flex-wrap: wrap;
