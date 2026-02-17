@@ -401,12 +401,9 @@ section.contact-card {
 
   img {
     border-radius: 30px 30px;
-    height: auto;
+    height: 30rem;
     width: 100%;
   }
-
-
-
 
   section.divider {
     flex-wrap: wrap;
