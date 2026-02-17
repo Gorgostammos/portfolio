@@ -400,8 +400,9 @@ section.contact-card {
   }
 
   img {
-    max-width: 90%;
-    height: auto;
+  border-radius: 30px 15px;
+  width: 100%;
+  height: auto;
   }
 
   section.divider {
