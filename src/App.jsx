@@ -3,6 +3,7 @@ import "./App.css";
 import PillNav from "./components/PillNav/PillNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { age } from "./utils/age";
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
               <p id="jeg">Hei, Jeg er Gorgos Tammo jeg er en utvikler.</p>
 
               <p>
-                Jeg er en mann på 22 år og har fullført bachelorgrad innen
+                Jeg er en mann på {age(2002)} år og har fullført bachelorgrad innen
                 informasjonssystemer, med spesialisering i Software Engineering
                 og Business Intelligence. Jeg trives godt både i selvstendige
                 prosjekter og i teammiljøer, og jeg er spesielt glad i
