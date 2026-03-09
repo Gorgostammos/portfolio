@@ -29,7 +29,7 @@ function App() {
           <h2>Om meg</h2>
           <section className="profile">
             <div className="meg">
-              <p id="jeg">Hei, Jeg er Gorgos Tammo jeg er en utvikler.</p>
+              <p id="jeg">Hei, jeg er Gorgos Tammo og jeg er en utvikler.</p>
 
               <p>
                 Jeg er en mann på {age(2002)} år og har fullført bachelorgrad innen
