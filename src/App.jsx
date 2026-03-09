@@ -65,7 +65,7 @@ function App() {
 
                   <a
                     className="icon-link cv-link"
-                    href="CV/CV Gorgos Tammo.pdf (4).pdf"
+                    href="../CV/CV Gorgos Tammo(5).pdf"
                     aria-label="CV"
                   >
                     CV
