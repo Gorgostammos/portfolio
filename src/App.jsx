@@ -40,7 +40,7 @@ function App() {
               </p>
 
               <section className="divider">
-                <p>For med info kan du lese mere her:</p>
+                <p>For mere info kan du lese mere her:</p>
 
                 <div className="social-icons">
                   <a
