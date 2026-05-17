@@ -1,6 +1,5 @@
 // src/components/PillNav/PillNav.jsx
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 import "./PillNav.css";
 
 export default function PillNav({ items = [] }) {
@@ -21,24 +20,31 @@ export default function PillNav({ items = [] }) {
     const x = btn.offsetLeft - nav.scrollLeft;
     const y = btn.offsetTop;
 
-    const props = {
-      x,
-      y,
-      width: btn.offsetWidth,
-      height: btn.offsetHeight,
-      duration: animate ? 0.25 : 0,
-      ease: "power2.out",
-    };
+    // Slå av CSS-transition ved første posisjonering (uten animasjon)
+    if (!animate) {
+      pill.style.transition = "none";
+    } else {
+      pill.style.transition =
+        "transform 0.25s cubic-bezier(0.33, 1, 0.68, 1), width 0.25s cubic-bezier(0.33, 1, 0.68, 1), height 0.25s cubic-bezier(0.33, 1, 0.68, 1)";
+    }
 
-    if (animate) gsap.to(pill, props);
-    else gsap.set(pill, props);
+    pill.style.transform = `translate(${x}px, ${y}px)`;
+    pill.style.width = `${btn.offsetWidth}px`;
+    pill.style.height = `${btn.offsetHeight}px`;
+
+    // Sett transition tilbake etter at browser har rendret den statiske posisjonen
+    if (!animate) {
+      requestAnimationFrame(() => {
+        pill.style.transition =
+          "transform 0.25s cubic-bezier(0.33, 1, 0.68, 1), width 0.25s cubic-bezier(0.33, 1, 0.68, 1), height 0.25s cubic-bezier(0.33, 1, 0.68, 1)";
+      });
+    }
   };
 
   // Initial posisjonering (uten animasjon)
   useLayoutEffect(() => {
     if (!items.length) return;
 
-    // Hvis URL har hash ved load, start der
     const initialHash =
       window.location.hash &&
       items.some((it) => it.href === window.location.hash)
@@ -92,10 +98,7 @@ export default function PillNav({ items = [] }) {
   useEffect(() => {
     if (!items.length) return;
 
-    // IntersectionObserver er ofte "flaky" på mobil (spesielt ved korte seksjoner
-    // og når siste seksjon ligger helt nederst i dokumentet). For en liten side
-    // med få seksjoner er en klassisk scroll-beregning mer robust.
-    const headerOffset = 90; // matcher scrollToHash offseten
+    const headerOffset = 90;
 
     const getSections = () =>
       items
@@ -120,7 +123,6 @@ export default function PillNav({ items = [] }) {
       raf = 0;
       const scrollPos = window.scrollY + headerOffset + 1;
 
-      // Hvis brukeren er helt nederst: marker alltid siste seksjon.
       const bottomGap = 2;
       if (
         window.innerHeight + window.scrollY >=
@@ -134,7 +136,6 @@ export default function PillNav({ items = [] }) {
         return;
       }
 
-      // Finn siste seksjon som starter før scrollPos
       let current = tops[0]?.href ?? items[0]?.href;
       for (let i = 0; i < tops.length; i++) {
         if (tops[i].top <= scrollPos) current = tops[i].href;
@@ -157,14 +158,12 @@ export default function PillNav({ items = [] }) {
       setFromScroll();
     };
 
-    // Re-kalkuler etter at bilder/fonts har fått lagt seg
     const lateRecalc = window.setTimeout(onResize, 350);
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
     window.addEventListener("orientationchange", onResize);
 
-    // Start korrekt ved load
     setFromScroll();
 
     return () => {
