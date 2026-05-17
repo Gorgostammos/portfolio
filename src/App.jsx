@@ -21,7 +21,6 @@ function App() {
   return (
     <>
       <div>
-  
         <PillNav items={navItems} />
 
         {/* OM MEG */}
@@ -32,11 +31,11 @@ function App() {
               <p id="jeg">Hei, jeg er Gorgos Tammo og jeg er en utvikler.</p>
 
               <p>
-                Jeg er en mann på {age(2002)} år og har fullført bachelorgrad innen
-                informasjonssystemer, med spesialisering i Software Engineering
-                og Business Intelligence. Jeg trives godt både i selvstendige
-                prosjekter og i teammiljøer, og jeg er spesielt glad i
-                programmering.
+                Jeg er en mann på {age(2002)} år og har fullført bachelorgrad
+                innen informasjonssystemer, med spesialisering i Software
+                Engineering og Business Intelligence. Jeg trives godt både i
+                selvstendige prosjekter og i teammiljøer, og jeg er spesielt
+                glad i programmering.
               </p>
 
               <section className="divider">
@@ -65,7 +64,7 @@ function App() {
 
                   <a
                     className="icon-link cv-link"
-                    href="../CV/CV Gorgos Tammo(5).pdf"
+                    href="/CV/CV%20Gorgos%20Tammo(5).pdf"
                     aria-label="CV"
                   >
                     CV
@@ -386,15 +385,15 @@ function App() {
             <section className="project-card">
               <h3>Soclub</h3>
               <iframe
-                src="/Screenshot_20251217_212925.png"
+               src="/Screenshot_20251217_212925.png" alt="Soclub skjermbilde" 
                 title="socclub"
                 className="project-iframe"
               />
               <p className="project-description">
-                Dette en Android applikasjon kalt "Socclub" som detter var et eksamen prosjekt, 
-                der teamet og jeg utviklet ved hjelp av Kotlin. 
-                Appen er designet for å hjelpe brukere med å finne og bli med i 
-                sosiale klubber og aktiviteter i deres område.
+                Dette en Android applikasjon kalt "Socclub" som detter var et
+                eksamen prosjekt, der teamet og jeg utviklet ved hjelp av
+                Kotlin. Appen er designet for å hjelpe brukere med å finne og
+                bli med i sosiale klubber og aktiviteter i deres område.
               </p>
 
               <section className="project-footer">
