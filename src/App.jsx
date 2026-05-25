@@ -2,9 +2,12 @@
 import "./App.css";
 import PillNav from "./components/PillNav/PillNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGlobe,
+  faPhone,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import { age } from "./utils/age";
-
 
 function App() {
   const navItems = [
@@ -15,8 +18,6 @@ function App() {
     { label: "Prosjekter", href: "#prosjekter" },
     { label: "Kontakt", href: "#kontakt" },
   ];
-  
-
 
   return (
     <>
@@ -255,12 +256,68 @@ function App() {
 
           <div className="projects-grid">
             <section className="project-card">
+              <h3>Pra</h3>
+              <a
+                href="https://www.promotionra.no/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-preview-link"
+              >
+                <img
+                  src="PRA.png"
+                  alt="Preview av PRA"
+                  className="project-preview-image"
+                />
+              </a>
+              <p className="project-description">
+                Dette er den nye nettsiden til Promotion RA, som jeg utviklet i
+                React. Jeg hadde ansvar for struktur, design, innhold og
+                publisering. Nettsiden presenterer artister og arrangementer på
+                en oversiktlig måte, med egne undersider for hver artist og et
+                responsivt design tilpasset ulike enheter.
+              </p>
+
+              <section className="project-footer">
+                <section className="project-links">
+                  <a
+                    href="https://github.com/Gorgostammos/matte-ving-react"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub matte-ving-react"
+                  >
+                    <i className="devicon-github-original"></i>
+                  </a>
+                  <a
+                    href="https://matte-ving.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="matte-ving Nettside"
+                  >
+                    <FontAwesomeIcon icon={faGlobe} />
+                  </a>
+                </section>
+                <div className="project-tech">
+                  <i className="devicon-react-original"></i>
+                  <i className="devicon-javascript-plain"></i>
+                  <i className="devicon-css3-plain-wordmark"></i>
+                </div>
+              </section>
+            </section>
+
+            <section className="project-card">
               <h3>Matte ving</h3>
-              <iframe
-                src="https://matte-ving.vercel.app/"
-                title="Matte-ving"
-                className="project-iframe"
-              />
+              <a
+                href="https://matte-ving.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-preview-link"
+              >
+                <img
+                  src="matte-ving-preview.png"
+                  alt="Preview av Matte-ving"
+                  className="project-preview-image"
+                />
+              </a>
               <p className="project-description">
                 Dette er en matte læringsplattform kalt "Matte-ving" som jeg har
                 utviklet ved hjelp av React for frontend og Python for backend.
@@ -278,7 +335,6 @@ function App() {
                   >
                     <i className="devicon-github-original"></i>
                   </a>
-
                   <a
                     href="https://matte-ving.vercel.app/"
                     target="_blank"
@@ -288,7 +344,6 @@ function App() {
                     <FontAwesomeIcon icon={faGlobe} />
                   </a>
                 </section>
-
                 <div className="project-tech">
                   <i className="devicon-react-original"></i>
                   <i className="devicon-javascript-plain"></i>
@@ -299,12 +354,19 @@ function App() {
             </section>
 
             <section className="project-card">
-              <h3>calendar App</h3>
-              <iframe
-                src="https://calender-app-mu.vercel.app/#/calendar"
-                title="calendar"
-                className="project-iframe"
-              />
+              <h3>Calender App</h3>
+              <a
+                href="https://calender-app-mu.vercel.app/#/calendar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-preview-link"
+              >
+                <img
+                  src="calender.png"
+                  alt="Preview av calendar app"
+                  className="project-preview-image"
+                />
+              </a>
               <p className="project-description">
                 Dette er en kalenderapplikasjon bygget med React og CSS. Den lar
                 brukere legge til, redigere og slette hendelser på en
@@ -331,7 +393,6 @@ function App() {
                     <FontAwesomeIcon icon={faGlobe} />
                   </a>
                 </section>
-
                 <div className="project-tech">
                   <i className="devicon-react-original"></i>
                   <i className="devicon-css3-plain-wordmark"></i>
@@ -342,11 +403,18 @@ function App() {
 
             <section className="project-card">
               <h3>Webutviklings eksamen</h3>
-              <iframe
-                src="https://nettsiden.vercel.app/"
-                title="nettsiden"
-                className="project-iframe"
-              />
+              <a
+                href="https://calender-app-mu.vercel.app/#/calendar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-preview-link"
+              >
+                <img
+                  src="webeksamen.png"
+                  alt="Preview av webutviklings eksamen"
+                  className="project-preview-image"
+                />
+              </a>
               <p className="project-description">
                 Dette var min eksamensoppgave i webutvikling, hvor jeg utviklet
                 en nettside ved hjelp av HTML og CSS. Nettsiden presenterer
@@ -374,7 +442,6 @@ function App() {
                     <FontAwesomeIcon icon={faGlobe} />
                   </a>
                 </section>
-
                 <div className="project-tech">
                   <i className="devicon-html5-plain-wordmark"></i>
                   <i className="devicon-css3-plain-wordmark"></i>
@@ -384,11 +451,19 @@ function App() {
 
             <section className="project-card">
               <h3>Soclub</h3>
-              <iframe
-               src="/Screenshot_20251217_212925.png" alt="Soclub skjermbilde" 
-                title="socclub"
-                className="project-iframe"
-              />
+              <a
+                href="https://github.com/MohammedGhazwanAlmilhim/soclub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-preview-link"
+              >
+                <img
+                  src="soclub.png"
+                  alt="Preview av soclub"
+                  className="project-preview-image"
+                />
+              </a>
+
               <p className="project-description">
                 Dette en Android applikasjon kalt "Socclub" som detter var et
                 eksamen prosjekt, der teamet og jeg utviklet ved hjelp av
@@ -399,7 +474,7 @@ function App() {
               <section className="project-footer">
                 <section className="project-links">
                   <a
-                    href="https://github.com/Gorgostammos/nettsiden"
+                    href="https://github.com/MohammedGhazwanAlmilhim/soclub"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub socclub"
