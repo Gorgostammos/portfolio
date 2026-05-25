@@ -30,7 +30,6 @@ function App() {
           <section className="profile">
             <div className="meg">
               <p id="jeg">Hei, jeg er Gorgos Tammo og jeg er en utvikler.</p>
-
               <p>
                 Jeg er en mann på {age(2002)} år og har fullført bachelorgrad
                 innen informasjonssystemer, med spesialisering i Software
@@ -38,10 +37,8 @@ function App() {
                 selvstendige prosjekter og i teammiljøer, og jeg er spesielt
                 glad i programmering.
               </p>
-
               <section className="divider">
                 <p>For mere info kan du lese mere her:</p>
-
                 <div className="social-icons">
                   <a
                     className="icon-link"
@@ -52,7 +49,6 @@ function App() {
                   >
                     <i className="devicon-linkedin-plain"></i>
                   </a>
-
                   <a
                     className="icon-link"
                     href="https://github.com/Gorgostammos"
@@ -62,10 +58,9 @@ function App() {
                   >
                     <i className="devicon-github-original"></i>
                   </a>
-
                   <a
                     className="icon-link cv-link"
-                    href="/CV/CV%20Gorgos%20Tammo(5).pdf"
+                    href="/CV/CV_Gorgos_Tammo.pdf"
                     aria-label="CV"
                   >
                     CV
@@ -73,7 +68,6 @@ function App() {
                 </div>
               </section>
             </div>
-
             <div className="bilde">
               <img src="/profile.webp" alt="Profilbilde" />
             </div>
@@ -114,6 +108,26 @@ function App() {
 
           <section className="experience-card">
             <div className="experience-left">
+              <h3>Webutvikler</h3>
+              <p className="experience-workplace">PromotionRA</p>
+              <p className="experience-workplace">
+                Jeg utviklet den nye nettsiden til PRA i React, der jeg hadde
+                ansvar for struktur, design, innhold og publisering. Jeg
+                produserte også plakater og videoreklamer til markedsføring. I
+                tillegg hadde jeg ansvar for innhold på sosiale medier, blant
+                annet Instagram, Facebook og TikTok, samt publisering på andre
+                relevante nettsider som «Hva skjer i Østfold». Dette ga meg
+                erfaring med nettsideutvikling, digital markedsføring og
+                innholdsproduksjon.
+              </p>
+            </div>
+            <div className="experience-right">
+              <p className="experience-date">mars 2026 - nå</p>
+            </div>
+          </section>
+
+          <section className="experience-card">
+            <div className="experience-left">
               <h3>It support</h3>
               <p className="experience-workplace">Frontkom</p>
               <p className="experience-workplace">
@@ -126,7 +140,7 @@ function App() {
               </p>
             </div>
             <div className="experience-right">
-              <p className="experience-date">Juni 2025 - August 2025</p>
+              <p className="experience-date">juni 2025 - august 2025</p>
             </div>
           </section>
 
@@ -141,7 +155,7 @@ function App() {
             </div>
             <div className="experience-right">
               <p className="experience-date">
-                juni 2022 - August. 2022 og Juni 2023 - Juli 2023
+                juni 2022 - august. 2022 og juni 2023 - juli 2023
               </p>
             </div>
           </section>
@@ -156,7 +170,7 @@ function App() {
               </p>
             </div>
             <div className="experience-right">
-              <p className="experience-date">Februar. 2021 - April 2021</p>
+              <p className="experience-date">februar. 2021 - april 2021</p>
             </div>
           </section>
         </div>
@@ -280,18 +294,18 @@ function App() {
               <section className="project-footer">
                 <section className="project-links">
                   <a
-                    href="https://github.com/Gorgostammos/matte-ving-react"
+                    href="https://github.com/Promotionra/Pra"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="GitHub matte-ving-react"
+                    aria-label="GitHub PRA"
                   >
                     <i className="devicon-github-original"></i>
                   </a>
                   <a
-                    href="https://matte-ving.vercel.app/"
+                    href="https://www.promotionra.no/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="matte-ving Nettside"
+                    aria-label="PRA Nettside"
                   >
                     <FontAwesomeIcon icon={faGlobe} />
                   </a>
