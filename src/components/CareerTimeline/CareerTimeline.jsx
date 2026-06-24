@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
 import "./CareerTimeline.css";
 
 const experiences = [
@@ -14,7 +15,7 @@ const experiences = [
     title: "IT Support",
     company: "Frontkom",
     icon: "🖥️",
-    desc: "Jobbet tett med kunder for å løse tekniske utfordringer. Oppdaterte plugins og kode, rettet feil i passordtilbakestilling og foreslått tiltak for bedre tilgjengelighet på nettsider.",
+    desc: "Jobbet tett med kunder for å løse tekniske utfordringer. Oppdaterte plugins og kode, rettet feil i passordtilbakestilling og foreslo tiltak for bedre tilgjengelighet på nettsider.",
   },
   {
     date: "juni 2022 – august 2022 · juni 2023 – juli 2023",
@@ -32,109 +33,119 @@ const experiences = [
   },
 ];
 
-export default function CareerTimeline() {
-  const sectionRef = useRef(null);
-  const trackRef = useRef(null);
-  const itemRefs = useRef([]);
-  const nodeRefs = useRef([]);
-  const [lineHeight, setLineHeight] = useState(0);
-
-  useEffect(() => {
-   const handleScroll = () => {
-  if (!sectionRef.current || !trackRef.current) return;
-
-  const track = trackRef.current;
-  const trackRect = track.getBoundingClientRect();
-  const trackTop = trackRect.top;
-  const trackTotal = trackRect.height;
-  const windowH = window.innerHeight;
-
-  const progress = Math.min(
-    Math.max((windowH * 0.65 - trackTop) / trackTotal, 0),
-    1
-  );
-  setLineHeight(progress * 100);
-
-  itemRefs.current.forEach((el, i) => {
-    if (!el) return;
-    const node = nodeRefs.current[i];
-    if (!node) return;
-    const nodeRect = node.getBoundingClientRect();
-    const nodeCenter = nodeRect.top + nodeRect.height / 2;
-    if (nodeCenter < windowH * 0.78) {
-      el.classList.add("visible");
-    }
-  });
+const cardVariants = {
+  hiddenLeft: {
+    opacity: 0,
+    x: -80,
+    y: 30,
+    scale: 0.96,
+  },
+  hiddenRight: {
+    opacity: 0,
+    x: 80,
+    y: 30,
+    scale: 0.96,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.75,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
 };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // run once on mount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+export default function CareerTimeline() {
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 75%", "end 45%"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 25,
+    mass: 0.6,
+  });
+
+  const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div className="career-timeline-section" id="erfaring" ref={sectionRef}>
-      <h2>Erfaring</h2>
-      <p className="career-timeline-subtitle">En oversikt over min arbeidserfaring</p>
+    <section className="career-timeline-section" id="erfaring" ref={sectionRef}>
+      <motion.div
+        className="career-header"
+        initial={{ opacity: 0, y: 45 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        <span className="career-label">Career</span>
+        <h2>Erfaring</h2>
+        <p className="career-timeline-subtitle">
+          En oversikt over min arbeidserfaring
+        </p>
+      </motion.div>
 
-      <div className="timeline-track" ref={trackRef}>
-        {/* The growing line */}
-        <div
-          className="timeline-line"
-          style={{ height: `${lineHeight}%` }}
-        />
+      <div className="timeline-track">
+        <motion.div className="timeline-line" style={{ height: lineHeight }} />
 
         {experiences.map((exp, i) => {
           const side = i % 2 === 0 ? "left" : "right";
+
           return (
-            <div
-              key={i}
+            <motion.div
+              key={exp.title}
               className={`timeline-item ${side}`}
-              ref={(el) => (itemRefs.current[i] = el)}
+              variants={cardVariants}
+              initial={side === "left" ? "hiddenLeft" : "hiddenRight"}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ delay: i * 0.12 }}
             >
-              {side === "left" ? (
-                <>
-                  <div className="timeline-card">
-                    <div className="card-meta">
-                      <span className="card-icon">{exp.icon}</span>
-                      <span className="card-date">{exp.date}</span>
-                    </div>
-                    <h3 className="card-title">{exp.title}</h3>
-                    <p className="card-company">{exp.company}</p>
-                    <p className="card-desc">{exp.desc}</p>
-                  </div>
-                  <div
-                    className="timeline-node-col"
-                    ref={(el) => (nodeRefs.current[i] = el)}
-                  >
-                    <div className="timeline-node" />
-                  </div>
-                  <div className="timeline-empty" />
-                </>
-              ) : (
-                <>
-                  <div className="timeline-empty" />
-                  <div
-                    className="timeline-node-col"
-                    ref={(el) => (nodeRefs.current[i] = el)}
-                  >
-                    <div className="timeline-node" />
-                  </div>
-                  <div className="timeline-card">
-                    <div className="card-meta">
-                      <span className="card-icon">{exp.icon}</span>
-                      <span className="card-date">{exp.date}</span>
-                    </div>
-                    <h3 className="card-title">{exp.title}</h3>
-                    <p className="card-company">{exp.company}</p>
-                    <p className="card-desc">{exp.desc}</p>
-                  </div>
-                </>
-              )}
-            </div>
+              <div className="timeline-empty" />
+
+              <div className="timeline-node-col">
+                <motion.div
+                  className="timeline-node"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: i * 0.12 + 0.2,
+                    duration: 0.45,
+                    type: "spring",
+                    stiffness: 220,
+                  }}
+                />
+              </div>
+
+              <motion.article
+                className="timeline-card"
+                whileHover={{
+                  y: -8,
+                  scale: 1.015,
+                  transition: { duration: 0.25 },
+                }}
+              >
+                <div className="card-glow" />
+
+                <div className="card-meta">
+                  <span className="card-icon">{exp.icon}</span>
+                  <span className="card-date">{exp.date}</span>
+                </div>
+
+                <h3 className="card-title">{exp.title}</h3>
+                <p className="card-company">{exp.company}</p>
+                <p className="card-desc">{exp.desc}</p>
+              </motion.article>
+            </motion.div>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
