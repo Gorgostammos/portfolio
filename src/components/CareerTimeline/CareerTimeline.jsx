@@ -1,4 +1,10 @@
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  MotionConfig,
+} from "framer-motion";
 import { useRef } from "react";
 import "./CareerTimeline.css";
 
@@ -18,7 +24,7 @@ const experiences = [
     desc: "Jobbet tett med kunder for å løse tekniske utfordringer. Oppdaterte plugins og kode, rettet feil i passordtilbakestilling og foreslo tiltak for bedre tilgjengelighet på nettsider.",
   },
   {
-    date: "juni 2022 – august 2022 · juni 2023 – juli 2023",
+    date: "sommer 2022 og 2023",
     title: "Sommerjobb",
     company: "Christensen Bakeri",
     icon: "🥐",
@@ -75,77 +81,85 @@ export default function CareerTimeline() {
   const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="career-timeline-section" id="erfaring" ref={sectionRef}>
-      <motion.div
-        className="career-header"
-        initial={{ opacity: 0, y: 45 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+    <MotionConfig reducedMotion="user">
+      <section
+        className="career-timeline-section"
+        id="erfaring"
+        ref={sectionRef}
       >
-        <span className="career-label">Career</span>
-        <h2>Erfaring</h2>
-        <p className="career-timeline-subtitle">
-          En oversikt over min arbeidserfaring
-        </p>
-      </motion.div>
+        <motion.div
+          className="career-header"
+          initial={{ opacity: 0, y: 45 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <span className="career-label">Karriere</span>
+          <h2>Erfaring</h2>
+          <p className="career-timeline-subtitle">
+            En oversikt over min arbeidserfaring
+          </p>
+        </motion.div>
 
-      <div className="timeline-track">
-        <motion.div className="timeline-line" style={{ height: lineHeight }} />
+        <div className="timeline-track">
+          <motion.div className="timeline-line" style={{ height: lineHeight }} />
 
-        {experiences.map((exp, i) => {
-          const side = i % 2 === 0 ? "left" : "right";
+          {experiences.map((exp, i) => {
+            const side = i % 2 === 0 ? "left" : "right";
 
-          return (
-            <motion.div
-              key={exp.title}
-              className={`timeline-item ${side}`}
-              variants={cardVariants}
-              initial={side === "left" ? "hiddenLeft" : "hiddenRight"}
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ delay: i * 0.12 }}
-            >
-              <div className="timeline-empty" />
-
-              <div className="timeline-node-col">
-                <motion.div
-                  className="timeline-node"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: i * 0.12 + 0.2,
-                    duration: 0.45,
-                    type: "spring",
-                    stiffness: 220,
-                  }}
-                />
-              </div>
-
-              <motion.article
-                className="timeline-card"
-                whileHover={{
-                  y: -8,
-                  scale: 1.015,
-                  transition: { duration: 0.25 },
-                }}
+            return (
+              <motion.div
+                key={`${exp.company}-${exp.date}`}
+                className={`timeline-item ${side}`}
+                variants={cardVariants}
+                initial={side === "left" ? "hiddenLeft" : "hiddenRight"}
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ delay: i * 0.12 }}
               >
-                <div className="card-glow" />
+                <div className="timeline-empty" />
 
-                <div className="card-meta">
-                  <span className="card-icon">{exp.icon}</span>
-                  <span className="card-date">{exp.date}</span>
+                <div className="timeline-node-col">
+                  <motion.div
+                    className="timeline-node"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: i * 0.12 + 0.2,
+                      duration: 0.45,
+                      type: "spring",
+                      stiffness: 220,
+                    }}
+                  />
                 </div>
 
-                <h3 className="card-title">{exp.title}</h3>
-                <p className="card-company">{exp.company}</p>
-                <p className="card-desc">{exp.desc}</p>
-              </motion.article>
-            </motion.div>
-          );
-        })}
-      </div>
-    </section>
+                <motion.article
+                  className="timeline-card"
+                  whileHover={{
+                    y: -8,
+                    scale: 1.015,
+                    transition: { duration: 0.25 },
+                  }}
+                >
+                  <div className="card-glow" />
+
+                  <div className="card-meta">
+                    <span className="card-icon" aria-hidden="true">
+                      {exp.icon}
+                    </span>
+                    <span className="card-date">{exp.date}</span>
+                  </div>
+
+                  <h3 className="card-title">{exp.title}</h3>
+                  <p className="card-company">{exp.company}</p>
+                  <p className="card-desc">{exp.desc}</p>
+                </motion.article>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+    </MotionConfig>
   );
 }

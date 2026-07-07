@@ -4,38 +4,7 @@
   padding: 5rem 1.5rem;
   position: relative;
   overflow: hidden;
-}
-
-.career-timeline-section::before {
-  content: "";
-  position: absolute;
-  width: 650px;
-  height: 650px;
-  top: -220px;
-  left: -250px;
-  background: radial-gradient(
-    circle,
-    rgba(108, 99, 255, 0.22),
-    transparent 68%
-  );
-  animation: floatGlow 10s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.career-timeline-section::after {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  bottom: -260px;
-  right: -240px;
-  background: radial-gradient(
-    circle,
-    rgba(167, 139, 250, 0.18),
-    transparent 70%
-  );
-  animation: floatGlow 12s ease-in-out infinite reverse;
-  pointer-events: none;
+  scroll-margin-top: 90px; /* gir luft under sticky-nav ved ankerklikk */
 }
 
 .career-header {
@@ -322,17 +291,11 @@
   margin: 0;
 }
 
-@keyframes floatGlow {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  50% {
-    transform: translate(45px, 32px);
-  }
-
-  100% {
-    transform: translate(0, 0);
+/* Respekterer brukerens reduced motion-innstilling */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-node,
+  .timeline-card {
+    transition: none;
   }
 }
 
@@ -394,5 +357,6 @@
   .timeline-card {
     padding: 1.45rem;
     border-radius: 22px;
+    backdrop-filter: none; /* blur over animert canvas er tungt på mobil */
   }
 }
