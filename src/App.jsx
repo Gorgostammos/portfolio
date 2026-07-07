@@ -1,6 +1,7 @@
 // src/App.jsx
 import "./App.css";
 import PillNav from "./components/PillNav/PillNav";
+import CareerTimeline from "./components/CareerTimeline/CareerTimeline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGlobe,
@@ -103,77 +104,8 @@ function App() {
         </div>
 
         {/* ERFARING */}
-        <div className="Erfaring" id="erfaring">
-          <h2>Erfaring</h2>
-
-          <section className="experience-card">
-            <div className="experience-left">
-              <h3>Webutvikler</h3>
-              <p className="experience-workplace">PromotionRA</p>
-              <p className="experience-workplace">
-                Jeg utviklet den nye nettsiden til PRA i React, der jeg hadde
-                ansvar for struktur, design, innhold og publisering. Jeg
-                produserte også plakater og videoreklamer til markedsføring. I
-                tillegg hadde jeg ansvar for innhold på sosiale medier, blant
-                annet Instagram, Facebook og TikTok, samt publisering på andre
-                relevante nettsider som «Hva skjer i Østfold». Dette ga meg
-                erfaring med nettsideutvikling, digital markedsføring og
-                innholdsproduksjon.
-              </p>
-            </div>
-            <div className="experience-right">
-              <p className="experience-date">mars 2026 - nå</p>
-            </div>
-          </section>
-
-          <section className="experience-card">
-            <div className="experience-left">
-              <h3>It support</h3>
-              <p className="experience-workplace">Frontkom</p>
-              <p className="experience-workplace">
-                Jeg har jobbet tett med kunder for å løse både enkle og
-                komplekse tekniske utfordringer. Jeg har blant annet oppdatert
-                plugins og kode, rettet feil i funksjonen for tilbakestilling av
-                passord, samt foreslått tiltak for å bedre tilgjengeligheten på
-                nettsider. Dette har gitt meg solid erfaring med feilsøking,
-                oppgraderinger og praktisk problemløsning.
-              </p>
-            </div>
-            <div className="experience-right">
-              <p className="experience-date">juni 2025 - august 2025</p>
-            </div>
-          </section>
-
-          <section className="experience-card">
-            <div className="experience-left">
-              <h3>Sommerjobb</h3>
-              <p className="experience-workplace">Christensen bakeri</p>
-              <p className="experience-workplace">
-                Hjalp til med å lage og pynte bakverk, sorterte varer og vasket
-                opp.
-              </p>
-            </div>
-            <div className="experience-right">
-              <p className="experience-date">
-                juni 2022 - august. 2022 og juni 2023 - juli 2023
-              </p>
-            </div>
-          </section>
-
-          <section className="experience-card">
-            <div className="experience-left">
-              <h3>Vikar</h3>
-              <p className="experience-workplace">Johannes pizza</p>
-              <p className="experience-workplace">
-                Tok imot bestillinger, håndterte kassen, kjørte bestillinger ved
-                hjemlevering, bistod med matlaging og klargjorde før åpning.
-              </p>
-            </div>
-            <div className="experience-right">
-              <p className="experience-date">februar. 2021 - april 2021</p>
-            </div>
-          </section>
-        </div>
+        <CareerTimeline />
+    
 
         {/* FERDIGHETER */}
         <div className="Ferdigheter" id="ferdigheter">
