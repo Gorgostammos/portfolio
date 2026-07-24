@@ -9,6 +9,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { age } from "./utils/age";
+import ScrollFloat from "./components/ScrollFloat/ScrollFloat";
 
 function App() {
   const navItems = [
@@ -105,12 +106,20 @@ function App() {
 
         {/* ERFARING */}
         <CareerTimeline />
-    
 
         {/* FERDIGHETER */}
         <div className="Ferdigheter" id="ferdigheter">
           <h2>Ferdigheter</h2>
-
+          
+          <ScrollFloat
+            animationDuration={1}
+            ease="back.inOut(2)"
+            scrollStart="center bottom+=50%"
+            scrollEnd="bottom bottom-=40%"
+            stagger={0.04}
+          >
+            React Bits
+          </ScrollFloat>
           <div className="skill-group">
             <h3>Programmeringsspråk</h3>
             <div className="icons">
@@ -131,7 +140,6 @@ function App() {
               </span>
             </div>
           </div>
-
           <div className="skill-group">
             <h3>Web & Rammeverk</h3>
             <div className="icons">
@@ -149,7 +157,6 @@ function App() {
               </span>
             </div>
           </div>
-
           <div className="skill-group">
             <h3>Databaser</h3>
             <div className="icons">
@@ -170,7 +177,6 @@ function App() {
               </span>
             </div>
           </div>
-
           <div className="skill-group">
             <h3>Verktøy & IDE-er</h3>
             <div className="icons">
