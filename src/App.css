@@ -77,11 +77,16 @@ section.profile {
 }
 
 /* ----------------------------------------------------------- SEKSJONSTITLER (samme stil som Erfaring) ----------------------------------------------------------- */
-.omMeg h2,
-.Utdanning h2,
-.Ferdigheter h2,
-.Prosjekter h2,
-.contact-card h2 {
+/* VIKTIG: :not(.scroll-float) holder ScrollFloat utenfor.
+   ScrollFloat legger teksten i <span class="char"> som er inline-block.
+   -webkit-text-fill-color arves ned til dem, men background-image gjør
+   IKKE det -> gjennomsiktige bokstaver uten gradient = usynlig tittel.
+   ScrollFloat.css setter gradienten på .char selv i stedet. */
+.omMeg h2:not(.scroll-float),
+.Utdanning h2:not(.scroll-float),
+.Ferdigheter h2:not(.scroll-float),
+.Prosjekter h2:not(.scroll-float),
+.contact-card h2:not(.scroll-float) {
   font-size: clamp(2.4rem, 6vw, 4.3rem);
   font-weight: 900;
   letter-spacing: -1px;
@@ -92,12 +97,23 @@ section.profile {
   -webkit-text-fill-color: transparent;
 }
 
-.Ferdigheter h2 {
+.Ferdigheter h2:not(.scroll-float) {
   margin-bottom: 2.5rem;
   /* .Ferdigheter har bare 5px gap, trenger luft under tittelen */
 }
 
-.contact-card h2 {
+.contact-card h2:not(.scroll-float) {
+  margin-bottom: 1.5rem;
+}
+
+/* ScrollFloat-titler: selve utseendet ligger i ScrollFloat.css.
+   Her setter vi bare avstanden per seksjon - nøyaktig samme
+   verdier som de statiske h2-ene hadde. */
+.Ferdigheter .scroll-float {
+  margin-bottom: 2.5rem;
+}
+
+.contact-card .scroll-float {
   margin-bottom: 1.5rem;
 }
 

@@ -9,6 +9,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { age } from "./utils/age";
+import ScrollFloat from "./components/ScrollFloat/ScrollFloat";
 
 function App() {
   const navItems = [
@@ -27,7 +28,7 @@ function App() {
 
         {/* OM MEG */}
         <div className="omMeg" id="om-meg">
-          <h2>Om meg</h2>
+          <ScrollFloat>Om meg</ScrollFloat>
           <section className="profile">
             <div className="meg">
               <p id="jeg">Hei, jeg er Gorgos Tammo og jeg er en utvikler.</p>
@@ -77,7 +78,7 @@ function App() {
 
         {/* UTDANNING */}
         <div className="Utdanning" id="utdanning">
-          <h2>Utdanning</h2>
+          <ScrollFloat>Utdanning</ScrollFloat>
 
           <section className="education-card">
             <div className="education-left">
@@ -105,12 +106,10 @@ function App() {
 
         {/* ERFARING */}
         <CareerTimeline />
-    
 
         {/* FERDIGHETER */}
         <div className="Ferdigheter" id="ferdigheter">
-          <h2>Ferdigheter</h2>
-
+          <ScrollFloat>Ferdigheter</ScrollFloat>
           <div className="skill-group">
             <h3>Programmeringsspråk</h3>
             <div className="icons">
@@ -131,7 +130,6 @@ function App() {
               </span>
             </div>
           </div>
-
           <div className="skill-group">
             <h3>Web & Rammeverk</h3>
             <div className="icons">
@@ -149,7 +147,6 @@ function App() {
               </span>
             </div>
           </div>
-
           <div className="skill-group">
             <h3>Databaser</h3>
             <div className="icons">
@@ -170,7 +167,6 @@ function App() {
               </span>
             </div>
           </div>
-
           <div className="skill-group">
             <h3>Verktøy & IDE-er</h3>
             <div className="icons">
@@ -198,7 +194,7 @@ function App() {
 
         {/* PROSJEKTER */}
         <div className="Prosjekter" id="prosjekter">
-          <h2>Prosjekter</h2>
+          <ScrollFloat>Prosjekter</ScrollFloat>
 
           <div className="projects-grid">
             <section className="project-card">
@@ -441,7 +437,7 @@ function App() {
         {/* KONTAKT */}
         <footer className="footer" id="kontakt">
           <section className="contact-card">
-            <h2>Kontakt</h2>
+            <ScrollFloat>Kontakt</ScrollFloat>
             <div className="contact-info">
               <p>
                 La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
