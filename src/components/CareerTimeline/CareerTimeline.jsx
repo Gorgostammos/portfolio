@@ -6,6 +6,7 @@ import {
   MotionConfig,
 } from "framer-motion";
 import { useRef } from "react";
+import ScrollFloat from "../ScrollFloat/ScrollFloat";
 import "./CareerTimeline.css";
 
 const experiences = [
@@ -95,14 +96,17 @@ export default function CareerTimeline() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <span className="career-label">Karriere</span>
-          <h2>Erfaring</h2>
+          <ScrollFloat>Erfaring</ScrollFloat>
           <p className="career-timeline-subtitle">
             En oversikt over min arbeidserfaring
           </p>
         </motion.div>
 
         <div className="timeline-track">
-          <motion.div className="timeline-line" style={{ height: lineHeight }} />
+          <motion.div
+            className="timeline-line"
+            style={{ height: lineHeight }}
+          />
 
           {experiences.map((exp, i) => {
             const side = i % 2 === 0 ? "left" : "right";

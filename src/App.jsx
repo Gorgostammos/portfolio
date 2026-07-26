@@ -28,7 +28,7 @@ function App() {
 
         {/* OM MEG */}
         <div className="omMeg" id="om-meg">
-          <h2>Om meg</h2>
+          <ScrollFloat>Om meg</ScrollFloat>
           <section className="profile">
             <div className="meg">
               <p id="jeg">Hei, jeg er Gorgos Tammo og jeg er en utvikler.</p>
@@ -78,7 +78,7 @@ function App() {
 
         {/* UTDANNING */}
         <div className="Utdanning" id="utdanning">
-          <h2>Utdanning</h2>
+          <ScrollFloat>Utdanning</ScrollFloat>
 
           <section className="education-card">
             <div className="education-left">
@@ -109,17 +109,7 @@ function App() {
 
         {/* FERDIGHETER */}
         <div className="Ferdigheter" id="ferdigheter">
-          <h2>Ferdigheter</h2>
-          
-          <ScrollFloat
-            animationDuration={1}
-            ease="back.inOut(2)"
-            scrollStart="center bottom+=50%"
-            scrollEnd="bottom bottom-=40%"
-            stagger={0.04}
-          >
-            React Bits
-          </ScrollFloat>
+          <ScrollFloat>Ferdigheter</ScrollFloat>
           <div className="skill-group">
             <h3>Programmeringsspråk</h3>
             <div className="icons">
@@ -204,7 +194,7 @@ function App() {
 
         {/* PROSJEKTER */}
         <div className="Prosjekter" id="prosjekter">
-          <h2>Prosjekter</h2>
+          <ScrollFloat>Prosjekter</ScrollFloat>
 
           <div className="projects-grid">
             <section className="project-card">
@@ -447,7 +437,7 @@ function App() {
         {/* KONTAKT */}
         <footer className="footer" id="kontakt">
           <section className="contact-card">
-            <h2>Kontakt</h2>
+            <ScrollFloat>Kontakt</ScrollFloat>
             <div className="contact-info">
               <p>
                 La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
