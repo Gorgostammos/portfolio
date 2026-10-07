@@ -45,13 +45,20 @@ export default function PillNav({ items = [] }) {
   useLayoutEffect(() => {
     if (!items.length) return;
 
-    const initialHash =
-      window.location.hash &&
-      items.some((it) => it.href === window.location.hash)
-        ? window.location.hash
-        : (items[0]?.href ?? "");
-
+   const initialHash =
+     window.location.hash &&
+     items.some((it) => it.href === window.location.hash)
+       ? window.location.hash
+       : (items[0]?.href ?? "");
     setActive(initialHash);
+
+     if (window.location.hash) {
+       history.replaceState(
+         null,
+         "",
+         window.location.pathname + window.location.search,
+       );
+     }
 
     const i = Math.max(
       0,
@@ -129,22 +136,26 @@ export default function PillNav({ items = [] }) {
         document.documentElement.scrollHeight - bottomGap
       ) {
         const last = items[items.length - 1]?.href;
+
         if (last) {
           setActive((prev) => (prev === last ? prev : last));
-          history.replaceState(null, "", last);
         }
+
         return;
       }
 
       let current = tops[0]?.href ?? items[0]?.href;
+
       for (let i = 0; i < tops.length; i++) {
-        if (tops[i].top <= scrollPos) current = tops[i].href;
-        else break;
+        if (tops[i].top <= scrollPos) {
+          current = tops[i].href;
+        } else {
+          break;
+        }
       }
 
       if (current) {
         setActive((prev) => (prev === current ? prev : current));
-        history.replaceState(null, "", current);
       }
     };
 
@@ -208,7 +219,6 @@ export default function PillNav({ items = [] }) {
       if (!fromMobile) positionPill(index, true);
 
       scrollToHash(href);
-      history.replaceState(null, "", href);
 
       if (fromMobile) setOpen(false);
     };
