@@ -9,7 +9,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { age } from "./utils/age";
-import ScrollFloat from "./components/ScrollFloat/ScrollFloat";
+
 
 function App() {
   const navItems = [
@@ -28,7 +28,7 @@ function App() {
 
         {/* OM MEG */}
         <div className="omMeg" id="om-meg">
-          <ScrollFloat>Om meg</ScrollFloat>
+          <h1>Om meg</h1>
           <section className="profile">
             <div className="meg">
               <p id="jeg">Hei, jeg er Gorgos Tammo og jeg er en utvikler.</p>
@@ -78,7 +78,7 @@ function App() {
 
         {/* UTDANNING */}
         <div className="Utdanning" id="utdanning">
-          <ScrollFloat>Utdanning</ScrollFloat>
+          <h1>Utdanning</h1>
 
           <section className="education-card">
             <div className="education-left">
@@ -109,7 +109,7 @@ function App() {
 
         {/* FERDIGHETER */}
         <div className="Ferdigheter" id="ferdigheter">
-          <ScrollFloat>Ferdigheter</ScrollFloat>
+          <h1>Ferdigheter</h1>
           <div className="skill-group">
             <h3>Programmeringsspråk</h3>
             <div className="icons">
@@ -194,7 +194,7 @@ function App() {
 
         {/* PROSJEKTER */}
         <div className="Prosjekter" id="prosjekter">
-          <ScrollFloat>Prosjekter</ScrollFloat>
+          <h1>Prosjekter</h1>
 
           <div className="projects-grid">
             <section className="project-card">
@@ -405,7 +405,6 @@ function App() {
                   className="project-preview-image"
                 />
               </a>
-
               <p className="project-description">
                 Dette en Android applikasjon kalt "Socclub" som detter var et
                 eksamen prosjekt, der teamet og jeg utviklet ved hjelp av
@@ -437,7 +436,7 @@ function App() {
         {/* KONTAKT */}
         <footer className="footer" id="kontakt">
           <section className="contact-card">
-            <ScrollFloat>Kontakt</ScrollFloat>
+            <h1>Kontakt</h1>
             <div className="contact-info">
               <p>
                 La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
