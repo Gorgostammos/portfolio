@@ -7,6 +7,10 @@ import {
   faGlobe,
   faPhone,
   faEnvelope,
+  faCode,
+  faUserGroup,
+  faArrowTrendUp,
+
 } from "@fortawesome/free-solid-svg-icons";
 import { age } from "./utils/age";
 
@@ -21,24 +25,24 @@ function App() {
   ];
 
   return (
-    <div class="flex flex-col min-h-dvh w-full">
-      <header class="sticky top-0 z-9999 w-full">
+    <div className="flex flex-col min-h-dvh w-full">
+      <header className="sticky top-0 z-9999 w-full">
         <PillNav items={navItems} />
       </header>
 
-      <main class="site-main flex-1 w-full min-w-0 px-4 text-center md:px-8 lg:px-12">
+      <main className="site-main flex-1 w-full min-w-0 px-4 text-center md:px-8 lg:px-12 ">
         {/*intro*/}
         <section
-          class="flex flex-col min-h w-full max-w-275 mx-auto mt-2 mb-16 md:mb-24 gap-12 scroll-mt-25"
+          className="flex w-full max-w-full mx-auto flex-col mt-2 mb-16 md:mb-24 scroll-mt-25"
           id="intro"
         >
-          <section class="flex flex-col m-10 lg:flex-row max-w-4/5 self-center items-center justify-center gap-8 lg:gap-10 w-full">
-            <div class="flex flex-col w-full min-w-0 lg:flex-1 gap-10  justify-start rounded-[40px] px-10 py-6 text-left max-[768px]:px-6max-[768px]:py-5">
-              <h1 className="jeg text-6xl font-bold text-heading m-0">
+          <section className="flex flex-col m-10 lg:flex-row max-w-full self-center items-center justify-center gap-8 lg:gap-10 w-full">
+            <div className="flex flex-col w-full min-w-0 lg:flex-1 gap-10  justify-start rounded-[40px] px-10 py-6 text-left max-[768px]:px-6 max-[768px]:py-5">
+              <h1 className="jeg font-bold text-heading m-0 md:text-[1rem] lg:text-[7rem]">
                 Gorgos Tammo
               </h1>
 
-              <section className="divider flex flex-col gap-10 text-primary-text ]">
+              <section className="divider flex flex-col gap-10 text-primary-text w-1/2">
                 <p>
                   Jeg er fullstack-utvikler med fokus på moderne webteknologier.
                   jeg har utviklet flere nettsteder og applikasjoner, og har
@@ -78,11 +82,11 @@ function App() {
                 </div>
               </section>
             </div>
-            <div className="bilde block h-auto w-full max-w-88 lg:max-w-72 rounded-card lg:rounded-[30px_15px]">
+            <div className="bilde max-w-3/10 ">
               <img
                 src="/profile.webp"
                 alt="Profilbilde"
-                className="block h-auto w-full max-w-88 lg:max-w-72 rounded-card lg:rounded-[30px_15px]"
+                className="block h-auto w-full max-w-100 lg:max-w-96 rounded-card lg:rounded-[30px_15px]"
               />
             </div>
           </section>
@@ -91,26 +95,90 @@ function App() {
         {/* Om meg */}
 
         <section
-          className="flex flex-col gap-19 my-24 max-w-4/5 mx-auto"
+          className="flex flex-col gap-8 my-24 max-w-4/5 mx-auto"
           id="om-meg"
         >
-          <h1 className="text-4xl font-bold text-heading self-start ">
-            Om meg
-          </h1>
-          <div className="flex flex-col  w-full text-left  lg:flex-1gap-2 items-center self-center shadow-card border border-card-border bg-card rounded-[40px] px-10 py-6  /*shadow-[0_0_20px_5px_rgba(240,237,237,0.3)]*/ max-[768px]:px-6max-[768px]:py-5">
-            <p className="text-primary-text m-2 text-[1rem] justify-center items-center">
-              Hei! Jeg heter Gorgos og har en bachelorgrad i
-              informasjonssystemer, med spesialisering i Software Engineering og
-              Business Intelligence. Jeg har stor interesse for programmering og
-              problemløsning, og synes det er spesielt spennende å følge
-              utviklingsprosessen fra idé til ferdig produkt. Jeg trives både
-              med å jobbe selvstendig og samarbeide med andre for å finne gode
-              løsninger. Gjennom prosjekter som GYK og andre
-              utviklingsprosjekter har jeg fått praktisk erfaring med
-              fullstack-utvikling, blant annet med frontend, databaser og
-              systemintegrasjoner. Jeg liker å utfordre meg selv, lære nye
-              teknologier og stadig utvikle meg som utvikler.
-            </p>
+          <h1 className="text-4xl font-bold text-heading self-start">Om meg</h1>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2px_1fr] gap-8 lg:gap-10 bg-card rounded-card p-6 md:p-10 text-left">
+            {/* VENSTRE SIDE: Presentasjon */}
+
+            <div className="min-w-0">
+              <p className="text-primary-text m-2 text-[1rem] leading-relaxed ">
+                Hei! Jeg heter Gorgos, jeg har en bachelorgrad i
+                informasjonssystemer, med spesialisering i Software Engineering
+                og Business Intelligence. Jeg har stor interesse for
+                programmering og liker å utvikle løsninger fra idé til ferdig
+                produkt. Gjennom prosjekter som GYK har jeg fått praktisk
+                erfaring med fullstack-utvikling, blant annet innen frontend,
+                databaser og systemintegrasjoner.
+              </p>
+            </div>
+
+            {/* STREKEN MELLOM KOLONNENE */}
+            <div
+              aria-hidden="true"
+              className="animated-divider h-[2px] w-full lg:h-auto lg:w-[3px]"
+            />
+
+            {/* HØYRE SIDE: Hvordan jeg jobber */}
+            <section className="flex flex-col gap-4">
+              <h3 className="text-2xl font-bold text-heading">
+                Hvordan jeg jobber
+              </h3>
+
+              <div className="flex items-start gap-4">
+                <FontAwesomeIcon
+                  icon={faCode}
+                  className="text-3xl text-accent-light"
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <h4 className="font-semibold text-primary-text">
+                    Løsningsorientert
+                  </h4>
+
+                  <p className="text-secondary-text">
+                    Jeg liker å forstå utfordringer og finne løsninger som
+                    fungerer i praksis.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <FontAwesomeIcon
+                  icon={faUserGroup}
+                  className="text-3xl text-accent-light"
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <h4 className="font-semibold text-primary-text">Samarbeid</h4>
+                  <p className="text-secondary-text">
+                    Jeg liker å samarbeide med andre, dele kunnskap og finne
+                    gode løsninger sammen.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <FontAwesomeIcon
+                  icon={faArrowTrendUp}
+                  className="text-3xl text-accent-light"
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <h4 className="font-semibold text-primary-text">
+                    Kontinuerlig læring
+                  </h4>
+                  <p className="text-secondary-text">
+                    Jeg holder meg oppdatert, utforsker nye teknologier og
+                    utvikler meg hele tiden
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -235,35 +303,35 @@ function App() {
             <h3>Databaser</h3>
             <div className="icons">
               <span
-                class="inline-flex relative mb-4"
+                className="inline-flex relative mb-4"
                 id="skill-icon"
                 data-label="MongoDB"
               >
                 <i className="devicon-mongodb-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
               <span
-                class="inline-flex relative mb-4"
+                className="inline-flex relative mb-4"
                 id="skill-icon"
                 data-label="MySQL"
               >
                 <i className="devicon-mysql-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
               <span
-                class="inline-flex relative mb-4"
+                className="inline-flex relative mb-4"
                 id="skill-icon"
                 data-label="Firebase"
               >
                 <i className="devicon-firebase-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
               <span
-                class="inline-flex relative mb-4"
+                className="inline-flex relative mb-4"
                 id="skill-icon"
                 data-label="Neo4j"
               >
                 <i className="devicon-neo4j-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
               <span
-                class="inline-flex relative mb-4"
+                className="inline-flex relative mb-4"
                 id="skill-icon"
                 data-label="Supabase"
               >

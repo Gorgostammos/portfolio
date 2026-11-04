@@ -32,6 +32,9 @@
 
   /* Blålilla: Gradienter og dekorative detaljer */
   --color-accent-secondary: #6366f1;
+  
+  --color-accent-3: #d876f9;
+  --color-accent-4: #91e9e3;
 
 
   /* =========================================
@@ -59,7 +62,7 @@
   --color-card-border: #4b4665;
 
   /* Bakgrunn på knapper */
-  --color-button: #5951ac;
+  --color-button: #51a8ac;
 
 
   /* =========================================
@@ -96,8 +99,42 @@
 
   /* Standard skrifttype */
   --font-main: "Inter", sans-serif;
+
 }
 
+
+.animated-divider {
+  --divider-direction: to right; /* horisontal på mobil */
+  border-radius: 999px;
+  background-image: linear-gradient(
+    var(--divider-direction),
+    var(--color-accent-primary),
+    var(--color-accent-3),
+    var(--color-accent-4),
+    var(--color-accent-primary)
+  );
+  background-size: 200% 200%; /* gradienten er større enn streken, så den kan gli */
+  animation: dividerFlow 5s ease-in-out infinite alternate;
+}
+
+@media (min-width: 1024px) {
+  .animated-divider {
+    --divider-direction: to bottom; /* vertikal på lg, matcher lg:w-[2px] */
+  }
+}
+
+@keyframes dividerFlow {
+  from { background-position: 0% 0%; }
+  to   { background-position: 100% 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-divider {
+    animation: none;
+    background-image: none;
+    background-color: var(--color-accent-primary);
+  }
+}
 
 
 :root {
