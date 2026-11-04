@@ -10,7 +10,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { age } from "./utils/age";
 
-
 function App() {
   const navItems = [
     { label: "Om meg", href: "#om-meg" },
@@ -22,26 +21,33 @@ function App() {
   ];
 
   return (
-    <>
-      <div>
+    <div class="flex flex-col min-h-dvh w-full">
+      <header class="sticky top-0 z-9999 w-full">
         <PillNav items={navItems} />
+      </header>
 
-        {/* OM MEG */}
-        <div className="omMeg" id="om-meg">
-          <h1>Om meg</h1>
-          <section className="profile">
-            <div className="meg">
-              <p id="jeg">Hei, jeg er Gorgos Tammo og jeg er en utvikler.</p>
-              <p>
-                Jeg er en mann på {age(2002)} år og har fullført bachelorgrad
-                innen informasjonssystemer, med spesialisering i Software
-                Engineering og Business Intelligence. Jeg trives godt både i
-                selvstendige prosjekter og i teammiljøer, og jeg er spesielt
-                glad i programmering.
-              </p>
-              <section className="divider">
-                <p>For mere info kan du lese mere her:</p>
-                <div className="social-icons">
+      <main class="site-main flex-1 w-full min-w-0 px-4 text-center md:px-8 lg:px-12">
+        {/*intro*/}
+        <section
+          class="flex flex-col min-h w-full max-w-275 mx-auto mt-2 mb-16 md:mb-24 gap-12 scroll-mt-25"
+          id="intro"
+        >
+          <section class="flex flex-col m-10 lg:flex-row max-w-4/5 self-center items-center justify-center gap-8 lg:gap-10 w-full">
+            <div class="flex flex-col w-full min-w-0 lg:flex-1 gap-10  justify-start rounded-[40px] px-10 py-6 text-left max-[768px]:px-6max-[768px]:py-5">
+              <h1 className="jeg text-6xl font-bold text-heading m-0">
+                Gorgos Tammo
+              </h1>
+
+              <section className="divider flex flex-col gap-10 text-primary-text ]">
+                <p>
+                  Jeg er fullstack-utvikler med fokus på moderne webteknologier.
+                  jeg har utviklet flere nettsteder og applikasjoner, og har
+                  erfaring med både frontend og backend utvikling. Jeg er
+                  opptatt av å skape brukervennlige og effektive løsninger, og
+                  jeg trives med å jobbe i team for å levere kvalitetsprodukter.
+                </p>
+
+                <div className="social-icons flex flex-wrap gap-10 self-start">
                   <a
                     className="icon-link"
                     href="https://www.linkedin.com/in/gorgos-tammo-8b2286230/"
@@ -51,6 +57,7 @@ function App() {
                   >
                     <i className="devicon-linkedin-plain"></i>
                   </a>
+
                   <a
                     className="icon-link"
                     href="https://github.com/Gorgostammos"
@@ -60,6 +67,7 @@ function App() {
                   >
                     <i className="devicon-github-original"></i>
                   </a>
+
                   <a
                     className="icon-link cv-link"
                     href="/CV/CV_Gorgos_Tammo.pdf"
@@ -70,131 +78,251 @@ function App() {
                 </div>
               </section>
             </div>
-            <div className="bilde">
-              <img src="/profile.webp" alt="Profilbilde" />
+            <div className="bilde block h-auto w-full max-w-88 lg:max-w-72 rounded-card lg:rounded-[30px_15px]">
+              <img
+                src="/profile.webp"
+                alt="Profilbilde"
+                className="block h-auto w-full max-w-88 lg:max-w-72 rounded-card lg:rounded-[30px_15px]"
+              />
             </div>
           </section>
-        </div>
+        </section>
+
+        {/* Om meg */}
+
+        <section
+          className="flex flex-col gap-19 my-24 max-w-4/5 mx-auto"
+          id="om-meg"
+        >
+          <h1 className="text-4xl font-bold text-heading self-start ">
+            Om meg
+          </h1>
+          <div className="flex flex-col  w-full text-left  lg:flex-1gap-2 items-center self-center shadow-card border border-card-border bg-card rounded-[40px] px-10 py-6  /*shadow-[0_0_20px_5px_rgba(240,237,237,0.3)]*/ max-[768px]:px-6max-[768px]:py-5">
+            <p className="text-primary-text m-2 text-[1rem] justify-center items-center">
+              Hei! Jeg heter Gorgos og har en bachelorgrad i
+              informasjonssystemer, med spesialisering i Software Engineering og
+              Business Intelligence. Jeg har stor interesse for programmering og
+              problemløsning, og synes det er spesielt spennende å følge
+              utviklingsprosessen fra idé til ferdig produkt. Jeg trives både
+              med å jobbe selvstendig og samarbeide med andre for å finne gode
+              løsninger. Gjennom prosjekter som GYK og andre
+              utviklingsprosjekter har jeg fått praktisk erfaring med
+              fullstack-utvikling, blant annet med frontend, databaser og
+              systemintegrasjoner. Jeg liker å utfordre meg selv, lære nye
+              teknologier og stadig utvikle meg som utvikler.
+            </p>
+          </div>
+        </section>
 
         {/* UTDANNING */}
-        <div className="Utdanning" id="utdanning">
-          <h1>Utdanning</h1>
+        <section
+          className="flex flex-col gap-14 my-24 mx-auto max-w-275"
+          id="utdanning"
+        >
+          <h1 className="text-4xl font-bold text-heading">Utdanning</h1>
 
-          <section className="education-card">
-            <div className="education-left">
+          <section className="education-card flex flex-col w-full min-w-0 lg:flex-1gap-2 shadow-card justify-start border border-card-border bg-card rounded-[40px] px-10 py-6 text-left shadow-[0_0_20px_5px_rgba(240,237,237,0.3)]max-[768px]:px-6max-[768px]:py-5">
+            <div className="education-left m-0 mb-14 text-2xl font-weight-bold text-primary-text">
               <h3>
                 Bachelorgrad i Informasjonssystemer – Software Engineering og
                 Business Intelligence
               </h3>
               <p className="education-school">Høgskolen i Østfold</p>
             </div>
-            <div className="education-right">
-              <p className="education-date">August 2021 – Juni 2024</p>
+            <div className="education-right ml-8 whitespace-nowrap">
+              <p className="education-date m-0 text-secondary-text">
+                August 2021 – Juni 2024
+              </p>
             </div>
           </section>
 
-          <section className="education-card">
-            <div className="education-left">
+          <section className="education-card flex flex-col w-full min-w-0 lg:flex-1gap-2 shadow-card justify-start border border-card-border bg-card rounded-[40px] px-10 py-6 text-left shadow-[0_0_20px_5px_rgba(240,237,237,0.3)]max-[768px]:px-6max-[768px]:py-5">
+            <div className="education-left education-left m-0 mb-14 text-2xl font-weight-bold text-primary-text">
               <h3>Studiespesialisering</h3>
-              <p className="education-school">Greåker VGS</p>
+              <p className="education-school m-0 text-2xl ">Greåker VGS</p>
             </div>
-            <div className="education-right">
-              <p className="education-date">August 2018 – Juni 2021</p>
+            <div className="education-right ml-8 whitespace-nowrap">
+              <p className="education-date m-0 text-secondary-text">
+                August 2018 – Juni 2021
+              </p>
             </div>
           </section>
-        </div>
+        </section>
 
         {/* ERFARING */}
         <CareerTimeline />
 
         {/* FERDIGHETER */}
-        <div className="Ferdigheter" id="ferdigheter">
-          <h1>Ferdigheter</h1>
+        <section
+          className="flex flex-wrap flex-col justify-center my-24 mx-auto gap-20"
+          id="ferdigheter"
+        >
+          <h1 className="text-4xl font-bold text-heading">Ferdigheter</h1>
           <div className="skill-group">
             <h3>Programmeringsspråk</h3>
             <div className="icons">
-              <span className="skill-icon" data-label="Java">
-                <i className="devicon-java-plain-wordmark"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Java"
+              >
+                <i className="devicon-java-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="Python">
-                <i className="devicon-python-plain-wordmark"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Python"
+              >
+                <i className="devicon-python-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="JavaScript">
-                <i className="devicon-javascript-plain"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="JavaScript"
+              >
+                <i className="devicon-javascript-plain flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="C#">
-                <i className="devicon-csharp-line-wordmark"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="C#"
+              >
+                <i className="devicon-csharp-line-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="Kotlin">
-                <i className="devicon-kotlin-plain-wordmark"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Kotlin"
+              >
+                <i className="devicon-kotlin-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
             </div>
           </div>
           <div className="skill-group">
             <h3>Web & Rammeverk</h3>
             <div className="icons">
-              <span className="skill-icon" data-label="Html">
-                <i className="devicon-html5-plain-wordmark"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Html"
+              >
+                <i className="devicon-html5-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="Css">
-                <i className="devicon-css3-plain-wordmark"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Css"
+              >
+                <i className="devicon-css3-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="React">
-                <i className="devicon-react-original-wordmark"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="React"
+              >
+                <i className="devicon-react-original-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label=".NET">
-                <i className="devicon-dot-net-plain-wordmark"></i>
+              <span
+                className="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label=".NET"
+              >
+                <i className="devicon-dot-net-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
             </div>
           </div>
           <div className="skill-group">
             <h3>Databaser</h3>
             <div className="icons">
-              <span className="skill-icon" data-label="MongoDB">
-                <i className="devicon-mongodb-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="MongoDB"
+              >
+                <i className="devicon-mongodb-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="MySQL">
-                <i className="devicon-mysql-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="MySQL"
+              >
+                <i className="devicon-mysql-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="Firebase">
-                <i className="devicon-firebase-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Firebase"
+              >
+                <i className="devicon-firebase-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="Neo4j">
-                <i className="devicon-neo4j-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Neo4j"
+              >
+                <i className="devicon-neo4j-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="Supabase">
-                <i className="devicon-supabase-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Supabase"
+              >
+                <i className="devicon-supabase-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
             </div>
           </div>
           <div className="skill-group">
             <h3>Verktøy & IDE-er</h3>
             <div className="icons">
-              <span className="skill-icon" data-label="Git">
-                <i className="devicon-git-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Git"
+              >
+                <i className="devicon-git-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="GitHub">
-                <i className="devicon-github-original-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="GitHub"
+              >
+                <i className="devicon-github-original-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="Android Studio">
-                <i className="devicon-androidstudio-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="Android Studio"
+              >
+                <i className="devicon-androidstudio-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="PyCharm">
-                <i className="devicon-pycharm-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="PyCharm"
+              >
+                <i className="devicon-pycharm-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="IntelliJ IDEA">
-                <i className="devicon-intellij-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="IntelliJ IDEA"
+              >
+                <i className="devicon-intellij-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
-              <span className="skill-icon" data-label="VS Code">
-                <i className="devicon-vscode-plain-wordmark"></i>
+              <span
+                class="inline-flex relative mb-4"
+                id="skill-icon"
+                data-label="VS Code"
+              >
+                <i className="devicon-vscode-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
               </span>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* PROSJEKTER */}
-        <div className="Prosjekter" id="prosjekter">
-          <h1>Prosjekter</h1>
+        <section className="Prosjekter" id="prosjekter">
+          <h1 class="text-4xl font-bold text-heading">Prosjekter</h1>
 
           <div className="projects-grid">
             <section className="project-card">
@@ -431,34 +559,34 @@ function App() {
               </section>
             </section>
           </div>
-        </div>
+        </section>
+      </main>
 
-        {/* KONTAKT */}
-        <footer className="footer" id="kontakt">
-          <section className="contact-card">
-            <h1>Kontakt</h1>
-            <div className="contact-info">
-              <p>
-                La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
-                alltid åpen for en prat.
-              </p>
+      {/* KONTAKT */}
+      <footer className="footer" id="kontakt">
+        <section className="contact-card">
+          <h1>Kontakt</h1>
+          <div className="contact-info">
+            <p>
+              La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er alltid
+              åpen for en prat.
+            </p>
 
-              <div className="telefon">
-                <a href="tel:46725849" aria-label="Telefonnummer">
-                  <FontAwesomeIcon icon={faPhone} />
-                  46725849
-                </a>
-              </div>
-
-              <a href="mailto:Gorgos2002@icloud.com" aria-label="E-post">
-                <FontAwesomeIcon icon={faEnvelope} />
-                Gorgos2002@icloud.com
+            <div className="telefon">
+              <a href="tel:46725849" aria-label="Telefonnummer">
+                <FontAwesomeIcon icon={faPhone} />
+                46725849
               </a>
             </div>
-          </section>
-        </footer>
-      </div>
-    </>
+
+            <a href="mailto:Gorgos2002@icloud.com" aria-label="E-post">
+              <FontAwesomeIcon icon={faEnvelope} />
+              Gorgos2002@icloud.com
+            </a>
+          </div>
+        </section>
+      </footer>
+    </div>
   );
 }
 

@@ -1,22 +1,124 @@
-/* src/index.css */
+@import "tailwindcss";
+
+
+
+ @theme {
+  /* =========================================
+     BAKGRUNNSFARGER
+  ========================================= */
+
+  /* Hovedbakgrunn på nettsiden */
+  --color-background: #0d0d14;
+
+  /* Bakgrunn på kort: Om meg, Prosjekter osv. */
+  --color-card: #1b1b28;
+
+  /* icon */
+  --color-iconBg: #262626;
+
+  /*hover icon*/
+  --color-hover-Icon:#4a45e2;
+
+
+  /* =========================================
+     LILLA AKSENTFARGER
+  ========================================= */
+
+  /* Hovedlilla: Knapper, lenker og aktiv navigasjon */
+  --color-accent-primary: #6c63ff;
+
+  /* Lys lilla: Overskrifter, ikoner og fremhevet tekst */
+  --color-accent-light: #a78bfa;
+
+  /* Blålilla: Gradienter og dekorative detaljer */
+  --color-accent-secondary: #6366f1;
+
+
+  /* =========================================
+     TEKSTFARGER
+  ========================================= */
+
+  /* Vanlig hovedtekst */
+  --color-primary-text: #ffffff;
+
+  /* Beskrivelser og sekundær tekst */
+  --color-secondary-text: #cfcfcf;
+
+  /* Dempet tekst */
+  --color-muted: #9290a6;
+
+  /* Overskrifter */
+  --color-heading: #c4b5fd;
+
+
+  /* =========================================
+     KANTLINJER OG KNAPPER
+  ========================================= */
+
+  /* Kantlinjer rundt kort */
+  --color-card-border: #4b4665;
+
+  /* Bakgrunn på knapper */
+  --color-button: #5951ac;
+
+
+  /* =========================================
+     AVRUNDING AV HJØRNER
+  ========================================= */
+
+  /* Kort */
+  --radius-card: 30px;
+
+  /* Bilder */
+  --radius-image: 15px;
+
+  /* Knapper */
+  --radius-button: 12px;
+
+  /*icon*/
+  --radius-icon:25px;
+
+
+  /* =========================================
+     SKYGGER
+  ========================================= */
+
+  /* Vanlig kortskygge */
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+  /* Lilla lysende skygge */
+  --shadow-glow: 0 0 20px rgba(108, 99, 255, 0.3);
+
+
+  /* =========================================
+     SKRIFTTYPER
+  ========================================= */
+
+  /* Standard skrifttype */
+  --font-main: "Inter", sans-serif;
+}
+
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #0d0d14;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
