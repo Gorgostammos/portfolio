@@ -10,8 +10,11 @@ import {
   faCode,
   faUserGroup,
   faArrowTrendUp,
-
+  faGraduationCap,
+  faBookOpen,
 } from "@fortawesome/free-solid-svg-icons";
+
+
 import { age } from "./utils/age";
 
 function App() {
@@ -30,10 +33,10 @@ function App() {
         <PillNav items={navItems} />
       </header>
 
-      <main className="site-main flex-1 w-full min-w-0 px-4 text-center md:px-8 lg:px-12 ">
+      <main className="site-main flex-1 w-full min-w-0 gap-16 px-4 md:gap-24 text-center md:px-8 lg:px-12 ">
         {/*intro*/}
         <section
-          className="flex w-full max-w-full mx-auto flex-col mt-2 mb-16 md:mb-24 scroll-mt-25"
+          className="flex w-full max-w-full mx-auto flex-col mt-2 mb-16 md:mb-24 scroll-mt-25 "
           id="intro"
         >
           <section className="flex flex-col m-10 lg:flex-row max-w-full self-center items-center justify-center gap-8 lg:gap-10 w-full">
@@ -44,11 +47,10 @@ function App() {
 
               <section className="divider flex flex-col gap-10 text-primary-text w-1/2">
                 <p>
-                  Jeg er fullstack-utvikler med fokus på moderne webteknologier.
-                  jeg har utviklet flere nettsteder og applikasjoner, og har
+                  fullstack-utvikler med fokus på moderne webteknologier. jeg
+                  har utviklet flere nettsteder og applikasjoner, og har
                   erfaring med både frontend og backend utvikling. Jeg er
-                  opptatt av å skape brukervennlige og effektive løsninger, og
-                  jeg trives med å jobbe i team for å levere kvalitetsprodukter.
+                  opptatt av å skape brukervennlige og effektive løsninger.
                 </p>
 
                 <div className="social-icons flex flex-wrap gap-10 self-start">
@@ -184,37 +186,58 @@ function App() {
 
         {/* UTDANNING */}
         <section
-          className="flex flex-col gap-14 my-24 mx-auto max-w-275"
+          className="w-full max-w-6xl mx-auto my-24 scroll-mt-25"
           id="utdanning"
         >
-          <h1 className="text-4xl font-bold text-heading">Utdanning</h1>
+          <h2 className="text-4xl font-bold text-heading mb-8">Utdanning</h2>
 
-          <section className="education-card flex flex-col w-full min-w-0 lg:flex-1gap-2 shadow-card justify-start border border-card-border bg-card rounded-[40px] px-10 py-6 text-left shadow-[0_0_20px_5px_rgba(240,237,237,0.3)]max-[768px]:px-6max-[768px]:py-5">
-            <div className="education-left m-0 mb-14 text-2xl font-weight-bold text-primary-text">
-              <h3>
-                Bachelorgrad i Informasjonssystemer – Software Engineering og
-                Business Intelligence
-              </h3>
-              <p className="education-school">Høgskolen i Østfold</p>
-            </div>
-            <div className="education-right ml-8 whitespace-nowrap">
-              <p className="education-date m-0 text-secondary-text">
-                August 2021 – Juni 2024
+          {/* Grid bestemmer hvordan kortene plasseres */}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Bachelorgrad */}
+            <div className="flex flex-col gap-3 rounded-card bg-card border border-card-border shadow-card p-6 md:p-8 text-left">
+              {/* Ikon og overskrift */}
+              <div className="flex items-start gap-3">
+                <FontAwesomeIcon
+                  icon={faGraduationCap}
+                  className="text-2xl text-accent-light"
+                />
+
+                <h3 className="text-xl font-semibold text-primary-text">
+                  Bachelorgrad i Informasjonssystemer
+                </h3>
+              </div>
+
+              <p className="text-secondary-text">
+                Software Engineering og Business Intelligence
+              </p>
+
+              <p className="text-accent-light">Høgskolen i Østfold</p>
+
+              <p className="text-secondary-text text-sm mt-auto pt-4">
+                2021 – 2024
               </p>
             </div>
-          </section>
 
-          <section className="education-card flex flex-col w-full min-w-0 lg:flex-1gap-2 shadow-card justify-start border border-card-border bg-card rounded-[40px] px-10 py-6 text-left shadow-[0_0_20px_5px_rgba(240,237,237,0.3)]max-[768px]:px-6max-[768px]:py-5">
-            <div className="education-left education-left m-0 mb-14 text-2xl font-weight-bold text-primary-text">
-              <h3>Studiespesialisering</h3>
-              <p className="education-school m-0 text-2xl ">Greåker VGS</p>
-            </div>
-            <div className="education-right ml-8 whitespace-nowrap">
-              <p className="education-date m-0 text-secondary-text">
-                August 2018 – Juni 2021
+            {/* Videregående */}
+            <div className="flex flex-col gap-3 rounded-card bg-card border border-card-border shadow-card p-6 text-left">
+              <div className="flex items-start gap-3">
+                <FontAwesomeIcon
+                  icon={faBookOpen}
+                  className="text-2xl text-accent-light"
+                />
+                <h3 className="text-xl font-semibold text-primary-text">
+                  Studiespesialisering
+                </h3>
+              </div>
+
+              <p className="text-accent-light">Greåker VGS</p>
+
+              <p className="text-secondary-text text-sm mt-auto pt-4">
+                2018 – 2021
               </p>
             </div>
-          </section>
+          </div>
         </section>
 
         {/* ERFARING */}

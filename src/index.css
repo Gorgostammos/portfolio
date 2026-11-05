@@ -114,7 +114,7 @@
     var(--color-accent-primary)
   );
   background-size: 200% 200%; /* gradienten er større enn streken, så den kan gli */
-  animation: dividerFlow 5s ease-in-out infinite alternate;
+  animation: dividerFlow 3s ease-in-out infinite alternate;
 }
 
 @media (min-width: 1024px) {
