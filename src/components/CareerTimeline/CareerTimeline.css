@@ -1,18 +1,56 @@
+/* =====================================================================
+   CareerTimeline.css – FORKLART VERSJON
+   Samme CSS som jeg ga deg, med kommentarer.
+   Lesetips: 1) layout-grid  2) sticky  3) linje + ring  4) kort  5) mobil
+   ===================================================================== */
+
+/* ---------- 1) LAYOUT: to kolonner ---------- */
 .career-timeline-section {
+  /* Grid = rader og kolonner. Her får vi to kolonner side om side. */
+  display: grid;
+
+  /* Kolonnebredder. 0.8fr + 1.2fr betyr at plassen deles 40 % / 60 %.
+     minmax(0, ...) er et triks: uten det kan innhold (lange ord, bilder)
+     presse kolonnen bredere enn den skal. Med 0 som minimum kan den krympe. */
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+
+  gap: 4rem;
+  /* mellomrom mellom kolonnene */
+
+  /* VIKTIG for sticky: "start" gjør at hver kolonne bare blir så høy som
+     innholdet. Uten dette (standard er "stretch") strekkes venstre kolonne
+     til samme høyde som tidslinjen, og da er det ingen plass igjen for den å
+     "gli" nedover – sticky ville sett ut som om den ikke virket. */
+  align-items: start;
+
   max-width: 1100px;
   margin: 6rem auto;
+  /* auto på sidene = sentrert på siden */
   padding: 0 1.5rem;
   position: relative;
-  overflow: hidden;
+
+  /* VIKTIG: ikke overflow: hidden her. Et forelder-element med overflow:hidden
+     gjør at position: sticky slutter å virke. "clip" klipper innhold som
+     stikker ut til siden, men uten den bivirkningen. */
+  overflow-x: clip;
+
+  /* Når nav-menyen hopper hit (#erfaring), stopper den 90px før toppen, så
+     den faste menyen ikke dekker overskriften. */
   scroll-margin-top: 90px;
-  /* gir luft under sticky-nav ved ankerklikk */
+}
+
+/* ---------- 2) STICKY OVERSKRIFT ---------- */
+.career-sticky {
+  /* sticky = oppfører seg normalt til du scroller dit at toppen er 20vh
+     (20 % av skjermhøyden) fra toppen. Da "fester" den seg der, helt til
+     forelderen (hele seksjonen) slutter. Da følger den med ut. */
+  position: sticky;
+  top: 20vh;
+  z-index: 2;
 }
 
 .career-header {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  margin-bottom: 5rem;
+  text-align: left;
 }
 
 .career-label {
@@ -20,7 +58,9 @@
   margin-bottom: 1rem;
   padding: 0.45rem 1rem;
   border-radius: 999px;
+  /* stor verdi = helt avrundet "pille" */
   background: rgba(108, 99, 255, 0.16);
+  /* rgba = rød, grønn, blå, gjennomsiktighet */
   border: 1px solid rgba(167, 139, 250, 0.35);
   color: #c4b5fd;
   font-size: 0.85rem;
@@ -29,338 +69,246 @@
   text-transform: uppercase;
 }
 
-/* :not(.scroll-float) holder ScrollFloat utenfor - se kommentaren i App.css */
-.career-timeline-section h2:not(.scroll-float) {
-  text-align: center;
-  font-size: clamp(2.4rem, 6vw, 4.3rem);
-  font-weight: 900;
-  margin: 0;
-  letter-spacing: -1px;
-  background: linear-gradient(135deg, #ffffff, #c4b5fd, #818cf8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .career-timeline-subtitle {
-  text-align: center;
   color: #9ca3af;
   font-size: 1rem;
-  margin: 1rem 0 0;
+  margin: 0.75rem 0 0;
   letter-spacing: 0.04em;
+  max-width: 28ch;
+  /* ch = bredden av tegnet "0", altså ca. 28 tegn per linje */
 }
 
+/* ---------- 3) TIDSLINJEN: skinne, lysende linje og ring ---------- */
 .timeline-track {
+  /* relative = barna med position: absolute plasserer seg i FORHOLD til denne
+     boksen. Prosent på `top` og `height` regnes dermed av tidslinjens høyde. */
   position: relative;
+
+  /* Gir plass til venstre for skinnen og ringen, så kortene ikke ligger oppå dem */
+  padding-left: 3.5rem;
   z-index: 2;
 }
 
-.timeline-track::before {
-  content: "";
+/* Skinnen og den lysende linjen deler posisjon og bredde, så de ligger
+   nøyaktig oppå hverandre. */
+.timeline-rail,
+.timeline-line {
   position: absolute;
-  left: 50%;
+  left: 12px;
   top: 0;
-  bottom: 0;
   width: 2px;
-  transform: translateX(-50%);
+  /* Midten av linjen ligger på 12 + 2/2 = 13px fra venstre kant.
+     Ringen under er 26px bred, så dens midte også er 13px. Derfor treffer de. */
+}
+
+.timeline-rail {
+  bottom: 0;
+  /* top: 0 + bottom: 0 = full høyde */
   background: rgba(167, 139, 250, 0.13);
-  z-index: 0;
+  /* veldig svak lilla */
 }
 
 .timeline-line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 2px;
-  transform: translateX(-50%);
+  /* Høyden settes IKKE her. framer-motion setter den som inline-style
+     (style={{ height: progress }} i JSX) mens du scroller. */
   background: linear-gradient(to bottom, #6c63ff, #a78bfa, #c084fc);
+
+  /* To lag med glød: en tett og sterk, en bred og svak. Komma skiller lagene. */
   box-shadow:
     0 0 16px rgba(108, 99, 255, 0.8),
     0 0 35px rgba(167, 139, 250, 0.45);
-  z-index: 1;
 }
 
+/* Ringen som følger scrollen. `top` settes av framer-motion. */
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  width: 26px;
+  height: 26px;
+
+  /* top: X% plasserer ringens ØVERSTE kant på X %. For at SENTRUM skal sitte
+     der, flytter vi den opp med halve høyden (-13px). */
+  margin-top: -13px;
+
+  border-radius: 50%;
+  /* 50 % = perfekt sirkel */
+  background: #0d0d14;
+  /* samme farge som siden, så skinnen ikke synes gjennom */
+  border: 2px solid #a78bfa;
+
+  /* Første skyggen har 0 blur og 6px spredning = en "ring" rundt ringen. */
+  box-shadow:
+    0 0 0 6px rgba(167, 139, 250, 0.16),
+    0 0 22px rgba(108, 99, 255, 0.75);
+  z-index: 3;
+  /* ligger over linjen */
+}
+
+/* Den lille prikken inni ringen. ::after = et ekstra element laget av CSS. */
+.timeline-marker::after {
+  content: "";
+  /* kreves, ellers vises ikke ::after */
+  position: absolute;
+  inset: 6px;
+  /* kortform for top/right/bottom/left: 6px */
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a78bfa, #6c63ff);
+}
+
+/* ---------- 4) KORTENE ---------- */
 .timeline-item {
-  display: grid;
-  grid-template-columns: 1fr 70px 1fr;
-  align-items: center;
-  margin-bottom: 5rem;
-  position: relative;
+  margin-bottom: 6rem;
+  /* luft mellom kortene */
 }
 
-/* Siste kort skal ikke legge ekstra luft under seksjonen */
-.timeline-item:last-child {
+/* Siste kort skal ikke legge ekstra luft under seksjonen.
+   :last-of-type = det siste elementet av sin type (her: siste <article>).
+   Vi bruker ikke :last-child fordi det er avhengig av hva som ligger sist. */
+.timeline-item:last-of-type {
   margin-bottom: 0;
 }
 
-.timeline-item.left .timeline-card {
-  grid-column: 1;
-  text-align: right;
-}
-
-.timeline-item.left .timeline-node-col {
-  grid-column: 2;
-}
-
-.timeline-item.left .timeline-empty {
-  grid-column: 3;
-}
-
-.timeline-item.right .timeline-empty {
-  grid-column: 1;
-}
-
-.timeline-item.right .timeline-node-col {
-  grid-column: 2;
-}
-
-.timeline-item.right .timeline-card {
-  grid-column: 3;
-  text-align: left;
-}
-
-.timeline-node-col {
+.item-meta {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-}
-
-.timeline-node {
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background: #0d0d14;
-  border: 3px solid #a78bfa;
-  box-shadow:
-    0 0 0 7px rgba(167, 139, 250, 0.16),
-    0 0 22px rgba(108, 99, 255, 0.75),
-    0 0 45px rgba(108, 99, 255, 0.45);
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.timeline-item:hover .timeline-node {
-  transform: scale(1.35);
-  box-shadow:
-    0 0 0 10px rgba(167, 139, 250, 0.22),
-    0 0 35px rgba(108, 99, 255, 0.95),
-    0 0 70px rgba(108, 99, 255, 0.55);
-}
-
-.timeline-card {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background:
-    linear-gradient(145deg,
-      rgba(38, 38, 38, 0.9),
-      rgba(23, 20, 39, 0.9));
-  border: 1px solid rgba(167, 139, 250, 0.2);
-  border-radius: 26px;
-  padding: 1.8rem 2rem;
-  backdrop-filter: blur(16px);
-  box-shadow:
-    0 0 20px rgba(240, 237, 237, 0.16),
-    0 18px 45px rgba(0, 0, 0, 0.35);
-  transition:
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.timeline-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg,
-      rgba(167, 139, 250, 0.55),
-      transparent 35%,
-      rgba(108, 99, 255, 0.4));
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.timeline-card:hover::before {
-  opacity: 1;
-}
-
-.card-glow {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  top: -145px;
-  right: -145px;
-  background: radial-gradient(circle,
-      rgba(108, 99, 255, 0.42) 0%,
-      rgba(167, 139, 250, 0.2) 38%,
-      transparent 70%);
-  opacity: 0;
-  transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
-  z-index: -1;
-}
-
-.timeline-card:hover .card-glow {
-  opacity: 1;
-  transform: scale(1.12);
-}
-
-.timeline-card:hover {
-  border-color: rgba(167, 139, 250, 0.55);
-  box-shadow:
-    0 0 45px rgba(108, 99, 255, 0.28),
-    0 24px 60px rgba(0, 0, 0, 0.42);
-}
-
-.timeline-item.left .timeline-card::after {
-  content: "";
-  position: absolute;
-  right: -24px;
-  top: 50%;
-  width: 24px;
-  height: 1px;
-  transform: translateY(-50%);
-  background: linear-gradient(to right, rgba(167, 139, 250, 0.65), transparent);
-}
-
-.timeline-item.right .timeline-card::after {
-  content: "";
-  position: absolute;
-  left: -24px;
-  top: 50%;
-  width: 24px;
-  height: 1px;
-  transform: translateY(-50%);
-  background: linear-gradient(to left, rgba(167, 139, 250, 0.65), transparent);
-}
-
-.card-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 0.65rem;
-}
-
-.timeline-item.left .card-meta {
-  justify-content: flex-end;
-}
-
-.timeline-item.right .card-meta {
-  justify-content: flex-start;
-}
-
-.card-icon {
-  font-size: 1rem;
-  filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.5));
+  /* flex = elementene ligger på rad */
+  justify-content: space-between;
+  /* dato helt til venstre, teller helt til høyre */
+  align-items: baseline;
+  /* tekstlinjene flukter, selv med ulik skriftstørrelse */
+  gap: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .card-date {
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #c4b5fd;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.item-count {
+  font-size: 0.8rem;
+  color: #6b7280;
+  letter-spacing: 0.12em;
+  /* Sifrene får lik bredde, så telleren ikke "hopper" når tallene skifter */
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-card {
+  /* Diagonal gradient (145 grader) fra grå til mørk lilla, litt gjennomsiktig */
+  background: linear-gradient(145deg,
+      rgba(38, 38, 38, 0.9),
+      rgba(23, 20, 39, 0.9));
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 24px;
+  padding: 1.6rem 1.8rem;
+  /* topp/bunn  venstre/høyre */
+
+  /* Gjør det som ligger BAK kortet uskarpt (frostet glass). Tungt for
+     nettleseren, derfor slått av på mobil lenger ned. */
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+
+  /* Når border-color/box-shadow endres (via .is-active under), skjer det
+     mykt over 0.4 sekunder i stedet for å hoppe. */
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* React legger klassen "is-active" på .timeline-item når kortet er midt på
+   skjermen (se useInView i JSX). Mellomrom i selektoren = "et .timeline-card
+   som ligger inni et .timeline-item.is-active". */
+.timeline-item.is-active .timeline-card {
+  border-color: rgba(167, 139, 250, 0.6);
+  box-shadow:
+    0 0 40px rgba(108, 99, 255, 0.25),
+    /* lilla glød */
+    0 18px 45px rgba(0, 0, 0, 0.35);
+  /* vanlig skygge under */
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  /* ikon og tekst midtstilt mot hverandre vertikalt */
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.card-icon {
+  flex: none;
+  /* ikonet får aldri lov til å krympe */
+  display: grid;
+  place-items: center;
+  /* enkleste måten å sentrere noe både vannrett og loddrett */
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(108, 99, 255, 0.16);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  font-size: 1.2rem;
 }
 
 .card-title {
-  font-size: 1.22rem;
+  font-size: 1.3rem;
   font-weight: 850;
   color: #ffffff;
-  margin: 0 0 0.25rem;
-  line-height: 1.3;
+  margin: 0;
+  /* nullstiller nettleserens standardmarg på h3 */
+  line-height: 1.25;
 }
 
 .card-company {
   font-size: 0.95rem;
   color: #a5b4fc;
-  margin: 0 0 0.85rem;
+  margin: 0.1rem 0 0;
   font-weight: 600;
 }
 
 .card-desc {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: #c0bdd6;
   line-height: 1.7;
+  /* luftig linjeavstand gjør lengre tekst lettere å lese */
   margin: 0;
 }
 
-/* Respekterer brukerens reduced motion-innstilling */
+/* Hvis brukeren har bedt om mindre bevegelse i operativsystemet:
+   ingen myk overgang på kortene. */
 @media (prefers-reduced-motion: reduce) {
-
-  .timeline-node,
   .timeline-card {
     transition: none;
   }
 }
 
-@media (max-width: 768px) {
+/* ---------- 5) MOBIL (820px og smalere) ---------- */
+@media (max-width: 820px) {
   .career-timeline-section {
+    grid-template-columns: 1fr;
+    /* én kolonne: overskrift over, kort under */
+    gap: 3rem;
     margin: 4rem auto;
     padding: 0 1rem;
   }
 
-  .career-header {
+  .career-sticky {
+    position: static;
+    /* tilbake til normal flyt: ingen sticky på små skjermer */
+  }
+
+  .timeline-track {
+    padding-left: 2.8rem;
+  }
+
+  .timeline-item {
     margin-bottom: 3.5rem;
   }
 
-  .timeline-track::before,
-  .timeline-line {
-    left: 20px;
-  }
-
-  .timeline-item,
-  .timeline-item.left,
-  .timeline-item.right {
-    display: grid;
-    grid-template-columns: 42px 1fr;
-    margin-bottom: 3rem;
-  }
-
-  .timeline-item.left .timeline-empty,
-  .timeline-item.right .timeline-empty {
-    display: none;
-  }
-
-  .timeline-item.left .timeline-node-col,
-  .timeline-item.right .timeline-node-col {
-    grid-column: 1;
-    grid-row: 1;
-    justify-content: flex-start;
-    padding-left: 11px;
-  }
-
-  .timeline-item.left .timeline-card,
-  .timeline-item.right .timeline-card {
-    grid-column: 2;
-    grid-row: 1;
-    text-align: left;
-  }
-
-  .timeline-item.left .card-meta {
-    justify-content: flex-start;
-  }
-
-  .timeline-item.left .timeline-card::after,
-  .timeline-item.right .timeline-card::after {
-    left: -18px;
-    right: auto;
-    width: 18px;
-    background: linear-gradient(to left, rgba(167, 139, 250, 0.65), transparent);
-  }
-
   .timeline-card {
-    padding: 1.45rem;
-    border-radius: 22px;
+    padding: 1.4rem;
+    border-radius: 20px;
     backdrop-filter: none;
-    /* blur over animert canvas er tungt på mobil */
+    /* blur over animert bakgrunn er tungt på mobil */
   }
 }
