@@ -35,63 +35,64 @@ function App() {
 
       <main className="site-main flex flex-col flex-1 w-full min-w-0 gap-15 md:gap-28 px-4 text-center md:px-8 lg:px-12">
         {/*intro*/}
-        <section
-          className="flex w-full max-w-full mx-auto flex-col mt-2 mb-16 md:mb-24 scroll-mt-25 "
-          id="intro"
-        >
-          <section className="flex flex-col m-10 lg:flex-row max-w-full self-center items-center justify-center gap-8 lg:gap-10 w-full">
-            <div className="flex flex-col w-full min-w-0 lg:flex-1 gap-10  justify-start rounded-[40px] px-10 py-6 text-left max-[768px]:px-6 max-[768px]:py-5">
-              <h1 className="jeg font-bold text-heading m-0 md:text-[1rem] lg:text-[7rem]">
+        <section id="intro" className="mx-auto w-full max-w-6xl scroll-mt-25">
+          <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:gap-12 py-10 lg:py-20">
+            {/* VENSTRE SIDE - TEKST */}
+            <div className="flex w-full min-w-0 flex-col gap-8 text-left lg:flex-[2]">
+              {/* Navn */}
+              <h1 className="m-0 text-4xl font-bold text-heading sm:text-5xl lg:text-6xl xl:text-7xl">
                 Gorgos Tammo
               </h1>
 
-              <section className="divider flex flex-col gap-10 text-primary-text w-1/2">
-                <p>
-                  fullstack-utvikler med fokus på moderne webteknologier. jeg
-                  har utviklet flere nettsteder og applikasjoner, og har
-                  erfaring med både frontend og backend utvikling. Jeg er
-                  opptatt av å skape brukervennlige og effektive løsninger.
-                </p>
+              {/* Beskrivelse */}
+              <p className="max-w-2xl text-base leading-relaxed text-primary-text">
+                Jeg er fullstack-utvikler med fokus på moderne webteknologier.
+                Jeg har utviklet flere nettsteder og applikasjoner, og har
+                erfaring med både frontend- og backend-utvikling. Jeg er opptatt
+                av å skape brukervennlige og effektive løsninger.
+              </p>
 
-                <div className="social-icons flex flex-wrap gap-10 self-start">
-                  <a
-                    className="icon-link"
-                    href="https://www.linkedin.com/in/gorgos-tammo-8b2286230/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                  >
-                    <i className="devicon-linkedin-plain"></i>
-                  </a>
+              {/* SOSIALE IKONER */}
+              <div className="flex flex-wrap items-center gap-6 sm:gap-10">
+                <a
+                  className="icon-link"
+                  href="https://www.linkedin.com/in/gorgos-tammo-8b2286230/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <i className="devicon-linkedin-plain"></i>
+                </a>
 
-                  <a
-                    className="icon-link"
-                    href="https://github.com/Gorgostammos"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                  >
-                    <i className="devicon-github-original"></i>
-                  </a>
+                <a
+                  className="icon-link"
+                  href="https://github.com/Gorgostammos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <i className="devicon-github-original"></i>
+                </a>
 
-                  <a
-                    className="icon-link cv-link"
-                    href="/CV/CV_Gorgos_Tammo.pdf"
-                    aria-label="CV"
-                  >
-                    CV
-                  </a>
-                </div>
-              </section>
+                <a
+                  className="icon-link cv-link"
+                  href="/CV/CV_Gorgos_Tammo.pdf"
+                  aria-label="CV"
+                >
+                  CV
+                </a>
+              </div>
             </div>
-            <div className="bilde max-w-3/10 ">
+
+            {/* HØYRE SIDE - PROFILBILDE */}
+            <div className="flex w-full min-w-0 justify-center lg:flex-[1] lg:justify-end">
               <img
                 src="/profile.webp"
                 alt="Profilbilde"
-                className="block h-auto w-full max-w-100 lg:max-w-96 rounded-card lg:rounded-[30px_15px]"
+                className="block h-auto w-full max-w-80 rounded-card lg:rounded-[30px_15px]"
               />
             </div>
-          </section>
+          </div>
         </section>
 
         {/* Om meg */}
@@ -241,8 +242,7 @@ function App() {
         </section>
 
         {/* ERFARING */}
-        <CareerTimeline
-        />
+        <CareerTimeline />
 
         {/* FERDIGHETER */}
         <section
