@@ -264,6 +264,7 @@
   color: #a5b4fc;
   margin: 0.1rem 0 0;
   font-weight: 600;
+  text-align: left;
 }
 
 .card-desc {
@@ -272,6 +273,8 @@
   line-height: 1.7;
   /* luftig linjeavstand gjør lengre tekst lettere å lese */
   margin: 0;
+  text-align: left;
+  
 }
 
 /* Hvis brukeren har bedt om mindre bevegelse i operativsystemet:

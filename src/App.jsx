@@ -33,7 +33,7 @@ function App() {
         <PillNav items={navItems} />
       </header>
 
-      <main className="site-main flex-1 w-full min-w-0 gap-16 px-4 md:gap-24 text-center md:px-8 lg:px-12 ">
+      <main className="site-main flex flex-col flex-1 w-full min-w-0 gap-15 md:gap-28 px-4 text-center md:px-8 lg:px-12">
         {/*intro*/}
         <section
           className="flex w-full max-w-full mx-auto flex-col mt-2 mb-16 md:mb-24 scroll-mt-25 "
@@ -241,7 +241,8 @@ function App() {
         </section>
 
         {/* ERFARING */}
-        <CareerTimeline />
+        <CareerTimeline
+        />
 
         {/* FERDIGHETER */}
         <section
