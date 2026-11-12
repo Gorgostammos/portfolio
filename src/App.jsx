@@ -2,6 +2,7 @@
 import "./App.css";
 import PillNav from "./components/PillNav/PillNav";
 import CareerTimeline from "./components/CareerTimeline/CareerTimeline";
+import Ferferdighetkort from "./components/Ferdighetkort/Ferdighetkort";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGlobe,
@@ -245,172 +246,11 @@ function App() {
         <CareerTimeline />
 
         {/* FERDIGHETER */}
-        <section
-          className="flex flex-wrap flex-col justify-center my-24 mx-auto gap-20"
-          id="ferdigheter"
-        >
-          <h1 className="text-4xl font-bold text-heading">Ferdigheter</h1>
-          <div className="skill-group">
-            <h3>Programmeringsspråk</h3>
-            <div className="icons">
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Java"
-              >
-                <i className="devicon-java-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Python"
-              >
-                <i className="devicon-python-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="JavaScript"
-              >
-                <i className="devicon-javascript-plain flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="C#"
-              >
-                <i className="devicon-csharp-line-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Kotlin"
-              >
-                <i className="devicon-kotlin-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3>Web & Rammeverk</h3>
-            <div className="icons">
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Html"
-              >
-                <i className="devicon-html5-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Css"
-              >
-                <i className="devicon-css3-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="React"
-              >
-                <i className="devicon-react-original-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label=".NET"
-              >
-                <i className="devicon-dot-net-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3>Databaser</h3>
-            <div className="icons">
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="MongoDB"
-              >
-                <i className="devicon-mongodb-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="MySQL"
-              >
-                <i className="devicon-mysql-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Firebase"
-              >
-                <i className="devicon-firebase-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Neo4j"
-              >
-                <i className="devicon-neo4j-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                className="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Supabase"
-              >
-                <i className="devicon-supabase-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3>Verktøy & IDE-er</h3>
-            <div className="icons">
-              <span
-                class="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Git"
-              >
-                <i className="devicon-git-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                class="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="GitHub"
-              >
-                <i className="devicon-github-original-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                class="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="Android Studio"
-              >
-                <i className="devicon-androidstudio-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                class="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="PyCharm"
-              >
-                <i className="devicon-pycharm-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                class="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="IntelliJ IDEA"
-              >
-                <i className="devicon-intellij-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-              <span
-                class="inline-flex relative mb-4"
-                id="skill-icon"
-                data-label="VS Code"
-              >
-                <i className="devicon-vscode-plain-wordmark flex items-center justify-center content-center w-25 h-18 rounded-icon bg-iconBg hover:cursor-pointer hover:text-hover-Icon hover:text-6xl"></i>
-              </span>
-            </div>
-          </div>
-        </section>
+
+        <Ferferdighetkort />
+      
+
+     
 
         {/* PROSJEKTER */}
         <section className="Prosjekter" id="prosjekter">

@@ -103,6 +103,41 @@
 }
 
 
+
+
+.skill-card{
+  position: relative;
+  isolation: isolate;
+
+
+  --spotlight-x: 0%;
+  --spotlight-y: 0%;
+}
+
+.skill-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius:inherit;
+  pointer-events: none;
+  opacity: 0;
+transition: opacity 200ms ease;
+
+  background: radial-gradient(
+    circle 220px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+  rgb(167 139 250/ 25%),
+  transparent 100%
+  );
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .skill-card:hover::before {
+    opacity: 1;
+  }
+}
+
 .animated-divider {
   --divider-direction: to right; /* horisontal på mobil */
   border-radius: 999px;
@@ -225,4 +260,10 @@ body::after {
   body::after {
     animation: none;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+  .skill-card::before {
+    display: none;
+  }
+}
 }
