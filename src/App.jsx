@@ -3,6 +3,7 @@ import "./App.css";
 import PillNav from "./components/PillNav/PillNav";
 import CareerTimeline from "./components/CareerTimeline/CareerTimeline";
 import Ferferdighetkort from "./components/Ferdighetkort/Ferdighetkort";
+import Projects from "./components/Projects/Projects";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGlobe,
@@ -16,7 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 
-import { age } from "./utils/age";
+
 
 function App() {
   const navItems = [
@@ -248,11 +249,10 @@ function App() {
         {/* FERDIGHETER */}
 
         <Ferferdighetkort />
-      
-
-     
 
         {/* PROSJEKTER */}
+        <Projects />
+
         <section className="Prosjekter" id="prosjekter">
           <h1 class="text-4xl font-bold text-heading">Prosjekter</h1>
 
