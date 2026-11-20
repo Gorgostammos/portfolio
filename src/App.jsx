@@ -4,6 +4,7 @@ import PillNav from "./components/PillNav/PillNav";
 import CareerTimeline from "./components/CareerTimeline/CareerTimeline";
 import Ferferdighetkort from "./components/Ferdighetkort/Ferdighetkort";
 import Projects from "./components/Projects/Projects";
+import Footer from "./components/Footer/Footer"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGlobe,
@@ -15,6 +16,7 @@ import {
   faGraduationCap,
   faBookOpen,
 } from "@fortawesome/free-solid-svg-icons";
+
 
 
 
@@ -256,30 +258,10 @@ function App() {
        
       </main>
 
+      <Footer/>
+
       {/* KONTAKT */}
-      <footer className="footer" id="kontakt">
-        <section className="contact-card">
-          <h1>Kontakt</h1>
-          <div className="contact-info">
-            <p>
-              La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er alltid
-              åpen for en prat.
-            </p>
-
-            <div className="telefon">
-              <a href="tel:46725849" aria-label="Telefonnummer">
-                <FontAwesomeIcon icon={faPhone} />
-                46725849
-              </a>
-            </div>
-
-            <a href="mailto:Gorgos2002@icloud.com" aria-label="E-post">
-              <FontAwesomeIcon icon={faEnvelope} />
-              Gorgos2002@icloud.com
-            </a>
-          </div>
-        </section>
-      </footer>
+     
     </div>
   );
 }
