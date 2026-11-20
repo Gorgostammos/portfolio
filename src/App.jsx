@@ -7,9 +7,6 @@ import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer/Footer"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faGlobe,
-  faPhone,
-  faEnvelope,
   faCode,
   faUserGroup,
   faArrowTrendUp,
@@ -32,12 +29,12 @@ function App() {
   ];
 
   return (
-    <div className="flex flex-col min-h-dvh w-full">
+    <div className="site-layout flex flex-col min-h-dvh w-full">
       <header className="sticky top-0 z-9999 w-full">
         <PillNav items={navItems} />
       </header>
 
-      <main className="site-main flex flex-col flex-1 w-full min-w-0 gap-15 md:gap-28 px-4 text-center md:px-8 lg:px-12">
+      <main className="site-main flex flex-col flex-1 w-full min-w-0 text-center">
         {/*intro*/}
         <section id="intro" className="mx-auto w-full max-w-6xl scroll-mt-25">
           <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:gap-12 py-10 lg:py-20">
@@ -254,14 +251,11 @@ function App() {
 
         {/* PROSJEKTER */}
         <Projects />
-
-       
       </main>
 
-      <Footer/>
+      <Footer />
 
       {/* KONTAKT */}
-     
     </div>
   );
 }

@@ -9,12 +9,43 @@
   position: sticky;
 }
 
-.site-main>section:not(.omMeg) {
+.site-layout {
+  --content-width: 1500px;
+  --page-padding: 1rem;
+  --section-gap: 4rem;
+}
+
+.site-main {
+  padding-inline: var(--page-padding);
+  gap: var(--section-gap);
+}
+
+/* Bare hovedseksjonene, ikke seksjoner inni kortene. */
+.site-main>section {
   width: 100%;
-  max-width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: var(--content-width);
+  margin: 0 auto;
   scroll-margin-top: 100px;
+}
+
+#kontakt {
+  width: calc(100% - var(--page-padding) - var(--page-padding));
+  max-width: var(--content-width);
+  margin: var(--section-gap) auto 2rem;
+  scroll-margin-top: 100px;
+}
+
+@media (min-width: 768px) {
+  .site-layout {
+    --page-padding: 2rem;
+    --section-gap: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-layout {
+    --page-padding: 3rem;
+  }
 }
 
 .site-main .career-timeline-section {
@@ -424,9 +455,6 @@ section.contact-card {
 }
 
 @media (max-width: 768px) {
-  #root {
-    padding: 1.25rem;
-  }
 
   .Utdanning,
   .Ferdigheter,
@@ -492,9 +520,7 @@ section.contact-card {
 }
 
 @media (max-width: 600px) {
-  #root {
-    padding: 1rem;
-  }
+
 
   p#jeg {
     font-size: 26px;
