@@ -71,7 +71,7 @@ export default function Ferdighetkort() {
     >
       <h2
         id="teknologier-verktøy-tittel"
-        className="mb-8 text-4xl font-bold text-heading"
+        className="mb-8 text-4xl font-bold text-heading text-left"
       >
         Teknologier og verktøy
       </h2>

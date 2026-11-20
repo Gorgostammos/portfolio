@@ -188,7 +188,7 @@ function App() {
 
         {/* UTDANNING */}
         <section
-          className="w-full max-w-6xl mx-auto my-24 scroll-mt-25"
+          className="w-full max-w-6xl mx-auto my-24 scroll-mt-25 text-left"
           id="utdanning"
         >
           <h2 className="text-4xl font-bold text-heading mb-8">Utdanning</h2>

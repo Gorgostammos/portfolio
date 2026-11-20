@@ -76,7 +76,7 @@ const project = [
 
 export default function Projects(){
     return (
-      <section className="text-left">
+      <section id="prosjekter" className="text-left">
         <h2 className="mb-8 text-4xl font-bold text-heading ">Prosjekter</h2>
         <p className="mb-8 text-[16px] text-secondary-text">
           Utvalg av det jeg har jobbet med, nettsider og prosjekter fra jobb,
@@ -84,7 +84,7 @@ export default function Projects(){
         </p>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {project.map((project) => (
-            <ProjectCard key={project.title} project={project}  />
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
       </section>
