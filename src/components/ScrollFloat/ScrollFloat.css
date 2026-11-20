@@ -1,0 +1,65 @@
+/* ScrollFloat.css – ny versjon, tilpasset den lilla stilen din.
+   Endringer fra React Bits sin standard-CSS er merket ENDRING. */
+
+.scroll-float {
+    /* ENDRING: 0 i stedet for 20px 0. Avstanden settes per seksjon i App.css. */
+    margin: 0;
+    overflow: hidden;
+    /* skjuler bokstavene mens de ligger under linja (effect="float") */
+}
+
+/* Brukes av alle effektene unntatt "float" så ingenting klippes */
+.scroll-float--open {
+    overflow: visible;
+    overflow-x: clip;
+}
+
+.scroll-float-text {
+    display: inline-block;
+    /* ENDRING: samme størrelse og stil som de andre seksjonstitlene dine
+     (standarden var clamp(1.6rem, 8vw, 10rem) og text-align: center). */
+    font-size: clamp(2.4rem, 6vw, 4.3rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.4;
+    /* luft så g/p/y ikke klippes av overflow: hidden */
+}
+
+/* Hvert ord holdes samlet, så et ord aldri brytes midt i en bokstavrekke */
+.scroll-float-word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.scroll-float-char {
+    display: inline-block;
+
+    /* ENDRING: gradienten fra den gamle versjonen. Den MÅ ligge på bokstavene,
+     ikke på <h2>, fordi -webkit-text-fill-color arves ned, men
+     background-image gjør ikke det (ellers blir bokstavene usynlige). */
+    background-image: linear-gradient(135deg, #ffffff, #c4b5fd, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /* Gjør bakgrunnen like bred som hele teksten og forskyver den per bokstav
+     (--char-pos og --char-total settes i ScrollFloat.jsx). Da blir gradienten
+     sammenhengende over hele ordet, ikke én gradient per bokstav. */
+    background-size: calc(var(--char-total, 1) * 100%) 100%;
+    background-position: var(--char-pos, 0%) 0;
+    background-repeat: no-repeat;
+}
+
+/* Skjult tekst som bare skjermlesere leser */
+.scroll-float-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

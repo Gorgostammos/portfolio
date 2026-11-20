@@ -2,17 +2,25 @@
 import "./App.css";
 import PillNav from "./components/PillNav/PillNav";
 import CareerTimeline from "./components/CareerTimeline/CareerTimeline";
+import Ferferdighetkort from "./components/Ferdighetkort/Ferdighetkort";
+import Projects from "./components/Projects/Projects";
+import Footer from "./components/Footer/Footer"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faGlobe,
-  faPhone,
-  faEnvelope,
+  faCode,
+  faUserGroup,
+  faArrowTrendUp,
+  faGraduationCap,
+  faBookOpen,
 } from "@fortawesome/free-solid-svg-icons";
-import { age } from "./utils/age";
+
+
+
 
 
 function App() {
   const navItems = [
+    { label: "Gorgos", href: "#hjem" },
     { label: "Om meg", href: "#om-meg" },
     { label: "Utdanning", href: "#utdanning" },
     { label: "Erfaring", href: "#erfaring" },
@@ -22,443 +30,234 @@ function App() {
   ];
 
   return (
-    <>
-      <div>
+    <div className="site-layout flex flex-col min-h-dvh w-full">
+      <header className="sticky top-0 z-9999 w-full">
         <PillNav items={navItems} />
+      </header>
 
-        {/* OM MEG */}
-        <div className="omMeg" id="om-meg">
-          <h1>Om meg</h1>
-          <section className="profile">
-            <div className="meg">
-              <p id="jeg">Hei, jeg er Gorgos Tammo og jeg er en utvikler.</p>
-              <p>
-                Jeg er en mann på {age(2002)} år og har fullført bachelorgrad
-                innen informasjonssystemer, med spesialisering i Software
-                Engineering og Business Intelligence. Jeg trives godt både i
-                selvstendige prosjekter og i teammiljøer, og jeg er spesielt
-                glad i programmering.
+      <main id="hjem" className="site-main flex flex-col flex-1 w-full min-w-0 text-center">
+        {/*intro*/}
+        <section id="intro" className="mx-auto w-full max-w-6xl scroll-mt-25">
+          <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:gap-12 py-10 lg:py-20">
+            {/* VENSTRE SIDE - TEKST */}
+            <div className="flex w-full min-w-0 flex-col gap-8 text-left lg:flex-[2]">
+              {/* Navn */}
+              <h1 className="m-0 text-4xl font-bold text-heading sm:text-5xl lg:text-6xl xl:text-7xl">
+                Gorgos Tammo
+              </h1>
+
+              {/* Beskrivelse */}
+              <p className="max-w-2xl text-base leading-relaxed text-primary-text">
+                Jeg er fullstack-utvikler med fokus på moderne webteknologier.
+                Jeg har utviklet flere nettsteder og applikasjoner, og har
+                erfaring med både frontend- og backend-utvikling. Jeg er opptatt
+                av å skape brukervennlige og effektive løsninger.
               </p>
-              <section className="divider">
-                <p>For mere info kan du lese mere her:</p>
-                <div className="social-icons">
-                  <a
-                    className="icon-link"
-                    href="https://www.linkedin.com/in/gorgos-tammo-8b2286230/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                  >
-                    <i className="devicon-linkedin-plain"></i>
-                  </a>
-                  <a
-                    className="icon-link"
-                    href="https://github.com/Gorgostammos"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                  >
-                    <i className="devicon-github-original"></i>
-                  </a>
-                  <a
-                    className="icon-link cv-link"
-                    href="/CV/CV_Gorgos_Tammo.pdf"
-                    aria-label="CV"
-                  >
-                    CV
-                  </a>
+
+              {/* SOSIALE IKONER */}
+              <div className="flex flex-wrap items-center gap-6 sm:gap-10">
+                <a
+                  className="icon-link"
+                  href="https://www.linkedin.com/in/gorgos-tammo-8b2286230/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <i className="devicon-linkedin-plain"></i>
+                </a>
+
+                <a
+                  className="icon-link"
+                  href="https://github.com/Gorgostammos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <i className="devicon-github-original"></i>
+                </a>
+
+                <a
+                  className="icon-link cv-link"
+                  href="/CV/CV_Gorgos_Tammo.pdf"
+                  aria-label="CV"
+                >
+                  CV
+                </a>
+              </div>
+            </div>
+
+            {/* HØYRE SIDE - PROFILBILDE */}
+            <div className="flex w-full min-w-0 justify-center lg:flex-[1] lg:justify-end">
+              <img
+                src="/profile.webp"
+                alt="Profilbilde"
+                className="block h-auto w-full max-w-80 rounded-card lg:rounded-[30px_15px]"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Om meg */}
+
+        <section
+          className="flex flex-col gap-8 my-24 max-w-4/5 mx-auto"
+          id="om-meg"
+        >
+          <h1 className="text-4xl font-bold text-heading self-start">Om meg</h1>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2px_1fr] gap-8 lg:gap-10 bg-card rounded-card p-6 md:p-10 text-left">
+            {/* VENSTRE SIDE: Presentasjon */}
+
+            <div className="min-w-0">
+              <p className="text-primary-text m-2 text-[1rem] leading-relaxed ">
+                Hei! Jeg heter Gorgos, jeg har en bachelorgrad i
+                informasjonssystemer, med spesialisering i Software Engineering
+                og Business Intelligence. Jeg har stor interesse for
+                programmering og liker å utvikle løsninger fra idé til ferdig
+                produkt. Gjennom prosjekter som GYK har jeg fått praktisk
+                erfaring med fullstack-utvikling, blant annet innen frontend,
+                databaser og systemintegrasjoner.
+              </p>
+            </div>
+
+            {/* STREKEN MELLOM KOLONNENE */}
+            <div
+              aria-hidden="true"
+              className="animated-divider h-[2px] w-full lg:h-auto lg:w-[3px]"
+            />
+
+            {/* HØYRE SIDE: Hvordan jeg jobber */}
+            <section className="flex flex-col gap-4">
+              <h3 className="text-2xl font-bold text-heading">
+                Hvordan jeg jobber
+              </h3>
+
+              <div className="flex items-start gap-4">
+                <FontAwesomeIcon
+                  icon={faCode}
+                  className="text-3xl text-accent-light"
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <h4 className="font-semibold text-primary-text">
+                    Løsningsorientert
+                  </h4>
+
+                  <p className="text-secondary-text">
+                    Jeg liker å forstå utfordringer og finne løsninger som
+                    fungerer i praksis.
+                  </p>
                 </div>
-              </section>
-            </div>
-            <div className="bilde">
-              <img src="/profile.webp" alt="Profilbilde" />
-            </div>
-          </section>
-        </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <FontAwesomeIcon
+                  icon={faUserGroup}
+                  className="text-3xl text-accent-light"
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <h4 className="font-semibold text-primary-text">Samarbeid</h4>
+                  <p className="text-secondary-text">
+                    Jeg liker å samarbeide med andre, dele kunnskap og finne
+                    gode løsninger sammen.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <FontAwesomeIcon
+                  icon={faArrowTrendUp}
+                  className="text-3xl text-accent-light"
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <h4 className="font-semibold text-primary-text">
+                    Kontinuerlig læring
+                  </h4>
+                  <p className="text-secondary-text">
+                    Jeg holder meg oppdatert, utforsker nye teknologier og
+                    utvikler meg hele tiden
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
 
         {/* UTDANNING */}
-        <div className="Utdanning" id="utdanning">
-          <h1>Utdanning</h1>
+        <section
+          className="w-full max-w-6xl mx-auto my-24 scroll-mt-25 text-left"
+          id="utdanning"
+        >
+          <h2 className="text-4xl font-bold text-heading mb-8">Utdanning</h2>
 
-          <section className="education-card">
-            <div className="education-left">
-              <h3>
-                Bachelorgrad i Informasjonssystemer – Software Engineering og
-                Business Intelligence
-              </h3>
-              <p className="education-school">Høgskolen i Østfold</p>
-            </div>
-            <div className="education-right">
-              <p className="education-date">August 2021 – Juni 2024</p>
-            </div>
-          </section>
+          {/* Grid bestemmer hvordan kortene plasseres */}
 
-          <section className="education-card">
-            <div className="education-left">
-              <h3>Studiespesialisering</h3>
-              <p className="education-school">Greåker VGS</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Bachelorgrad */}
+            <div className="flex flex-col gap-3 rounded-card bg-card border border-card-border shadow-card p-6 md:p-8 text-left">
+              {/* Ikon og overskrift */}
+              <div className="flex items-start gap-3">
+                <FontAwesomeIcon
+                  icon={faGraduationCap}
+                  className="text-2xl text-accent-light"
+                />
+
+                <h3 className="text-xl font-semibold text-primary-text">
+                  Bachelorgrad i Informasjonssystemer
+                </h3>
+              </div>
+
+              <p className="text-secondary-text">
+                Software Engineering og Business Intelligence
+              </p>
+
+              <p className="text-accent-light">Høgskolen i Østfold</p>
+
+              <p className="text-secondary-text text-sm mt-auto pt-4">
+                2021 – 2024
+              </p>
             </div>
-            <div className="education-right">
-              <p className="education-date">August 2018 – Juni 2021</p>
+
+            {/* Videregående */}
+            <div className="flex flex-col gap-3 rounded-card bg-card border border-card-border shadow-card p-6 text-left">
+              <div className="flex items-start gap-3">
+                <FontAwesomeIcon
+                  icon={faBookOpen}
+                  className="text-2xl text-accent-light"
+                />
+                <h3 className="text-xl font-semibold text-primary-text">
+                  Studiespesialisering
+                </h3>
+              </div>
+
+              <p className="text-accent-light">Greåker VGS</p>
+
+              <p className="text-secondary-text text-sm mt-auto pt-4">
+                2018 – 2021
+              </p>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
 
         {/* ERFARING */}
         <CareerTimeline />
 
         {/* FERDIGHETER */}
-        <div className="Ferdigheter" id="ferdigheter">
-          <h1>Ferdigheter</h1>
-          <div className="skill-group">
-            <h3>Programmeringsspråk</h3>
-            <div className="icons">
-              <span className="skill-icon" data-label="Java">
-                <i className="devicon-java-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="Python">
-                <i className="devicon-python-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="JavaScript">
-                <i className="devicon-javascript-plain"></i>
-              </span>
-              <span className="skill-icon" data-label="C#">
-                <i className="devicon-csharp-line-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="Kotlin">
-                <i className="devicon-kotlin-plain-wordmark"></i>
-              </span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3>Web & Rammeverk</h3>
-            <div className="icons">
-              <span className="skill-icon" data-label="Html">
-                <i className="devicon-html5-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="Css">
-                <i className="devicon-css3-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="React">
-                <i className="devicon-react-original-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label=".NET">
-                <i className="devicon-dot-net-plain-wordmark"></i>
-              </span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3>Databaser</h3>
-            <div className="icons">
-              <span className="skill-icon" data-label="MongoDB">
-                <i className="devicon-mongodb-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="MySQL">
-                <i className="devicon-mysql-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="Firebase">
-                <i className="devicon-firebase-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="Neo4j">
-                <i className="devicon-neo4j-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="Supabase">
-                <i className="devicon-supabase-plain-wordmark"></i>
-              </span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3>Verktøy & IDE-er</h3>
-            <div className="icons">
-              <span className="skill-icon" data-label="Git">
-                <i className="devicon-git-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="GitHub">
-                <i className="devicon-github-original-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="Android Studio">
-                <i className="devicon-androidstudio-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="PyCharm">
-                <i className="devicon-pycharm-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="IntelliJ IDEA">
-                <i className="devicon-intellij-plain-wordmark"></i>
-              </span>
-              <span className="skill-icon" data-label="VS Code">
-                <i className="devicon-vscode-plain-wordmark"></i>
-              </span>
-            </div>
-          </div>
-        </div>
+
+        <Ferferdighetkort />
 
         {/* PROSJEKTER */}
-        <div className="Prosjekter" id="prosjekter">
-          <h1>Prosjekter</h1>
+        <Projects />
+      </main>
 
-          <div className="projects-grid">
-            <section className="project-card">
-              <h3>Pra</h3>
-              <a
-                href="https://www.promotionra.no/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-preview-link"
-              >
-                <img
-                  src="PRA.png"
-                  alt="Preview av PRA"
-                  className="project-preview-image"
-                />
-              </a>
-              <p className="project-description">
-                Dette er den nye nettsiden til Promotion RA, som jeg utviklet i
-                React. Jeg hadde ansvar for struktur, design, innhold og
-                publisering. Nettsiden presenterer artister og arrangementer på
-                en oversiktlig måte, med egne undersider for hver artist og et
-                responsivt design tilpasset ulike enheter.
-              </p>
+      <Footer />
 
-              <section className="project-footer">
-                <section className="project-links">
-                  <a
-                    href="https://github.com/Promotionra/Pra"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub PRA"
-                  >
-                    <i className="devicon-github-original"></i>
-                  </a>
-                  <a
-                    href="https://www.promotionra.no/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="PRA Nettside"
-                  >
-                    <FontAwesomeIcon icon={faGlobe} />
-                  </a>
-                </section>
-                <div className="project-tech">
-                  <i className="devicon-react-original"></i>
-                  <i className="devicon-javascript-plain"></i>
-                  <i className="devicon-css3-plain-wordmark"></i>
-                </div>
-              </section>
-            </section>
-
-            <section className="project-card">
-              <h3>Matte ving</h3>
-              <a
-                href="https://matte-ving.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-preview-link"
-              >
-                <img
-                  src="matte-ving-preview.png"
-                  alt="Preview av Matte-ving"
-                  className="project-preview-image"
-                />
-              </a>
-              <p className="project-description">
-                Dette er en matte læringsplattform kalt "Matte-ving" som jeg har
-                utviklet ved hjelp av React for frontend og Python for backend.
-                Plattformen tilbyr interaktive matteoppgaver og ressurser for
-                elever på ulike nivåer.
-              </p>
-
-              <section className="project-footer">
-                <section className="project-links">
-                  <a
-                    href="https://github.com/Gorgostammos/matte-ving-react"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub matte-ving-react"
-                  >
-                    <i className="devicon-github-original"></i>
-                  </a>
-                  <a
-                    href="https://matte-ving.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="matte-ving Nettside"
-                  >
-                    <FontAwesomeIcon icon={faGlobe} />
-                  </a>
-                </section>
-                <div className="project-tech">
-                  <i className="devicon-react-original"></i>
-                  <i className="devicon-javascript-plain"></i>
-                  <i className="devicon-css3-plain-wordmark"></i>
-                  <i className="devicon-python-plain"></i>
-                </div>
-              </section>
-            </section>
-
-            <section className="project-card">
-              <h3>Calender App</h3>
-              <a
-                href="https://calender-app-mu.vercel.app/#/calendar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-preview-link"
-              >
-                <img
-                  src="calender.png"
-                  alt="Preview av calendar app"
-                  className="project-preview-image"
-                />
-              </a>
-              <p className="project-description">
-                Dette er en kalenderapplikasjon bygget med React og CSS. Den lar
-                brukere legge til, redigere og slette hendelser på en
-                brukervennlig måte. Applikasjonen er designet for å være
-                responsiv og enkel å bruke på både desktop og mobile enheter.
-              </p>
-
-              <section className="project-footer">
-                <section className="project-links">
-                  <a
-                    href="https://github.com/Gorgostammos/Calender_app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub Calender_app"
-                  >
-                    <i className="devicon-github-original"></i>
-                  </a>
-                  <a
-                    href="https://calender-app-mu.vercel.app/#/calendar"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="calendar Nettside"
-                  >
-                    <FontAwesomeIcon icon={faGlobe} />
-                  </a>
-                </section>
-                <div className="project-tech">
-                  <i className="devicon-react-original"></i>
-                  <i className="devicon-css3-plain-wordmark"></i>
-                  <i className="devicon-javascript-plain"></i>
-                </div>
-              </section>
-            </section>
-
-            <section className="project-card">
-              <h3>Webutviklings eksamen</h3>
-              <a
-                href="https://calender-app-mu.vercel.app/#/calendar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-preview-link"
-              >
-                <img
-                  src="webeksamen.png"
-                  alt="Preview av webutviklings eksamen"
-                  className="project-preview-image"
-                />
-              </a>
-              <p className="project-description">
-                Dette var min eksamensoppgave i webutvikling, hvor jeg utviklet
-                en nettside ved hjelp av HTML og CSS. Nettsiden presenterer
-                informasjon om et valgt tema på en strukturert og visuelt
-                tiltalende måte, og er designet for å være brukervennlig og
-                responsiv på ulike enheter.
-              </p>
-
-              <section className="project-footer">
-                <section className="project-links">
-                  <a
-                    href="https://github.com/Gorgostammos/nettsiden"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub nettsiden"
-                  >
-                    <i className="devicon-github-original"></i>
-                  </a>
-                  <a
-                    href="https://nettsiden.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Nettsiden"
-                  >
-                    <FontAwesomeIcon icon={faGlobe} />
-                  </a>
-                </section>
-                <div className="project-tech">
-                  <i className="devicon-html5-plain-wordmark"></i>
-                  <i className="devicon-css3-plain-wordmark"></i>
-                </div>
-              </section>
-            </section>
-
-            <section className="project-card">
-              <h3>Soclub</h3>
-              <a
-                href="https://github.com/MohammedGhazwanAlmilhim/soclub"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-preview-link"
-              >
-                <img
-                  src="soclub.png"
-                  alt="Preview av soclub"
-                  className="project-preview-image"
-                />
-              </a>
-              <p className="project-description">
-                Dette en Android applikasjon kalt "Socclub" som detter var et
-                eksamen prosjekt, der teamet og jeg utviklet ved hjelp av
-                Kotlin. Appen er designet for å hjelpe brukere med å finne og
-                bli med i sosiale klubber og aktiviteter i deres område.
-              </p>
-
-              <section className="project-footer">
-                <section className="project-links">
-                  <a
-                    href="https://github.com/MohammedGhazwanAlmilhim/soclub"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub socclub"
-                  >
-                    <i className="devicon-github-original"></i>
-                  </a>
-                </section>
-
-                <div className="project-tech">
-                  <i className="devicon-kotlin-plain"></i>
-                  <i className="devicon-csharp-plain"></i>
-                </div>
-              </section>
-            </section>
-          </div>
-        </div>
-
-        {/* KONTAKT */}
-        <footer className="footer" id="kontakt">
-          <section className="contact-card">
-            <h1>Kontakt</h1>
-            <div className="contact-info">
-              <p>
-                La oss ta en prat! Ta gjerne kontakt for samarbeid! Jeg er
-                alltid åpen for en prat.
-              </p>
-
-              <div className="telefon">
-                <a href="tel:46725849" aria-label="Telefonnummer">
-                  <FontAwesomeIcon icon={faPhone} />
-                  46725849
-                </a>
-              </div>
-
-              <a href="mailto:Gorgos2002@icloud.com" aria-label="E-post">
-                <FontAwesomeIcon icon={faEnvelope} />
-                Gorgos2002@icloud.com
-              </a>
-            </div>
-          </section>
-        </footer>
-      </div>
-    </>
+      {/* KONTAKT */}
+    </div>
   );
 }
 

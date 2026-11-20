@@ -1,22 +1,196 @@
-/* src/index.css */
+@import "tailwindcss";
+
+
+
+ @theme {
+  /* =========================================
+     BAKGRUNNSFARGER
+  ========================================= */
+
+  /* Hovedbakgrunn på nettsiden */
+  --color-background: #0d0d14;
+
+  /* Bakgrunn på kort: Om meg, Prosjekter osv. */
+  --color-card: #1b1b28;
+
+  /* icon */
+  --color-iconBg: #262626;
+
+  /*hover icon*/
+  --color-hover-Icon:#4a45e2;
+
+
+  /* =========================================
+     LILLA AKSENTFARGER
+  ========================================= */
+
+  /* Hovedlilla: Knapper, lenker og aktiv navigasjon */
+  --color-accent-primary: #6c63ff;
+
+  /* Lys lilla: Overskrifter, ikoner og fremhevet tekst */
+  --color-accent-light: #a78bfa;
+
+  /* Blålilla: Gradienter og dekorative detaljer */
+  --color-accent-secondary: #6366f1;
+  
+  --color-accent-3: #d876f9;
+  --color-accent-4: #91e9e3;
+
+
+  /* =========================================
+     TEKSTFARGER
+  ========================================= */
+
+  /* Vanlig hovedtekst */
+  --color-primary-text: #ffffff;
+
+  /* Beskrivelser og sekundær tekst */
+  --color-secondary-text: #cfcfcf;
+
+  /* Dempet tekst */
+  --color-muted: #9290a6;
+
+  /* Overskrifter */
+  --color-heading: #c4b5fd;
+
+
+  /* =========================================
+     KANTLINJER OG KNAPPER
+  ========================================= */
+
+  /* Kantlinjer rundt kort */
+  --color-card-border: #4b4665;
+
+  /* Bakgrunn på knapper */
+  --color-button: #51a8ac;
+
+
+  /* =========================================
+     AVRUNDING AV HJØRNER
+  ========================================= */
+
+  /* Kort */
+  --radius-card: 30px;
+
+  /* Bilder */
+  --radius-image: 15px;
+
+  /* Knapper */
+  --radius-button: 12px;
+
+  /*icon*/
+  --radius-icon:25px;
+
+
+  /* =========================================
+     SKYGGER
+  ========================================= */
+
+  /* Vanlig kortskygge */
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+  /* Lilla lysende skygge */
+  --shadow-glow: 0 0 20px rgba(108, 99, 255, 0.3);
+
+
+  /* =========================================
+     SKRIFTTYPER
+  ========================================= */
+
+  /* Standard skrifttype */
+  --font-main: "Inter", sans-serif;
+
+}
+
+
+
+
+.skill-card{
+  position: relative;
+  isolation: isolate;
+
+
+  --spotlight-x: 0%;
+  --spotlight-y: 0%;
+}
+
+.skill-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius:inherit;
+  pointer-events: none;
+  opacity: 0;
+transition: opacity 200ms ease;
+
+  background: radial-gradient(
+    circle 220px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+  rgb(167 139 250/ 25%),
+  transparent 100%
+  );
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .skill-card:hover::before {
+    opacity: 1;
+  }
+}
+
+.animated-divider {
+  --divider-direction: to right; /* horisontal på mobil */
+  border-radius: 999px;
+  background-image: linear-gradient(
+    var(--divider-direction),
+    var(--color-accent-primary),
+    var(--color-accent-3),
+    var(--color-accent-4),
+    var(--color-accent-primary)
+  );
+  background-size: 200% 200%; /* gradienten er større enn streken, så den kan gli */
+  animation: dividerFlow 3s ease-in-out infinite alternate;
+}
+
+@media (min-width: 1024px) {
+  .animated-divider {
+    --divider-direction: to bottom; /* vertikal på lg, matcher lg:w-[2px] */
+  }
+}
+
+@keyframes dividerFlow {
+  from { background-position: 0% 0%; }
+  to   { background-position: 100% 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-divider {
+    animation: none;
+    background-image: none;
+    background-color: var(--color-accent-primary);
+  }
+}
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #0d0d14;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -86,4 +260,10 @@ body::after {
   body::after {
     animation: none;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+  .skill-card::before {
+    display: none;
+  }
+}
 }
