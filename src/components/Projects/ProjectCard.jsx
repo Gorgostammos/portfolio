@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useReducedMotion } from "framer-motion";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
+
 export default function ProjectCard({ project }) {
   const reduceMotion = useReducedMotion();
   return (

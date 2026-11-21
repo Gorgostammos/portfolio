@@ -21,11 +21,11 @@ import {
 function App() {
   const navItems = [
     { label: "Gorgos", href: "#hjem" },
+    { label: "Prosjekter", href: "#prosjekter" },
     { label: "Om meg", href: "#om-meg" },
     { label: "Utdanning", href: "#utdanning" },
     { label: "Erfaring", href: "#erfaring" },
     { label: "Ferdigheter", href: "#ferdigheter" },
-    { label: "Prosjekter", href: "#prosjekter" },
     { label: "Kontakt", href: "#kontakt" },
   ];
 
@@ -35,7 +35,10 @@ function App() {
         <PillNav items={navItems} />
       </header>
 
-      <main id="hjem" className="site-main flex flex-col flex-1 w-full min-w-0 text-center">
+      <main
+        id="hjem"
+        className="site-main flex flex-col flex-1 w-full min-w-0 text-center"
+      >
         {/*intro*/}
         <section id="intro" className="mx-auto w-full max-w-6xl scroll-mt-25">
           <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:gap-12 py-10 lg:py-20">
@@ -96,6 +99,9 @@ function App() {
             </div>
           </div>
         </section>
+
+        {/* PROSJEKTER */}
+        <Projects />
 
         {/* Om meg */}
 

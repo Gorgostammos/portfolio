@@ -1,92 +1,74 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProjectCard from "./ProjectCard";
-
-const project = [
-  {
-    title: "Gyk",
-    description:
-      "Dette er B2B shopping system utvikler for pra/gyk som jeg har utviklet selv i react, " +
-      "jeg hadde ansvar for struktur, design, innhold og publisering. " +
-      "nettsiden er et shopping system for bedrifter som ønsker å handle produkter fra GYK, " +
-      "med funksjoner som produktkatalog, handlekurv og betalingsløsning.",
-    img: "/gyk.png",
-    technologies: ["REACT", "CSS", "Supabase"],
-  },
-  {
-    title: "Pra",
-    description:
-      "Dette er den nye nettsiden til Promotion RA, som jeg utviklet i React. " +
-      "Jeg hadde ansvar for struktur, design, innhold og " +
-      "publisering. Nettsiden presenterer artister og arrangementer på " +
-      "en oversiktlig måte, med egne undersider for hver artist og et " +
-      "responsivt design tilpasset ulike enheter.",
-    img: "/PRA.png",
-    technologies: ["REACT", "JAVASCRIPT", "CSS"],
-
-    link: "https://www.promotionra.no/",
-  },
-
-  {
-    title: "Matte-ving",
-    description:
-      "Dette er en matte læringsplattform kalt 'Matte-ving' som jeg har " +
-      "utviklet ved hjelp av React for frontend og Python for backend. " +
-      "Plattformen tilbyr interaktive matteoppgaver og ressurser for " +
-      "elever på ulike nivåer.",
-    img: "/matte-ving-preview.png",
-    technologies: ["REACT", "JAVASCRIPT", "CSS", "PYTHON"],
-    link: "https://matte-ving.vercel.app/",
-  },
-
-  {
-    title: "Soclub",
-    description:
-      "Dette en Android applikasjon kalt 'Socclub' som detter var et eksamen " +
-      "prosjekt, der teamet og jeg utviklet ved hjelp av Kotlin. Appen er designet " +
-      "for å hjelpe brukere med å finne og bli med i sosiale klubber og aktiviteter " +
-      "i deres område.",
-    img: "/soclub.png",
-    technologies: ["KOTLIN", "C#"],
-  },
-
-  {
-    title: "Calender App",
-    description:
-      "Dette er en kalenderapplikasjon bygget med React og CSS. " +
-      "Den lar brukere legge til, redigere og slette hendelser på en " +
-      "brukervennlig måte. Applikasjonen er designet for å være responsiv " +
-      "og enkel å bruke på både desktop og mobile enheter.",
-    img: "/calender.png",
-    technologies: ["REACT", "JAVASCRIPT", "CSS"],
-    link: "https://calender-app-mu.vercel.app/",
-  },
-
-  {
-    title: "Webutviklings eksamen",
-    description:
-      "Dette var min eksamensoppgave i webutvikling, hvor jeg utviklet " +
-      "en nettside ved hjelp av HTML og CSS. Nettsiden presenterer informasjon " +
-      "om et valgt tema på en strukturert og visuelt tiltalende måte, og er designet " +
-      "for å være brukervennlig og responsiv på ulike enheter",
-    img: "/webeksamen.png",
-    technologies: ["HTML", "CSS"],
-    link: "https://nettsiden.vercel.app/",
-  },
-];
+import project from "./projectData.js";
+import { useState } from "react";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 
-export default function Projects(){
-    return (
-      <section id="prosjekter" className="text-left">
-        <h2 className="mb-8 text-4xl font-bold text-heading ">Prosjekter</h2>
-        <p className="mb-8 text-[16px] text-secondary-text">
-          Utvalg av det jeg har jobbet med, nettsider og prosjekter fra jobb,
-          skole og egne ideer
-        </p>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {project.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
-        </div>
-      </section>
-    );
+
+const featuredProjects = project.filter((item) => item.Featured);
+export default function Projects() {
+  // Indeks 0 viser det første utvalgte prosjektet.
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeProject = featuredProjects[activeIndex];
+  const total = featuredProjects.length;
+
+  // Skjul seksjonen hvis det ikke finnes et utvalgt prosjekt å vise.
+  if (!activeProject) return null;
+
+  function changeProject(step) {
+    // Neste bruker 1, og Forrige bruker -1.
+    // Regnestykket lar oss bla fra siste til første prosjekt og omvendt.
+    setActiveIndex((current) => (current + step + total) % total);
+  }
+
+  return (
+    <section id="prosjekter" className="text-left">
+      <h2 className="mb-8 text-4xl font-bold text-heading">
+        Utvalgte prosjekter
+      </h2>
+
+      <p className="mb-8 text-[16px] text-secondary-text">
+        Et utvalg av nettsider og applikasjoner jeg har utviklet gjennom jobb,
+        studier og egne prosjekter.
+      </p>
+
+      {/* Én kolonne holder knappene under kortet på både mobil og PC. */}
+      <div className="grid grid-cols-1 gap-6">
+        <ProjectCard key={activeProject.title} project={activeProject} />
+
+        {/* Vis knappene når brukeren har flere prosjekter å bla mellom. */}
+        {total > 1 && (
+          <div className="flex items-center justify-between gap-2">
+            <button
+              type="button"
+              onClick={() => changeProject(-1)}
+              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-iconBg px-4 text-primary-text hover:bg-hover-Icon"
+            >
+              <FontAwesomeIcon icon={faChevronLeft} aria-hidden="true" />
+              Forrige
+            </button>
+
+            {/* Legg til 1 fordi indeksen starter på 0. */}
+            <span aria-live="polite" className="text-sm text-secondary-text">
+              <span className="sr-only">{activeProject.title}, prosjekt </span>
+              {activeIndex + 1} av {total}
+            </span>
+
+            <button
+              type="button"
+              onClick={() => changeProject(1)}
+              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-iconBg px-4 text-primary-text hover:bg-hover-Icon"
+            >
+              Neste
+              <FontAwesomeIcon icon={faChevronRight} aria-hidden="true" />
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
